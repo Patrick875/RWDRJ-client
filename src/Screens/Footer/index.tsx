@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/Logo.png";
 import { navs } from "../../constants";
 import SocialLinks from "../../Shared/Topbar/SocialLinks";
 const Footer = () => {
