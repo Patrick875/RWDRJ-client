@@ -28,12 +28,6 @@ import partner8 from "../../assets/partner8.webp";
 import partner9 from "../../assets/partner9.gif";
 import partner10 from "../../assets/partner10.webp";
 
-// import slider1 from "../../assets/welcome-img.webp";
-// import slider2 from "../../assets/slider2.webp";
-// import slider3 from "../../assets/slider3.webp";
-// import slider4 from "../../assets/slider4.webp";
-// import { Button, Carousel } from "flowbite-react";
-
 import RWDRJ1 from "../../assets/RWDRJ1 1.png";
 
 interface section {
@@ -378,7 +372,7 @@ const AboutUs = () => {
 					<Timeline
 						dataSource={{
 							sourceType: "profile",
-							screenName: "medsar_rwanda",
+							screenName: "MDFC_Rwanda",
 						}}
 						options={{
 							height: "300",
