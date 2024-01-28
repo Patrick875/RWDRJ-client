@@ -5,22 +5,29 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/h-guide-logo.png";
 import { HashLoader } from "react-spinners";
 
+interface signup {
+	firstName: string;
+	lastName: string;
+	email: string;
+	tel: string;
+	password: string;
+}
 const RegisterUser = () => {
-	const { register, handleSubmit, reset } = useForm();
-	const [error, setError] = useState(false);
-	const [message, setMessage] = useState(null);
-	const [success, setSuccess] = useState(null);
-	const [loading, setLoading] = useState(null);
+	const { register, handleSubmit, reset } = useForm<signup>();
+	const [error, setError] = useState<boolean | null>(false);
+	const [message, setMessage] = useState<boolean | null>(null);
+	const [success, setSuccess] = useState<boolean | null>(null);
+	const [loading, setLoading] = useState<boolean | null>(null);
 	const handleOnFocus = () => {
 		setError(null);
 		setSuccess(null);
 		setMessage(null);
 	};
-	const signup = async (data) => {
+	const signup = async (data: signup) => {
 		setLoading(true);
 		await instance
 			.post("/signup", { ...data })
-			.then((res) => {
+			.then(() => {
 				setSuccess(true);
 			})
 			.catch((err) => {
@@ -81,7 +88,7 @@ const RegisterUser = () => {
 								type="text"
 								onFocus={handleOnFocus}
 								className="w-full px-3 py-1 border border-gray-500 rounded shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-								id="email"
+								id="lastName"
 								{...register("lastName")}
 							/>
 						</div>

@@ -1,14 +1,17 @@
 //jshint esversion:9
-import { Navigate } from "react-router-dom";
-import { useUser } from "../../Context/UserContext";
+// import { Navigate } from "react-router-dom";
+import { ReactNode } from "react";
 
-const PrivateRoute = ({ element }) => {
-	const { user } = useUser();
+interface props {
+	element: ReactNode;
+}
+const PrivateRoute = ({ element }: props) => {
+	// const { user } = useUser();
 
 	// Redirect to login if user is not authenticated
-	if (!user) {
-		return <Navigate to="dashboard" />;
-	}
+	// if (!user) {
+	// 	return <Navigate to="dashboard" />;
+	// }
 
 	return element;
 };
