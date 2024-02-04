@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import instance from "../../API";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/h-guide-logo.png";
+import Logo from "../../assets/Logo.png";
 import { HashLoader } from "react-spinners";
 interface login {
 	email: string;
@@ -23,8 +23,6 @@ const Login = () => {
 		setMessage(null);
 	};
 	const login = async (data: login) => {
-		console.log("data", data);
-
 		setLoading(true);
 		await instance
 			.post("/login", { ...data })
@@ -54,9 +52,7 @@ const Login = () => {
 									src={Logo}
 									alt="hike-guide-logo"
 								/>
-								<p className="w-full text-xl font-bold text-center ">
-									<span className="text-emerald-900">HIKE</span> GUIDE
-								</p>
+								<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
 							</div>
 						</div>
 					</div>
@@ -104,15 +100,6 @@ const Login = () => {
 							to="/resetpassword"
 							className="block text-xs text-center text-sky-700 ">
 							Reset Password
-						</Link>
-						<p className="mt-2 text-xs text-center">
-							{" "}
-							Don't have an account ?{" "}
-						</p>
-						<Link
-							to="register"
-							className="block mt-3 text-xs font-bold text-center text-purple-900 ">
-							Create account
 						</Link>
 					</form>
 					{error && (

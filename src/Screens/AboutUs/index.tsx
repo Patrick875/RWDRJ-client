@@ -28,7 +28,15 @@ import partner8 from "../../assets/partner8.webp";
 import partner9 from "../../assets/partner9.gif";
 import partner10 from "../../assets/partner10.webp";
 
-import RWDRJ1 from "../../assets/RWDRJ1 1.png";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import { Icon } from "leaflet";
+import marker from "./../../assets/marker.gif";
+import { FiSend } from "react-icons/fi";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { HashLoader } from "react-spinners";
+import Carousel from "./Carousel";
 
 interface section {
 	content: string;
@@ -42,6 +50,13 @@ interface member {
 }
 
 const AboutUs = () => {
+	const { register, reset } = useForm();
+	const handleOnFocus = () => {
+		reset();
+	};
+
+	const [loading, setLoading] = useState<boolean>(false);
+
 	const sections: section[] = [
 		{
 			content: `As a group of young women doctors, advocating for access to
@@ -160,51 +175,49 @@ const AboutUs = () => {
 		},
 	};
 
+	const customIcon = new Icon({
+		iconUrl: marker,
+		iconSize: [38, 38],
+	});
+
+	const testImages: string[] = ["bg-image-1", "bg-image-2", "bg-image-3"];
+
 	return (
 		<div>
-			<section className="flex flex-col min-h-[100vh]">
+			<section
+				id="aboutus"
+				className="flex flex-col min-h-[100vh] overflow-x-hidden">
 				<Topbar />
-				<motion.div
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true, amount: 0.5 }}
-					transition={{ delay: 0.2, duration: 0.5 }}
-					variants={{
-						hidden: { opacity: 0, x: -50 },
-						visible: { opacity: 1, x: 0 },
-					}}
-					className="flex flex-col-reverse items-center justify-between w-5/6 mx-auto md:flex-row">
-					<div className="flex flex-col w-full gap-4 mx-auto md:w-1/2 md:mt-12">
-						<h1 className="text-3xl font-extrabold text-center md:text-start text-sky-900">
-							Rwanda Women Doctors for Reproductive Justice
-						</h1>
-						<p className="text-sm text-center md:text-lg md:text-start">
-							We are a network of young women physicians in Rwanda. We share the
-							spirit of activism driven by the passion for radically advancing
-							women's access to sexual and reproductive rights.
-						</p>
-						<div className="flex items-center justify-center pt-4 md:justify-start md:mt-4">
-							<button className="px-12 text-sm rounded-[4px] py-2 font-bold text-white bg-primary-orange ">
-								Learn More
-							</button>
-						</div>
+
+				<Carousel
+					images={testImages}
+					className="w-full m-0 h-96 sm:h-64 xl:h-80 2xl:h-96">
+					<div className="flex flex-col w-full h-full gap-4 mx-auto md:w-5/6 ">
+						<motion.div
+							initial={{ y: -110, opacity: 0 }}
+							animate={{ y: 0, opacity: 1 }}
+							transition={{ delay: 1.5, duration: 0.8 }}
+							className="flex flex-col justify-center flex-1 w-full gap-4 mx-auto md:w-5/6">
+							<h1 className="text-3xl font-extrabold text-center text-sky-900">
+								Rwanda Women Doctors for Reproductive Justice
+							</h1>
+							<p className="text-sm font-bold text-center md:text-lg">
+								We are a network of young women physicians in Rwanda. We share
+								the spirit of activism driven by the passion for radically
+								advancing women's access to sexual and reproductive rights.
+							</p>
+							<div className="flex items-center justify-center pt-4 md:mt-4">
+								<button className="px-12 text-sm rounded-[4px] py-2 font-bold text-white bg-primary-orange ">
+									Learn More
+								</button>
+							</div>
+						</motion.div>
 					</div>
-					<motion.div
-						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true, amount: 0.5 }}
-						transition={{ delay: 0.4, duration: 0.8 }}
-						variants={{
-							hidden: { opacity: 0, x: 50 },
-							visible: { opacity: 1, x: 0 },
-						}}
-						className="flex justify-center w-full md:w-1/2 md:block">
-						<img src={RWDRJ1} className="object-contain h-96 " />
-					</motion.div>
-				</motion.div>
+				</Carousel>
 			</section>
 
 			<motion.section
+				id="whatwedo"
 				viewport={{ once: false, amount: 0.3 }}
 				initial={{ opacity: 0.2 }}
 				animate={{ opacity: 1 }}
@@ -253,6 +266,7 @@ const AboutUs = () => {
 				</div>
 			</motion.section>
 			<motion.section
+				id="whatwedo"
 				initial="hidden"
 				whileInView="visible"
 				transition={{ delay: 0.4, duration: 0.6 }}
@@ -300,6 +314,7 @@ const AboutUs = () => {
 				</div>
 			</motion.section>
 			<motion.section
+				id="ourteam"
 				viewport={{ once: false, amount: 0.3 }}
 				initial={{ opacity: 0.2 }}
 				animate={{ opacity: 1 }}
@@ -322,6 +337,7 @@ const AboutUs = () => {
 				)}
 			</motion.section>
 			<motion.section
+				id="ourpartners"
 				viewport={{ once: false, amount: 0.3 }}
 				initial={{ opacity: 0.2 }}
 				animate={{ opacity: 1 }}
@@ -343,6 +359,7 @@ const AboutUs = () => {
 				)}
 			</motion.section>
 			<motion.section
+				id="news"
 				viewport={{ once: false, amount: 0.3 }}
 				initial={{ opacity: 0.2 }}
 				animate={{ opacity: 1 }}
@@ -380,6 +397,92 @@ const AboutUs = () => {
 					/>
 				</div>
 			</motion.section>
+			<section id="contactus" className="w-5/6 py-8 mx-auto">
+				<p className="py-4 text-lg font-bold text-gray-600">Contact Us</p>
+				<div className="flex w-full ">
+					<div className="w-1/2 pr-8">
+						<p className="text-xl font-bold text-gray-600">Send us a message</p>
+						<p className="text-xs ">
+							Feel to send an email, we will respond as soon as possible{" "}
+						</p>
+						<form>
+							<input
+								className="w-full px-3 py-1 my-1 font-light border border-gray-300 rounded-md placeholder:text-xs placeholder:italic focus-outline:none focus:outline-none focus:border-gray-700 focus:ring-1 focus:ring-gray-900"
+								type="text"
+								placeholder="Name"
+								{...register("name")}
+								onFocus={handleOnFocus}
+							/>
+							<input
+								className="w-full px-3 py-1 my-3 font-light border border-gray-300 rounded-md placeholder:text-xs placeholder:italic focus-outline:none focus:outline-none focus:border-gray-700 focus:ring-1 focus:ring-gray-900"
+								type="email"
+								placeholder="Email"
+								{...register("email")}
+								onFocus={handleOnFocus}
+							/>
+							<input
+								className="w-full px-3 py-1 my-1 font-light border border-gray-300 rounded-md placeholder:text-xs placeholder:italic focus-outline:none focus:outline-none focus:border-gray-700 focus:ring-1 focus:ring-gray-900"
+								type="text"
+								placeholder="Subject"
+								{...register("subject")}
+								onFocus={handleOnFocus}
+							/>
+							<textarea
+								{...register("description")}
+								id="description"
+								placeholder="Message"
+								rows={8}
+								className=" py-1 rounded-[4px] w-full border-2 border-gray-300"
+							/>
+							<button
+								type="button"
+								disabled={loading}
+								className={`px-4    py-1 my-1 text-xs ${
+									!loading ? "text-white bg-teal-900" : "bg-teal-100"
+								} rounded-[4px] `}>
+								{!loading ? (
+									<p className="flex items-center gap-3">
+										Send
+										<FiSend />
+									</p>
+								) : (
+									<HashLoader color="#022c22" loading={loading} size={15} />
+								)}
+							</button>
+						</form>
+					</div>
+					<div className="w-1/2">
+						<p className="text-xl font-bold text-gray-600">
+							For any queries or concerns, don't hesitate to contact us
+						</p>
+						<p className="my-2 text-sm font-light">Call us directly</p>
+						<p className="my-2 font-bold text-md">+250782864790</p>
+						<p className="my-2 text-sm font-light">Contact email</p>
+						<p className="my-2 font-bold text-md">
+							womenreproductivejustice@gmail.com
+						</p>
+						<p className="my-2 font-bold text-md">eb@womenrepro.org</p>
+
+						<MapContainer
+							className="w-full h-52 rounded-[8px]"
+							center={[-1.936763, 30.089463]}
+							zoom={13}
+							scrollWheelZoom={false}>
+							<TileLayer
+								attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+							/>
+							<Marker icon={customIcon} position={[-1.936763, 30.089463]}>
+								<Popup>
+									<p className="text-xs font-bold text-primary-orange">
+										RWDRJ Offices
+									</p>
+								</Popup>
+							</Marker>
+						</MapContainer>
+					</div>
+				</div>
+			</section>
 		</div>
 	);
 };

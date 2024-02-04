@@ -6,22 +6,26 @@ export const localServerUrl = "http://localhost:5200/api/v1";
 export const navs: navItem[] = [
 	{
 		text: "About us",
-		to: "about",
+		to: "aboutus",
 	},
 	{
 		text: "what we do",
-		to: "/whatwedo",
+		to: "whatwedo",
 	},
 	{
 		text: "Our Team",
-		to: "/team",
+		to: "ourteam",
 	},
 	{
 		text: "Our partners",
-		to: "/partners",
+		to: "ourpartners",
 	},
 	{
 		text: "News",
-		to: "/news",
+		to: "news",
+	},
+	{
+		text: "Contact us",
+		to: "contactus",
 	},
 ];

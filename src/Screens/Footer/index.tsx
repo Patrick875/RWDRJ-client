@@ -5,24 +5,6 @@ import SocialLinks from "../../Shared/Topbar/SocialLinks";
 const Footer = () => {
 	return (
 		<footer className=" mt-8 text-white bg-[#0A142F] bg-primary-100">
-			<div className="w-full py-8 mx-auto bg-[#283148]">
-				<div className="flex items-center w-5/6 mx-auto text-xs text-white">
-					<div className="flex items-center justify-center w-full gap-4">
-						<p>Newsletter</p>
-						<div className="">
-							<form className="flex  items-center gap-3 bg-white pl-4  rounded-[4px] ">
-								<input
-									placeholder="email"
-									className="py-1 bg-transparent focus:outline-none focus-border-none placeholder:text-sm placeholder:font-bold"
-								/>
-								<button className="bg-[#0A142F] text-white text-xs rounded-[4px] p-3 px-6">
-									Send{" "}
-								</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div className="flex justify-center w-5/6 gap-16 py-8 mx-auto md:flex">
 				<div className="w-full mt-8 md:mt-0">
 					<div className="flex justify-center w-full">

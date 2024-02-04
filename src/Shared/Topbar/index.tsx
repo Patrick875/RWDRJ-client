@@ -39,7 +39,15 @@ const Topbar = () => {
 						transition={{ duration: 0.4, delay: 0.3 }}
 						className="fixed bottom-0 right-0 z-40 w-full min-h-screen bg-slate-100 bg-primary-100 drop-shadow-xl">
 						{/* CLOSE ICON */}
-						<div className="flex justify-end p-12">
+						<div className="flex justify-between p-12">
+							<div className="flex items-center gap-2">
+								<img
+									className="block w-20 h-20"
+									src={Logo}
+									alt="hike-guide-logo"
+								/>
+								<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
+							</div>
 							<button onClick={() => setIsMenuToggled(!isMenuToggled)}>
 								<HiXMark className="w-6 h-6 text-gray-400" />
 							</button>

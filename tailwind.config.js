@@ -5,10 +5,12 @@ export default {
 		extend: {
 			colors: {
 				"primary-orange": "#FA702F",
-				"back-cover": "rgba(255,255,255,0.72)",
+				"hero-cover": "rgba(255,255,255,0.68)",
 			},
 			backgroundImage: {
-				"testimony-pattern": "url('/img/wave.svg')",
+				"image-1": "url('/img/image-1.jpg')",
+				"image-2": "url('/img/image-3.jpg')",
+				"image-3": "url('/img/image-2.jpg')",
 			},
 			fontFamily: {
 				hanuman: ["Hanuman", "serif"],
@@ -35,6 +37,6 @@ export default {
 				md: "1060px",
 			},
 		},
-		plugins: [require("flowbite/plugin")],
 	},
+	plugins: [require("flowbite/plugin")],
 };
