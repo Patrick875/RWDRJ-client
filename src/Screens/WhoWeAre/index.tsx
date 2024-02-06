@@ -1,6 +1,8 @@
+import AnimatePage from "../../Shared/AnimatePage";
+
 function WhoWeAre() {
 	return (
-		<div>
+		<AnimatePage>
 			<div className="">
 				<div className="flex flex-col items-center justify-center w-full h-56 bg-center bg-cover bg-image-whoweare">
 					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
@@ -57,7 +59,7 @@ function WhoWeAre() {
 					</div>
 				</div>
 			</div>
-		</div>
+		</AnimatePage>
 	);
 }
 

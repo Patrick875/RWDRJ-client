@@ -1,8 +1,9 @@
+import AnimatePage from "../../Shared/AnimatePage";
 import { objectives } from "../../constants";
 
 function OurMission() {
 	return (
-		<div>
+		<AnimatePage>
 			<div className="">
 				<div className="flex flex-col items-center justify-center w-full h-56 bg-center bg-cover bg-image-whoweare">
 					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
@@ -34,9 +35,9 @@ function OurMission() {
 					</p>
 					<p className="py-3 text-xs">
 						<p className="px-3 bg-white">
-							<ul className="list-disc  p-3">
+							<ul className="p-3 list-disc">
 								{objectives.map((item) => (
-									<li className=" p-2" key={crypto.randomUUID()}>
+									<li className="p-2 " key={crypto.randomUUID()}>
 										{item}
 									</li>
 								))}
@@ -45,7 +46,7 @@ function OurMission() {
 					</p>
 				</div>
 			</div>
-		</div>
+		</AnimatePage>
 	);
 }
 

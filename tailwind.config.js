@@ -13,6 +13,9 @@ export default {
 				"image-2": "url('/img/image-3.jpg')",
 				"image-3": "url('/img/image-2.jpg')",
 				"image-whoweare": "url('/img/whoweare.jpg')",
+				"image-advocacy": "url('/img/advocacy.jpg')",
+				"image-training": "url('/img/training.jpg')",
+				"image-service": "url('/img/service.jpg')",
 			},
 			fontFamily: {
 				hanuman: ["Hanuman", "serif"],

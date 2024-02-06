@@ -1,10 +1,11 @@
+import AnimatePage from "../../Shared/AnimatePage";
 import { member } from "../../Shared/types";
 import { teamMembers } from "../../constants";
 import { motion } from "framer-motion";
 
 function OurTeam() {
 	return (
-		<div>
+		<AnimatePage>
 			<div className="flex flex-col items-center justify-center w-full h-56 bg-center bg-cover bg-image-whoweare">
 				<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
 					<p className="w-5/6 text-xl font-bold text-center text-white">
@@ -32,7 +33,7 @@ function OurTeam() {
 					</div>
 				)}
 			</motion.div>
-		</div>
+		</AnimatePage>
 	);
 }
 

@@ -48,16 +48,16 @@ const AboutUs = () => {
 				<Carousel
 					images={carouselImages}
 					className="w-full m-0 h-96 sm:h-64 xl:h-80 2xl:h-96">
-					<div className="flex flex-col w-full h-full gap-4 mx-auto md:w-5/6 ">
+					<div className="flex flex-col w-full h-full gap-4 mx-auto font-montserrat md:w-5/6 ">
 						<motion.div
 							initial={{ y: -110, opacity: 0 }}
 							animate={{ y: 0, opacity: 1 }}
-							transition={{ delay: 1.5, duration: 0.8 }}
+							transition={{ delay: 1.2, duration: 0.8 }}
 							className="flex flex-col justify-center flex-1 w-full gap-4 mx-auto md:w-5/6">
-							<h1 className="text-3xl font-extrabold text-center text-sky-900">
+							<h1 className="px-6 text-3xl font-extrabold text-center md:px-0 text-sky-900">
 								Rwanda Women Doctors for Reproductive Justice
 							</h1>
-							<p className="text-sm font-bold text-center md:text-lg">
+							<p className="px-6 text-sm font-bold text-center md:px-0 md:text-lg">
 								We are a network of young women physicians in Rwanda. We share
 								the spirit of activism driven by the passion for radically
 								advancing women's access to sexual and reproductive rights.

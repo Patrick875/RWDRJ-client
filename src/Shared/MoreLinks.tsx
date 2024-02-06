@@ -6,7 +6,7 @@ function MoreLinks({ current }: { current: string }) {
 	return (
 		<div>
 			<p className="py-2 text-sm font-bold ">More of what we do</p>
-			<div className="flex flex-col gap-1 md:gap-4 md:flex">
+			<div className="flex flex-col gap-1 md:gap-4 md:flex md:flex-row">
 				{sections
 					.filter((el: section) => el.title !== current)
 					.map((sect: section) => (

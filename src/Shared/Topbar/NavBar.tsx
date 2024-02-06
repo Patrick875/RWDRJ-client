@@ -1,47 +1,70 @@
+import React, { useState } from "react";
 import { navItem } from "../types";
 import useMediaQuery from "../../Hooks/useMediaQuery";
 import SocialLinks from "./SocialLinks";
 import { Link } from "react-router-dom";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 interface navbarProps {
 	items: navItem[];
+	setIsMenuToggeled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavBar = ({ items }: navbarProps) => {
+const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 	const isAboveMediumScreens = useMediaQuery("(min-width:1060px");
+	const [isDown, setIsDown] = useState<boolean>(false);
 
 	return (
 		<div className="flex-1 ">
 			{!isAboveMediumScreens && (
-				<div className="flex flex-col flex-1 w-full gap-2 font-medium text-sxl">
-					{items.map((item: navItem) =>
-						!item.subnavs ? (
-							<Link
-								className="py-2 text-xs text-center hover:border-b-primary-orange hover:border-bottom-1"
-								key={crypto.randomUUID()}
-								to={item.to}>
-								{item.text}
-							</Link>
-						) : (
-							<div className=" group">
-								<p
-									className="py-2 text-xs text-center capitalize cursor-pointer group-hover:border-b-primary-orange hover:border-bottom-1"
-									key={crypto.randomUUID()}>
+				<div className="flex flex-col flex-1 w-full gap-2 font-medium text-sxl ">
+					<div className="ms-4">
+						{items.map((item: navItem) =>
+							!item.subnavs ? (
+								<Link
+									onClick={() => {
+										setIsMenuToggeled((prev) => !prev);
+									}}
+									className="block px-2 py-2 text-xs font-medium hover:bg-slate-200 hover:border-b-primary-orange hover:border-bottom-1"
+									key={crypto.randomUUID()}
+									to={item.to}>
 									{item.text}
-								</p>
-								<div className="hidden p-3 group-hover:block bg-slate-100">
-									{item.subnavs.map((item) => (
-										<Link
-											className="block py-2 text-xs text-center hover:cursor-pointer hover:border-b-primary-orange hover:border-bottom-1"
-											key={crypto.randomUUID()}
-											to={item.to}>
-											{item.title}
-										</Link>
-									))}
+								</Link>
+							) : (
+								<div className=" group">
+									<p
+										className={`flex items-center gap-6 px-2 py-2 text-xs font-medium capitalize cursor-pointer group-hover:border-b-primary-orange hover:border-bottom-1`}
+										key={crypto.randomUUID()}
+										onClick={() => setIsDown((prev) => !prev)}>
+										{item.text}
+										{!isDown ? <FaAngleDown /> : <FaAngleUp />}
+									</p>
+									<motion.div
+										initial={{ x: -20 }}
+										animate={isDown ? { x: 0 } : { x: -20 }}
+										transition={{ delay: 0.4, duration: 0.5 }}
+										exit={{ x: -20, opacity: 0 }}
+										className={`${
+											isDown ? "block" : "hidden"
+										} p-3 bg-slate-100`}>
+										{item.subnavs.map((item) => (
+											<Link
+												onClick={() => {
+													setIsDown((prev) => !prev);
+												}}
+												className="block px-4 py-2 text-xs font-medium hover:bg-slate-200 hover:cursor-pointer hover:border-b-primary-orange hover:border-bottom-1"
+												key={crypto.randomUUID()}
+												to={item.to}>
+												{item.title}
+											</Link>
+										))}
+									</motion.div>
 								</div>
-							</div>
-						)
-					)}
+							)
+						)}
+					</div>
+
 					<div className="flex justify-center w-full my-4">
 						<SocialLinks />
 					</div>
@@ -52,7 +75,7 @@ const NavBar = ({ items }: navbarProps) => {
 					{items.map((item: navItem) =>
 						!item.subnavs ? (
 							<Link
-								className="  transition-hover duration-150 py-2 text-xs text-center  hover:border-b-primary-orange hover:border-b-[1.5px]"
+								className=" font-medium transition-hover duration-150 py-2 text-xs text-center  hover:border-b-primary-orange hover:border-b-[1.5px]"
 								key={crypto.randomUUID()}
 								to={item.to}>
 								{item.text}
@@ -60,14 +83,14 @@ const NavBar = ({ items }: navbarProps) => {
 						) : (
 							<div className="relative group">
 								<p
-									className="py-2 text-xs text-center capitalize cursor-pointer group-hover:border-b-primary-orange hover:border-bottom-1"
+									className="py-2 text-xs font-medium text-center capitalize cursor-pointer group-hover:border-b-primary-orange hover:border-bottom-1"
 									key={crypto.randomUUID()}>
 									{item.text}
 								</p>
 								<div className="absolute z-50 hidden p-3 group-hover:block bg-slate-100">
 									{item.subnavs.map((item) => (
 										<Link
-											className="block py-2 text-xs hover:cursor-pointer hover:border-b-primary-orange hover:border-bottom-1"
+											className="block px-2 py-2 text-xs font-medium hover:bg-slate-200 hover:cursor-pointer hover:border-b-primary-orange hover:border-bottom-1"
 											key={crypto.randomUUID()}
 											to={item.to}>
 											{item.title}

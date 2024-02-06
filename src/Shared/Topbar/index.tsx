@@ -23,7 +23,7 @@ const Topbar = () => {
 				</div>
 				{isAboveMediumScreens ? (
 					<React.Fragment>
-						<NavBar items={navs} />
+						<NavBar setIsMenuToggeled={setIsMenuToggled} items={navs} />
 						<SocialLinks />
 					</React.Fragment>
 				) : (
@@ -53,7 +53,7 @@ const Topbar = () => {
 							</button>
 						</div>
 
-						<NavBar items={navs} />
+						<NavBar setIsMenuToggeled={setIsMenuToggled} items={navs} />
 					</motion.div>
 				)}
 			</div>

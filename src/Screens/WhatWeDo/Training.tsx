@@ -5,6 +5,7 @@ import training3 from "./../../assets/images/training3.webp";
 import training4 from "./../../assets/images/training4.webp";
 import training5 from "./../../assets/images/training5.webp";
 import MoreLinks from "../../Shared/MoreLinks";
+import AnimatePage from "../../Shared/AnimatePage";
 
 interface card {
 	title: string;
@@ -46,9 +47,9 @@ function Training() {
 		},
 	];
 	return (
-		<div>
+		<AnimatePage>
 			<div className="">
-				<div className="flex flex-col items-center justify-center w-full h-56 bg-center bg-cover bg-image-whoweare">
+				<div className="flex flex-col items-center justify-center w-full h-56 bg-center bg-cover bg-image-training">
 					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
 						<p className="w-5/6 text-xl font-bold text-center text-white">
 							Training
@@ -111,7 +112,7 @@ function Training() {
 					<MoreLinks current="Training" />
 				</div>
 			</div>
-		</div>
+		</AnimatePage>
 	);
 }
 

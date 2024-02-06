@@ -3,6 +3,7 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import marker from "./../../assets/marker.gif";
+import AnimatePage from "../../Shared/AnimatePage";
 
 function Contactus() {
 	const customIcon = new Icon({
@@ -11,7 +12,7 @@ function Contactus() {
 	});
 
 	return (
-		<div>
+		<AnimatePage>
 			<div className="flex flex-col items-center justify-center w-full h-56 bg-center bg-cover bg-image-whoweare">
 				<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
 					<p className="w-5/6 text-xl font-bold text-center text-white">
@@ -57,7 +58,7 @@ function Contactus() {
 					</div>
 				</div>
 			</section>
-		</div>
+		</AnimatePage>
 	);
 }
 

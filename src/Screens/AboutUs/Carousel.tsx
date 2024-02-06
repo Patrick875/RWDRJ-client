@@ -29,7 +29,7 @@ const Carousel: React.FC<ManualCarouselProps> = ({
 					<div
 						className={` ${item} w-full mx-0 py-0 bg-cover bg-center  bg-no-repeat`}
 						key={crypto.randomUUID()}>
-						<div className="w-full h-96 bg-hero-cover ">{children}</div>
+						<div className="w-full h-[80vh] bg-hero-cover ">{children}</div>
 					</div>
 				))}
 			</Slider>
