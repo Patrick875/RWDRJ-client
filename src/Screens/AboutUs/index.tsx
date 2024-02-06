@@ -232,7 +232,7 @@ const AboutUs = () => {
 			</motion.section>
 			<section id="contactus" className="w-5/6 py-8 mx-auto">
 				<p className="py-4 text-lg font-bold text-gray-600">Contact Us</p>
-				<div className="flex flex-col-reverse w-full md:flex-col ">
+				<div className="flex flex-col-reverse w-full md:flex-row ">
 					<div className="w-full my-2 md:w-1/2">
 						<p className="text-lg font-bold text-gray-600 md:text-xl">
 							For any queries or concerns, don't hesitate to contact us
