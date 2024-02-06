@@ -37,7 +37,7 @@ const Topbar = () => {
 						initial={{ opacity: 0, x: 50 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.4, delay: 0.3 }}
-						className="fixed bottom-0 right-0 z-40 w-full min-h-screen bg-slate-100 bg-primary-100 drop-shadow-xl">
+						className="fixed top-0 right-0 z-40 w-[100vw] min-h-screen bg-slate-100 bg-primary-100 drop-shadow-xl">
 						{/* CLOSE ICON */}
 						<div className="flex justify-between p-12">
 							<div className="flex items-center gap-2">

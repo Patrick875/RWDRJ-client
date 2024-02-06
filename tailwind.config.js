@@ -6,11 +6,13 @@ export default {
 			colors: {
 				"primary-orange": "#FA702F",
 				"hero-cover": "rgba(255,255,255,0.68)",
+				"page-cover": "rgba(0,0,0,0.68)",
 			},
 			backgroundImage: {
 				"image-1": "url('/img/image-1.jpg')",
 				"image-2": "url('/img/image-3.jpg')",
 				"image-3": "url('/img/image-2.jpg')",
+				"image-whoweare": "url('/img/whoweare.jpg')",
 			},
 			fontFamily: {
 				hanuman: ["Hanuman", "serif"],

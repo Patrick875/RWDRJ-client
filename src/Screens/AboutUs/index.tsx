@@ -1,158 +1,16 @@
 import { Timeline } from "react-twitter-widgets";
 import { motion } from "framer-motion";
-import Advocacy from "../../assets/advocacy.png";
-import Compain from "../../assets/Campain.png";
-import Digital from "../../assets/Digital.png";
-import Services from "../../assets/Services.png";
-import Training1 from "../../assets/Training1.webp";
 import Graphic from "../../assets/graphic.png";
-import Topbar from "../../Shared/Topbar";
-import doc1 from "../../assets/DOC1.webp";
-import doc2 from "../../assets/DOC2.webp";
-import doc3 from "../../assets/DOC3.webp";
-import doc4 from "../../assets/DOC4.webp";
-import doc5 from "../../assets/DOC5.webp";
-import doc6 from "../../assets/DOC6.webp";
-import doc7 from "../../assets/DOC7.webp";
-import doc8 from "../../assets/DOC8.webp";
-import doc9 from "../../assets/DOC9.webp";
-
-import partner1 from "../../assets/partner1.webp";
-import partner2 from "../../assets/partner2.webp";
-import partner3 from "../../assets/partner3.webp";
-import partner4 from "../../assets/partner4.webp";
-import partner5 from "../../assets/partner5.webp";
-import partner6 from "../../assets/partner6.webp";
-import partner7 from "../../assets/partner7.webp";
-import partner8 from "../../assets/partner8.webp";
-import partner9 from "../../assets/partner9.gif";
-import partner10 from "../../assets/partner10.webp";
-
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import marker from "./../../assets/marker.gif";
-import { FiSend } from "react-icons/fi";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { HashLoader } from "react-spinners";
 import Carousel from "./Carousel";
-
-interface section {
-	content: string;
-	title: string;
-	img?: string;
-}
-interface member {
-	name: string;
-	title: string;
-	img?: string;
-}
+import { partners, sections } from "../../constants";
+import { section } from "../../Shared/types";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
-	const { register, reset } = useForm();
-	const handleOnFocus = () => {
-		reset();
-	};
-
-	const [loading, setLoading] = useState<boolean>(false);
-
-	const sections: section[] = [
-		{
-			content: `As a group of young women doctors, advocating for access to
-									legal and safe SRHR and friendly services is significantly
-									essential. We recognize women and girls' catastrophic
-									complications when they are denied rights to reproductive
-									services and opt for dangerous traditional options.`,
-			title: "Advocacy",
-			img: Advocacy,
-		},
-		{
-			img: Compain,
-			title: "Campaign&Organizing",
-			content:
-				"We believe in The power of feminist organizing.  Through collective actions, we aim to transform the gender relations that subordinate and devalue women. Feminist organizing sustains our movement and advances autonomy and equality for all women.",
-		},
-		{
-			img: Training1,
-			title: "Training",
-			content:
-				"Strengthening the network of young women pro-choice physicians: young physicians in Rwanda are less bound by abortion stigma than older physicians in Rwanda. ",
-		},
-		{
-			title: "Service Provision",
-			img: Services,
-			content:
-				"Dorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur neque.",
-		},
-		{
-			title: "Digital Health & SRHR",
-			img: Digital,
-			content:
-				"Nationally, abortion is only permissible in cases of rape, when the pregnant person is a child, forced marriage, in cases of incest committed with a person to the second degree of kinship, and when the pregnancy puts a risk to the health of the pregnant person or of the fetus. ",
-		},
-	];
-
-	const teamMembers: member[] = [
-		{
-			name: "Pacific Ufitinema",
-			title: "Executive Director",
-			img: doc1,
-		},
-		{
-			name: "Sandrine Umutoniwase",
-			title: "Assistant Director",
-			img: doc2,
-		},
-		{
-			name: "Clarisse Mutimukeye",
-			title: "Senior Program Director",
-			img: doc3,
-		},
-		{
-			name: "Fanny Giraneza",
-			title: "Finance&Grants Director",
-			img: doc4,
-		},
-		{
-			name: "Divine Ingabire",
-			title: "Campaigns Coordinator",
-			img: doc5,
-		},
-		{
-			name: "Girimpundu Revocathe",
-			title: "Phycologist",
-			img: doc6,
-		},
-		{
-			name: "Sandrine Umuhoza",
-			title: "Members Director",
-			img: doc7,
-		},
-		{
-			name: "Josee Murekeyisoni",
-			title: "IT&Communication Director",
-			img: doc8,
-		},
-		{
-			name: "Pierrette Mfurankunda",
-			title: "Policy and Law Director",
-			img: doc9,
-		},
-	];
-
-	const partners: string[] = [
-		partner1,
-		partner2,
-		partner3,
-		partner4,
-		partner5,
-		partner6,
-		partner7,
-		partner8,
-		partner9,
-		partner10,
-	];
 	const container = {
 		visible: {
 			hidden: { opacity: 0 },
@@ -180,17 +38,15 @@ const AboutUs = () => {
 		iconSize: [38, 38],
 	});
 
-	const testImages: string[] = ["bg-image-1", "bg-image-2", "bg-image-3"];
+	const carouselImages: string[] = ["bg-image-1", "bg-image-2", "bg-image-3"];
 
 	return (
 		<div>
 			<section
 				id="aboutus"
-				className="flex flex-col min-h-[100vh] overflow-x-hidden">
-				<Topbar />
-
+				className="flex flex-col min-h-[90vh] overflow-x-hidden">
 				<Carousel
-					images={testImages}
+					images={carouselImages}
 					className="w-full m-0 h-96 sm:h-64 xl:h-80 2xl:h-96">
 					<div className="flex flex-col w-full h-full gap-4 mx-auto md:w-5/6 ">
 						<motion.div
@@ -207,9 +63,11 @@ const AboutUs = () => {
 								advancing women's access to sexual and reproductive rights.
 							</p>
 							<div className="flex items-center justify-center pt-4 md:mt-4">
-								<button className="px-12 text-sm rounded-[4px] py-2 font-bold text-white bg-primary-orange ">
+								<Link
+									to="whoweare"
+									className="px-12 text-sm rounded-[4px] py-2 font-bold text-white bg-primary-orange ">
 									Learn More
-								</button>
+								</Link>
 							</div>
 						</motion.div>
 					</div>
@@ -244,9 +102,11 @@ const AboutUs = () => {
 								sexual reproductive rights.
 							</p>
 							<div className="flex justify-center md:justify-start">
-								<button className=" px-2 md:my-12 my-6 py-2 transition-all  hover:bg-primary-orange hover:text-white shadow-md border-[1.25px] rounded-[4px] border-primary-orange text-xs bg-white">
+								<Link
+									to="mission"
+									className=" px-2 md:my-12 my-6 py-2 transition-all  hover:bg-primary-orange hover:text-white shadow-md border-[1.25px] rounded-[4px] border-primary-orange text-xs bg-white">
 									More about our values and Objectives
-								</button>
+								</Link>
 							</div>
 						</motion.div>
 					</div>
@@ -303,9 +163,11 @@ const AboutUs = () => {
 										{sect.content}
 									</p>
 									<div className="flex justify-center md:justify-start">
-										<button className="my-4 px-6 py-1 rounded-[4px] text-xs border-[1.5px] hover:bg-primary-orange hover:text-white transition-all  text-primary-orange bg-white text border-primary-orange">
+										<Link
+											to={sect.moreLink}
+											className="my-4 px-6 py-1 rounded-[4px] text-xs border-[1.5px] hover:bg-primary-orange hover:text-white transition-all  text-primary-orange bg-white text border-primary-orange">
 											Learn More
-										</button>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -313,29 +175,7 @@ const AboutUs = () => {
 					))}
 				</div>
 			</motion.section>
-			<motion.section
-				id="ourteam"
-				viewport={{ once: false, amount: 0.3 }}
-				initial={{ opacity: 0.2 }}
-				animate={{ opacity: 1 }}
-				className="flex flex-col w-5/6 gap-4 px-2 py-4 mx-auto ">
-				<div className="w-2/3 mx-auto">
-					<p className="w-full my-1 text-lg font-bold text-center ">Our Team</p>
-				</div>
-				{teamMembers && (
-					<div className="grid grid-cols-1 gap-3 md:grid-cols-3 ">
-						{teamMembers.map((member: member) => (
-							<div className="bg-white rounded-[8px] p-4">
-								<img src={member.img} className="object-contain w-full h-24" />
-								<p className="py-1 text-sm font-bold text-center">
-									{member.name}
-								</p>
-								<p className="text-xs text-center">{member.title}</p>
-							</div>
-						))}
-					</div>
-				)}
-			</motion.section>
+
 			<motion.section
 				id="ourpartners"
 				viewport={{ once: false, amount: 0.3 }}
@@ -368,91 +208,33 @@ const AboutUs = () => {
 					<p className="w-full my-1 text-lg font-bold text-center ">News</p>
 				</div>
 				<div className="grid grid-cols-1 gap-2 md:grid-cols-3">
-					<Timeline
-						dataSource={{
-							sourceType: "profile",
-							screenName: "RwandaHealth",
-						}}
-						options={{
-							height: "300",
-						}}
-					/>
-					<Timeline
-						dataSource={{
-							sourceType: "profile",
-							screenName: "nsanzimanasabin",
-						}}
-						options={{
-							height: "300",
-						}}
-					/>
-					<Timeline
-						dataSource={{
-							sourceType: "profile",
-							screenName: "MDFC_Rwanda",
-						}}
-						options={{
-							height: "300",
-						}}
-					/>
+					<div>
+						<p className="font-bold ">Latest Blogs</p>
+						<p className="text-xs">Latest event posts will be shown here</p>
+					</div>
+					<div>
+						<p className="font-bold ">Latest events</p>
+						<p className="text-xs">Latest event posts will be shown here</p>
+					</div>
+					<div>
+						<p className="font-bold ">RWDRJ Tweets</p>
+						<Timeline
+							dataSource={{
+								sourceType: "profile",
+								screenName: "doctors_women",
+							}}
+							options={{
+								height: "300",
+							}}
+						/>
+					</div>
 				</div>
 			</motion.section>
 			<section id="contactus" className="w-5/6 py-8 mx-auto">
 				<p className="py-4 text-lg font-bold text-gray-600">Contact Us</p>
-				<div className="flex w-full ">
-					<div className="w-1/2 pr-8">
-						<p className="text-xl font-bold text-gray-600">Send us a message</p>
-						<p className="text-xs ">
-							Feel to send an email, we will respond as soon as possible{" "}
-						</p>
-						<form>
-							<input
-								className="w-full px-3 py-1 my-1 font-light border border-gray-300 rounded-md placeholder:text-xs placeholder:italic focus-outline:none focus:outline-none focus:border-gray-700 focus:ring-1 focus:ring-gray-900"
-								type="text"
-								placeholder="Name"
-								{...register("name")}
-								onFocus={handleOnFocus}
-							/>
-							<input
-								className="w-full px-3 py-1 my-3 font-light border border-gray-300 rounded-md placeholder:text-xs placeholder:italic focus-outline:none focus:outline-none focus:border-gray-700 focus:ring-1 focus:ring-gray-900"
-								type="email"
-								placeholder="Email"
-								{...register("email")}
-								onFocus={handleOnFocus}
-							/>
-							<input
-								className="w-full px-3 py-1 my-1 font-light border border-gray-300 rounded-md placeholder:text-xs placeholder:italic focus-outline:none focus:outline-none focus:border-gray-700 focus:ring-1 focus:ring-gray-900"
-								type="text"
-								placeholder="Subject"
-								{...register("subject")}
-								onFocus={handleOnFocus}
-							/>
-							<textarea
-								{...register("description")}
-								id="description"
-								placeholder="Message"
-								rows={8}
-								className=" py-1 rounded-[4px] w-full border-2 border-gray-300"
-							/>
-							<button
-								type="button"
-								disabled={loading}
-								className={`px-4    py-1 my-1 text-xs ${
-									!loading ? "text-white bg-teal-900" : "bg-teal-100"
-								} rounded-[4px] `}>
-								{!loading ? (
-									<p className="flex items-center gap-3">
-										Send
-										<FiSend />
-									</p>
-								) : (
-									<HashLoader color="#022c22" loading={loading} size={15} />
-								)}
-							</button>
-						</form>
-					</div>
-					<div className="w-1/2">
-						<p className="text-xl font-bold text-gray-600">
+				<div className="flex flex-col-reverse w-full md:flex-col ">
+					<div className="w-full my-2 md:w-1/2">
+						<p className="text-lg font-bold text-gray-600 md:text-xl">
 							For any queries or concerns, don't hesitate to contact us
 						</p>
 						<p className="my-2 text-sm font-light">Call us directly</p>
@@ -462,7 +244,13 @@ const AboutUs = () => {
 							womenreproductivejustice@gmail.com
 						</p>
 						<p className="my-2 font-bold text-md">eb@womenrepro.org</p>
-
+						<Link
+							to="contactus"
+							className="w-1/3 p-2 block my-2  text-center font-bold rounded-[4px] text-xs border-[1.5px] hover:bg-slate-800 hover:text-white transition-all  text-slate-800 bg-white  border-slate-800">
+							Reach out{" "}
+						</Link>
+					</div>
+					<div className="w-full md:w-1/2 ">
 						<MapContainer
 							className="w-full h-52 rounded-[8px]"
 							center={[-1.936763, 30.089463]}
@@ -475,7 +263,7 @@ const AboutUs = () => {
 							<Marker icon={customIcon} position={[-1.936763, 30.089463]}>
 								<Popup>
 									<p className="text-xs font-bold text-primary-orange">
-										RWDRJ Offices
+										KG 216 ST 20
 									</p>
 								</Popup>
 							</Marker>

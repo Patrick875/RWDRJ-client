@@ -13,10 +13,10 @@ const Carousel: React.FC<ManualCarouselProps> = ({
 	children,
 }) => {
 	const settings = {
-		dots: true,
+		dots: false,
 		infinite: true,
 		speed: 400,
-		pauseOnHover: true,
+		pauseOnHover: false,
 		autoplay: true,
 		autoplaySpeed: 5000,
 		fade: true,
