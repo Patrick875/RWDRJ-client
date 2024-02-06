@@ -1,4 +1,4 @@
-import { Route, Routes, ScrollRestoration } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./Screens/Layout";
 import AboutUs from "./Screens/AboutUs";
 import LayoutAdmin from "./Screens/Admin/LayoutAdmin";
@@ -13,9 +13,11 @@ import CampaignAndOrganizing from "./Screens/WhatWeDo/CampaignAndOrganizing";
 import Training from "./Screens/WhatWeDo/Training";
 import ServiceProvision from "./Screens/WhatWeDo/ServiceProvision";
 import DigitalHealthSHSR from "./Screens/WhatWeDo/DigitalHealthSHSR";
-import Advocacy from "./Screens/WhatWeDo/Advocacy";
+// import Advopcacy from "./Screens/WhatWeDo/Advocacy";
 import Contactus from "./Screens/ContactUs";
 import OurTeam from "./Screens/OurTeam";
+import Advocacy from "./Screens/WhatWeDo/Advocacy";
+import ScrollRestoration from "./Shared/ScrollToTop";
 
 function App() {
 	return (
