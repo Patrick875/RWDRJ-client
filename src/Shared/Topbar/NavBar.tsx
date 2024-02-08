@@ -8,17 +8,18 @@ import { motion } from "framer-motion";
 
 interface navbarProps {
 	items: navItem[];
+	isTopOfPage: boolean;
 	setIsMenuToggeled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
+const NavBar = ({ items, setIsMenuToggeled, isTopOfPage }: navbarProps) => {
 	const isAboveMediumScreens = useMediaQuery("(min-width:1060px");
 	const [isDown, setIsDown] = useState<boolean>(false);
 
 	return (
 		<div className="flex-1 ">
 			{!isAboveMediumScreens && (
-				<div className="flex flex-col flex-1 w-full gap-2 font-medium text-sxl ">
+				<div className="flex flex-col flex-1 w-full gap-2 text-xs font-bold ">
 					<div className="ms-4">
 						{items.map((item: navItem) =>
 							!item.subnavs ? (
@@ -26,7 +27,7 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 									onClick={() => {
 										setIsMenuToggeled((prev) => !prev);
 									}}
-									className="block px-2 py-2 text-xs font-medium hover:bg-slate-200 hover:border-b-primary-orange hover:border-bottom-1"
+									className="block px-2 py-2 font-bold hover:bg-slate-200 hover:border-b-primary-orange hover:border-bottom-1"
 									key={crypto.randomUUID()}
 									to={item.to}>
 									{item.text}
@@ -34,7 +35,7 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 							) : (
 								<div className=" group">
 									<p
-										className={`flex items-center gap-6 px-2 py-2 text-xs font-medium capitalize cursor-pointer group-hover:border-b-primary-orange hover:border-bottom-1`}
+										className={`flex items-center gap-6 px-2 py-2 font-bold capitalize cursor-pointer group-hover:border-b-primary-orange hover:border-bottom-1`}
 										key={crypto.randomUUID()}
 										onClick={() => setIsDown((prev) => !prev)}>
 										{item.text}
@@ -53,7 +54,7 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 												onClick={() => {
 													setIsDown((prev) => !prev);
 												}}
-												className="block px-4 py-2 text-xs font-medium hover:bg-slate-200 hover:cursor-pointer hover:border-b-primary-orange hover:border-bottom-1"
+												className="block px-4 py-2 font-bold hover:bg-slate-200 hover:cursor-pointer hover:border-b-primary-orange hover:border-bottom-1"
 												key={crypto.randomUUID()}
 												to={item.to}>
 												{item.title}
@@ -71,11 +72,11 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 				</div>
 			)}
 			{isAboveMediumScreens && (
-				<div className="flex items-center justify-between w-4/5 px-4 mx-auto ">
+				<div className="flex items-center justify-between w-4/6 px-4 mx-auto ">
 					{items.map((item: navItem) =>
 						!item.subnavs ? (
 							<Link
-								className=" font-medium transition-hover duration-150 py-2 text-xs text-center  hover:border-b-primary-orange hover:border-b-[1.5px]"
+								className=" font-bold transition-hover duration-150 py-2  text-center  hover:border-b-primary-orange hover:border-b-[1.5px]"
 								key={crypto.randomUUID()}
 								to={item.to}>
 								{item.text}
@@ -83,14 +84,14 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 						) : (
 							<div className="relative group">
 								<p
-									className="py-2 text-xs font-medium text-center capitalize cursor-pointer group-hover:border-b-primary-orange hover:border-bottom-1"
+									className="py-2 font-bold text-center capitalize cursor-pointer group-hover:border-b-primary-orange hover:border-bottom-1"
 									key={crypto.randomUUID()}>
 									{item.text}
 								</p>
 								<div className="absolute z-50 hidden p-3 group-hover:block bg-slate-100">
 									{item.subnavs.map((item) => (
 										<Link
-											className="block px-2 py-2 text-xs font-medium hover:bg-slate-200 hover:cursor-pointer hover:border-b-primary-orange hover:border-bottom-1"
+											className="block px-2 py-2 font-bold hover:bg-slate-200 hover:cursor-pointer hover:border-b-primary-orange hover:border-bottom-1"
 											key={crypto.randomUUID()}
 											to={item.to}>
 											{item.title}

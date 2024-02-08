@@ -24,12 +24,11 @@ import Events from "./Screens/Events";
 import Publications from "./Screens/Publications";
 
 function App() {
-	const location = useLocation();
 	return (
 		<>
 			<AnimatePresence mode="wait">
 				<ScrollRestoration />
-				<Routes key={location.pathname} location={location}>
+				<Routes>
 					<Route path="/" element={<Layout />}>
 						<Route index element={<AboutUs />} />
 						<Route path="whoweare" element={<WhoWeAre />} />

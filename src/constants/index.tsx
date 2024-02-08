@@ -1,14 +1,14 @@
-import { member, navItem, section } from "../Shared/types";
+import { member, navItem, section, partner } from "../Shared/types";
 
-import doc1 from "../assets/DOC1.webp";
+// import doc1 from "../assets/DOC1.webp";
 import doc2 from "../assets/DOC2.webp";
 import doc3 from "../assets/DOC3.webp";
-import doc4 from "../assets/DOC4.webp";
+// import doc4 from "../assets/DOC4.webp";
 import doc5 from "../assets/DOC5.webp";
 import doc6 from "../assets/DOC6.webp";
-import doc7 from "../assets/DOC7.webp";
+// import doc7 from "../assets/DOC7.webp";
 import doc8 from "../assets/DOC8.webp";
-import doc9 from "../assets/DOC9.webp";
+// import doc9 from "../assets/DOC9.webp";
 import partner1 from "../assets/partner1.gif";
 import partner2 from "../assets/partner2.webp";
 import partner3 from "../assets/partner3.webp";
@@ -113,11 +113,11 @@ Telehealth increases access to healthcare in many ways. One is connecting people
 ];
 
 export const teamMembers: member[] = [
-	{
-		name: "Pacific Ufitinema",
-		title: "Executive Director",
-		img: doc1,
-	},
+	// {
+	// 	name: "Pacific Ufitinema",
+	// 	title: "Executive Director",
+	// 	img: doc1,
+	// },
 	{
 		name: "Sandrine Umutoniwase",
 		title: "Assistant Director",
@@ -128,11 +128,11 @@ export const teamMembers: member[] = [
 		title: "Senior Program Director",
 		img: doc3,
 	},
-	{
-		name: "Fanny Giraneza",
-		title: "Finance&Grants Director",
-		img: doc4,
-	},
+	// {
+	// 	name: "Fanny Giraneza",
+	// 	title: "Finance&Grants Director",
+	// 	img: doc4,
+	// },
 	{
 		name: "Divine Ingabire",
 		title: "Campaigns Coordinator",
@@ -140,37 +140,40 @@ export const teamMembers: member[] = [
 	},
 	{
 		name: "Girimpundu Revocathe",
-		title: "Phycologist",
+		title: "Psycologist",
 		img: doc6,
 	},
-	{
-		name: "Sandrine Umuhoza",
-		title: "Members Director",
-		img: doc7,
-	},
+	// {
+	// 	name: "Sandrine Umuhoza",
+	// 	title: "Members Director",
+	// 	img: doc7,
+	// },
 	{
 		name: "Josee Murekeyisoni",
 		title: "IT&Communication Director",
 		img: doc8,
 	},
-	{
-		name: "Pierrette Mfurankunda",
-		title: "Policy and Law Director",
-		img: doc9,
-	},
+	// {
+	// 	name: "Pierrette Mfurankunda",
+	// 	title: "Policy and Law Director",
+	// 	img: doc9,
+	// },
 ];
 
-export const partners: string[] = [
-	partner1,
-	partner2,
-	partner3,
-	partner4,
-	partner5,
-	partner6,
-	partner7,
-	partner8,
-	partner9,
-	partner10,
+export const partners: partner[] = [
+	{ link: "https://youngfeministfund.org/", img: partner1 },
+	{ link: "https://numun.fund/", img: partner2 },
+	{ link: "https://www.medicaldoctorsforchoice.org/mscf", img: partner3 },
+	{ link: "https://www.flavoursfp.org/", img: partner4 },
+	{ link: "https://msfc.org/", img: partner5 },
+	{ link: "https://afroark.org/", img: partner6 },
+	{ link: "https://app.companion.rw/", img: partner7 },
+	{ link: "https://www.medsarwanda.org/", img: partner8 },
+	{
+		link: "https://www.flavoursfp.org/save-safe-abortion-videos-edutainment",
+		img: partner9,
+	},
+	{ link: "https://www.hprwanda.org/", img: partner10 },
 ];
 
 export const objectives: string[] = [

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import instance from "../../API";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/h-guide-logo.png";
+import Logo from "../../assets/Logo.png";
 import { HashLoader } from "react-spinners";
 
 interface signup {
@@ -48,11 +48,7 @@ const RegisterUser = () => {
 					<div className="flex justify-center w-full my-1">
 						<div>
 							<div className="flex items-center gap-2">
-								<img
-									className="block w-20 h-20"
-									src={Logo}
-									alt="hike-guide-logo"
-								/>
+								<img className="block w-20 h-20" src={Logo} alt="logo" />
 								<p className="w-full text-xl font-bold text-center ">
 									<span className="text-emerald-900">HIKE</span> GUIDE
 								</p>

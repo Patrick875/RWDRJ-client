@@ -18,3 +18,7 @@ export interface member {
     title: string;
     img?: string;
 }
+export interface partner {
+    link: string;
+    img: string
+}

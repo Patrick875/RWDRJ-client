@@ -22,12 +22,13 @@ function OurTeam() {
 				{teamMembers && (
 					<div className="grid grid-cols-1 gap-3 md:grid-cols-3 ">
 						{teamMembers.map((member: member) => (
-							<div className="bg-white rounded-[8px] p-4">
-								<img src={member.img} className="object-contain w-full h-24" />
-								<p className="py-1 text-sm font-bold text-center">
-									{member.name}
-								</p>
-								<p className="text-xs text-center">{member.title}</p>
+							<div className="bg-white rounded-[8px] ">
+								<img
+									src={member.img}
+									className="object-cover overlay-slate-800   rounded-t-[8px] object-top w-full p-0 h-52"
+								/>
+								<p className="px-4 py-1 font-bold text-center">{member.name}</p>
+								<p className="px-4 py-1 text-sm text-center">{member.title}</p>
 							</div>
 						))}
 					</div>

@@ -4,18 +4,18 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				"primary-orange": "#FA702F",
-				"hero-cover": "rgba(255,255,255,0.68)",
+				"primary-orange": "#C29F1D",
+				"hero-cover": "rgba(255,255,255,0.58)",
 				"page-cover": "rgba(0,0,0,0.68)",
 			},
 			backgroundImage: {
-				"image-1": "url('/img/image-1.jpg')",
-				"image-2": "url('/img/image-3.jpg')",
-				"image-3": "url('/img/image-2.jpg')",
-				"image-whoweare": "url('/img/whoweare.jpg')",
-				"image-advocacy": "url('/img/advocacy.jpg')",
-				"image-training": "url('/img/training.jpg')",
-				"image-service": "url('/img/service.jpg')",
+				"image-1": "url('/img/image-1.webp')",
+				"image-2": "url('/img/image-3.webp')",
+				"image-3": "url('/img/image-2.webp')",
+				"image-whoweare": "url('/img/whoweare.webp')",
+				"image-advocacy": "url('/img/advocacy.webp')",
+				"image-training": "url('/img/training.webp')",
+				"image-service": "url('/img/service.webp')",
 			},
 			fontFamily: {
 				hanuman: ["Hanuman", "serif"],

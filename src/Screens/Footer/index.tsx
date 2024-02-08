@@ -8,14 +8,16 @@ const Footer = () => {
 			<div className="flex justify-center w-5/6 gap-16 py-8 mx-auto md:flex">
 				<div className="w-full mt-8 md:mt-0">
 					<div className="flex justify-center w-full">
-						<div className="flex items-center gap-2">
-							<img
-								className="block w-20 h-20"
-								src={Logo}
-								alt="hike-guide-logo"
-							/>
-							<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
-						</div>
+						<Link to="" className="block">
+							<div className="flex items-center gap-2">
+								<img
+									className="block w-20 h-20"
+									src={Logo}
+									alt="hike-guide-logo"
+								/>
+								<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
+							</div>
+						</Link>
 					</div>
 					<div className="flex justify-center">
 						<div className="flex gap-3 my-3 ">

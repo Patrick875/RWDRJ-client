@@ -7,14 +7,27 @@ import { CiMenuBurger } from "react-icons/ci";
 import useMediaQuery from "../../Hooks/useMediaQuery";
 import SocialLinks from "./SocialLinks";
 import { navs } from "../../constants";
+import { Link, useLocation } from "react-router-dom";
 
-const Topbar = () => {
+interface topbarProps {
+	isTopOfPage: boolean;
+}
+
+const Topbar = ({ isTopOfPage }: topbarProps) => {
 	const isAboveMediumScreens = useMediaQuery("(min-width:1060px");
 	const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+	const { pathname } = useLocation();
+	const locationInApp = pathname.split("/")[1];
+
 	return (
-		<div className="relative w-5/6 mx-auto">
+		<nav className="relative">
 			<div
-				className={`flex items-center w-full text-xs ${
+				style={{ zIndex: 10000 }}
+				className={`${
+					isTopOfPage ? "bg-[rgb(255,255,255,0.3)] " : "bg-white "
+				} flex mx-auto ${
+					locationInApp === "" ? " fixed " : " "
+				} top-0 shadow-sm px-6 items-center w-full text-xs ${
 					!isAboveMediumScreens ? " justify-between " : ""
 				}`}>
 				<div className="flex items-center gap-2">
@@ -23,7 +36,11 @@ const Topbar = () => {
 				</div>
 				{isAboveMediumScreens ? (
 					<React.Fragment>
-						<NavBar setIsMenuToggeled={setIsMenuToggled} items={navs} />
+						<NavBar
+							isTopOfPage={isTopOfPage}
+							setIsMenuToggeled={setIsMenuToggled}
+							items={navs}
+						/>
 						<SocialLinks />
 					</React.Fragment>
 				) : (
@@ -40,47 +57,28 @@ const Topbar = () => {
 						className="fixed top-0 right-0 z-40 w-[100vw] min-h-screen bg-slate-100 bg-primary-100 drop-shadow-xl">
 						{/* CLOSE ICON */}
 						<div className="flex justify-between p-12">
-							<div className="flex items-center gap-2">
-								<img
-									className="block w-20 h-20"
-									src={Logo}
-									alt="hike-guide-logo"
-								/>
-								<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
-							</div>
+							<Link to="" className="block">
+								<div className="flex items-center gap-2">
+									<img className="block w-20 h-20" src={Logo} alt="logo" />
+									<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
+								</div>
+							</Link>
+
 							<button onClick={() => setIsMenuToggled(!isMenuToggled)}>
 								<HiXMark className="w-6 h-6 text-gray-400" />
 							</button>
 						</div>
 
-						<NavBar setIsMenuToggeled={setIsMenuToggled} items={navs} />
+						<NavBar
+							isTopOfPage={isTopOfPage}
+							setIsMenuToggeled={setIsMenuToggled}
+							items={navs}
+						/>
 					</motion.div>
 				)}
 			</div>
-		</div>
+		</nav>
 	);
 };
 
 export default Topbar;
-
-{
-	/* MOBILE MENU MODAL */
-}
-// {
-// 	!isAboveMediumScreens && isMenuToggled && (
-// 		<div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
-// 			{/* CLOSE ICON */}
-// 			<div className="flex justify-end p-12">
-// 				<button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-// 					<IoClose className="w-6 h-6 text-gray-400" />
-// 				</button>
-// 			</div>
-
-// 			{/*MENU ITEMS*/}
-// 			<div className="ml-[33%] flex flex-col gap-2 text-sxl">
-// 				<NavBar items={navs} />
-// 				<SocialLinks />
-// 			</div>
-// 		</div>
-// 	);
-// }
