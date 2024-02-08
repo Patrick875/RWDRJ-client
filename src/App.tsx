@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./Screens/Layout";
 import AboutUs from "./Screens/AboutUs";
 import LayoutAdmin from "./Screens/Admin/LayoutAdmin";

@@ -12,7 +12,7 @@ interface navbarProps {
 	setIsMenuToggeled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavBar = ({ items, setIsMenuToggeled, isTopOfPage }: navbarProps) => {
+const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 	const isAboveMediumScreens = useMediaQuery("(min-width:1060px");
 	const [isDown, setIsDown] = useState<boolean>(false);
 
