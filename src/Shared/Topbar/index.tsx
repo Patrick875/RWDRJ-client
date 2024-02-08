@@ -24,9 +24,11 @@ const Topbar = ({ isTopOfPage }: topbarProps) => {
 			<div
 				style={{ zIndex: 10000 }}
 				className={`${
-					isTopOfPage ? "bg-[rgb(255,255,255,0.3)] " : "bg-white "
+					isTopOfPage && isAboveMediumScreens
+						? "bg-[rgb(255,255,255,0.3)] "
+						: "bg-white "
 				} flex mx-auto ${
-					locationInApp === "" ? " fixed " : " "
+					isAboveMediumScreens && locationInApp === "" ? " fixed " : " "
 				} top-0 shadow-sm px-6 items-center w-full text-xs ${
 					!isAboveMediumScreens ? " justify-between " : ""
 				}`}>
