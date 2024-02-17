@@ -1,4 +1,4 @@
-function HomeDashboard({}: Props) {
+function HomeDashboard() {
 	return <div>HomeDashboard</div>;
 }
 

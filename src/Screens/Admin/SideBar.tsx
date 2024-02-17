@@ -1,8 +1,4 @@
-import React from "react";
-
-type Props = {};
-
-function SideBar({}: Props) {
+function SideBar() {
 	return <div className="col-span-2">SideBar</div>;
 }
 

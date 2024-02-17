@@ -1,5 +1,5 @@
 //jshint esversion:9
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import instance from "../../API";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ interface login {
 	email: string;
 	password: string;
 }
-const Login = (): React.FC => {
+const Login = () => {
 	const { register, handleSubmit } = useForm<login>();
 	const [error, setError] = useState<boolean | null>(false);
 	const [message, setMessage] = useState<boolean | null>(null);

@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Screens/Layout";
 import AboutUs from "./Screens/AboutUs";
-import LayoutAdmin from "./Screens/Admin/LayoutAdmin";
-import Login from "./Screens/Login";
-import RegisterUser from "./Screens/RegisterUser";
-import AdminDashboard from "./Screens/Admin/AdminDashboard";
-import PrivateRoute from "./Screens/Admin/PrivateRoute";
+// import LayoutAdmin from "./Screens/Admin/LayoutAdmin";
+// import Login from "./Screens/Login";
+// import RegisterUser from "./Screens/RegisterUser";
+// import AdminDashboard from "./Screens/Admin/AdminDashboard";
+// import PrivateRoute from "./Screens/Admin/PrivateRoute";
 import WhoWeAre from "./Screens/WhoWeAre";
 
 import OurMission from "./Screens/OurMission";
@@ -22,10 +22,10 @@ import News from "./Screens/News";
 import Blogs from "./Screens/Blogs";
 import Events from "./Screens/Events";
 import Publications from "./Screens/Publications";
-import HomeDashboard from "./Screens/Admin/HomeDashboard";
-import Pages from "./Screens/Admin/Pages";
-import BlogPage from "./Screens/Admin/BlogPage";
-import EventsAdmin from "./Screens/Admin/EventsAdmin";
+// import HomeDashboard from "./Screens/Admin/HomeDashboard";
+// import Pages from "./Screens/Admin/Pages";
+// import BlogPage from "./Screens/Admin/BlogPage";
+// import EventsAdmin from "./Screens/Admin/EventsAdmin";
 
 function App() {
 	return (
