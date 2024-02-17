@@ -7,13 +7,14 @@ import { CiMenuBurger } from "react-icons/ci";
 import useMediaQuery from "../../Hooks/useMediaQuery";
 import SocialLinks from "./SocialLinks";
 import { navs } from "../../constants";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 interface topbarProps {
 	isTopOfPage: boolean;
 }
 
 const Topbar = ({ isTopOfPage }: topbarProps) => {
+	const navigate = useNavigate();
 	const isAboveMediumScreens = useMediaQuery("(min-width:1060px");
 	const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 	const { pathname } = useLocation();
@@ -32,7 +33,9 @@ const Topbar = ({ isTopOfPage }: topbarProps) => {
 				} top-0 shadow-sm px-6 items-center w-full text-xs ${
 					!isAboveMediumScreens ? " justify-between " : ""
 				}`}>
-				<div className="flex items-center gap-2">
+				<div
+					className="flex items-center gap-2 cursor-pointer"
+					onClick={() => navigate("")}>
 					<img className="block w-20 h-20" src={Logo} alt="hike-guide-logo" />
 					<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
 				</div>
