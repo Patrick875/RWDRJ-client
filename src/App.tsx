@@ -22,6 +22,10 @@ import News from "./Screens/News";
 import Blogs from "./Screens/Blogs";
 import Events from "./Screens/Events";
 import Publications from "./Screens/Publications";
+import HomeDashboard from "./Screens/Admin/HomeDashboard";
+import Pages from "./Screens/Admin/Pages";
+import BlogPage from "./Screens/Admin/BlogPage";
+import EventsAdmin from "./Screens/Admin/EventsAdmin";
 
 function App() {
 	return (
@@ -56,13 +60,6 @@ function App() {
 						/>
 						<Route />
 					</Route>
-					<Route path="/admin" element={<LayoutAdmin />}>
-						<Route index element={<Login />} />
-						<Route path="register" element={<RegisterUser />} />
-						<Route
-							path="dashboard"
-							element={<PrivateRoute element={<AdminDashboard />} />}></Route>
-					</Route>
 				</Routes>
 			</AnimatePresence>
 		</>
@@ -70,3 +67,18 @@ function App() {
 }
 
 export default App;
+
+{
+	/* <Route path="/admin" element={<LayoutAdmin />}>
+	<Route index element={<Login />} />
+	<Route path="register" element={<RegisterUser />} />
+	<Route
+		path="dashboard"
+		element={<PrivateRoute element={<AdminDashboard />} />}>
+		<Route index element={<HomeDashboard />} />
+		<Route path="pages" element={<Pages />} />
+		<Route path="blogs" element={<BlogPage />} />
+		<Route path="events" element={<EventsAdmin />} />
+	</Route>
+</Route>; */
+}

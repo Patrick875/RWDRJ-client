@@ -11,10 +11,7 @@ instance.interceptors.response.use(
 				"user",
 				JSON.stringify({
 					email: response.data.user.email,
-					id: response.data.user.id,
-					firstName: response.data.user.firstName,
-					lastName: response.data.user.lastName,
-					tel: response.data.user.tel,
+					fullname: response.data.user.fullname,
 				}),
 				{ expires: 30 }
 			);

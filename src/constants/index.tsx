@@ -190,4 +190,4 @@ export const objectives: string[] = [
 ];
 
 export const serverUrl = "";
-export const localServerUrl = "http://localhost:5200/api/v1";
+export const localServerUrl = "http://localhost:5000/";
