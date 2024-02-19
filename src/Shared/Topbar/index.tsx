@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import { HiXMark } from "react-icons/hi2";
-import Logo from "../../assets/Logo.png";
 import { motion } from "framer-motion";
 import NavBar from "./NavBar";
 import { CiMenuBurger } from "react-icons/ci";
 import useMediaQuery from "../../Hooks/useMediaQuery";
 import SocialLinks from "./SocialLinks";
 import { navs } from "../../constants";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Logo from "../Logo";
 
 interface topbarProps {
 	isTopOfPage: boolean;
 }
 
 const Topbar = ({ isTopOfPage }: topbarProps) => {
-	const navigate = useNavigate();
 	const isAboveMediumScreens = useMediaQuery("(min-width:1060px");
 	const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 	const { pathname } = useLocation();
@@ -33,12 +32,8 @@ const Topbar = ({ isTopOfPage }: topbarProps) => {
 				} top-0 shadow-sm px-6 items-center w-full text-xs ${
 					!isAboveMediumScreens ? " justify-between " : ""
 				}`}>
-				<div
-					className="flex items-center gap-2 cursor-pointer"
-					onClick={() => navigate("")}>
-					<img className="block w-20 h-20" src={Logo} alt="hike-guide-logo" />
-					<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
-				</div>
+				<Logo />
+
 				{isAboveMediumScreens ? (
 					<React.Fragment>
 						<NavBar
@@ -62,13 +57,7 @@ const Topbar = ({ isTopOfPage }: topbarProps) => {
 						className="fixed top-0 right-0 z-40 w-[100vw] min-h-screen bg-slate-100 bg-primary-100 drop-shadow-xl">
 						{/* CLOSE ICON */}
 						<div className="flex justify-between p-12">
-							<Link to="" className="block">
-								<div className="flex items-center gap-2">
-									<img className="block w-20 h-20" src={Logo} alt="logo" />
-									<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
-								</div>
-							</Link>
-
+							<Logo />
 							<button onClick={() => setIsMenuToggled(!isMenuToggled)}>
 								<HiXMark className="w-6 h-6 text-gray-400" />
 							</button>

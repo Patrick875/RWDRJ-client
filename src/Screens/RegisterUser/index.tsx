@@ -48,7 +48,12 @@ const RegisterUser = () => {
 					<div className="flex justify-center w-full my-1">
 						<div>
 							<div className="flex items-center gap-2">
-								<img className="block w-20 h-20" src={Logo} alt="logo" />
+								<img
+									loading="lazy"
+									className="block w-20 h-20"
+									src={Logo}
+									alt="logo"
+								/>
 								<p className="w-full text-xl font-bold text-center ">
 									<span className="text-emerald-900">HIKE</span> GUIDE
 								</p>

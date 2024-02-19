@@ -24,6 +24,7 @@ function OurTeam() {
 						{teamMembers.map((member: member) => (
 							<div className="bg-white rounded-[8px] ">
 								<img
+									loading="lazy"
 									src={member.img}
 									className="object-cover overlay-slate-800   rounded-t-[8px] object-top w-full p-0 h-52"
 								/>

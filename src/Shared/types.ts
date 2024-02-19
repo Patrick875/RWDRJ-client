@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface navItem {
     text: string;
     to: string;
@@ -6,6 +8,13 @@ export interface navItem {
 interface subnav {
     title: string;
     to: string
+}
+
+export interface sidenavType {
+    page: string;
+    link: string;
+    icon: ReactNode,
+    location: string;
 }
 export interface section {
     content: string;
@@ -21,4 +30,16 @@ export interface member {
 export interface partner {
     link: string;
     img: string
+}
+
+export interface BlogPost {
+    refId?: string;
+    title: string;
+    content: string;
+    coverImage: string;
+}
+
+export interface CarouselItem {
+    img: string;
+    text: string;
 }

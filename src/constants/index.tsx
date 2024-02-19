@@ -1,14 +1,20 @@
-import { member, navItem, section, partner } from "../Shared/types";
+import {
+	member,
+	navItem,
+	section,
+	partner,
+	sidenavType,
+} from "../Shared/types";
+import { MdEventAvailable, MdOutlineRestorePage } from "react-icons/md";
 
-// import doc1 from "../assets/DOC1.webp";
 import doc2 from "../assets/DOC2.webp";
 import doc3 from "../assets/DOC3.webp";
-// import doc4 from "../assets/DOC4.webp";
+
 import doc5 from "../assets/DOC5.webp";
 import doc6 from "../assets/DOC6.webp";
-// import doc7 from "../assets/DOC7.webp";
+
 import doc8 from "../assets/DOC8.webp";
-// import doc9 from "../assets/DOC9.webp";
+
 import partner1 from "../assets/partner1.gif";
 import partner2 from "../assets/partner2.webp";
 import partner3 from "../assets/partner3.webp";
@@ -20,11 +26,13 @@ import partner8 from "../assets/partner8.webp";
 import partner9 from "../assets/partner9.webp";
 import partner10 from "../assets/partner10.webp";
 
-import Advocacy from "../assets/advocacy.png";
-import Compain from "../assets/Campain.png";
+import Advocacy from "../assets/advocacy.webp";
+import Compain from "../assets/Campaign.webp";
 import Digital from "../assets/Digital.png";
 import Services from "../assets/Services.png";
-import Training1 from "../assets/Training1.webp";
+import Training1 from "../assets/Training.webp";
+import { IoHomeOutline } from "react-icons/io5";
+import { CiTextAlignJustify } from "react-icons/ci";
 
 export const navs: navItem[] = [
 	{
@@ -191,3 +199,55 @@ export const objectives: string[] = [
 
 export const serverUrl = "";
 export const localServerUrl = "http://localhost:5000/";
+
+export const sidenavs: sidenavType[] = [
+	{
+		page: "Dashboard",
+		link: "",
+		icon: <IoHomeOutline />,
+		location: "",
+	},
+	{
+		page: "Pages",
+		link: "pages",
+		icon: <MdOutlineRestorePage />,
+		location: "pages",
+	},
+	{
+		page: "Events",
+		link: "events",
+		icon: <MdEventAvailable />,
+		location: "events",
+	},
+	{
+		page: "Blogs",
+		link: "blogs",
+		icon: <CiTextAlignJustify />,
+		location: "blogs",
+	},
+];
+
+// function extractAndReplaceBase64ImageData(htmlContent: string): {
+// 	content: string;
+// 	contentImages: string[];
+// } {
+// 	const imgTagsRegex = /<img.*?src="(data:image\/[^;]+;base64,([^"]+))".*?>/g;
+// 	const contentImages: string[] = [];
+// 	let index = 1;
+
+// 	let replacedHtmlContent = htmlContent.replace(
+// 		imgTagsRegex,
+// 		(_, imageData, base64Data) => {
+// 			contentImages.push(imageData); // Push original base64 string
+// 			return _.replace(base64Data, `IMAGE-${index++}`); // Replace src attribute with IMAGE-1, IMAGE-2, etc.
+// 		}
+// 	);
+
+// 	// Remove 'data:image/png;base64,' prefix from the replaced content
+// 	replacedHtmlContent = replacedHtmlContent.replace(
+// 		/data:image\/png;base64,/g,
+// 		""
+// 	);
+
+// 	return { content: replacedHtmlContent, contentImages };
+// }

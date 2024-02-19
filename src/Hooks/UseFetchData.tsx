@@ -2,15 +2,19 @@
 import { useState, useEffect } from "react";
 import instance from "../API";
 
-const useFetchData = (url: string) => {
-	const [data, setData] = useState(null);
+interface FetchDataResponse<T> {
+	data: T;
+}
+
+const useFetchData = <T,>(url: string) => {
+	const [data, setData] = useState<T | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<any | null>(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await instance.get(url);
+				const response = await instance.get<FetchDataResponse<T>>(url);
 				if (response.data && response.data.data) {
 					setData(response.data.data);
 				}

@@ -11,6 +11,7 @@ const Footer = () => {
 						<Link to="" className="block">
 							<div className="flex items-center gap-2">
 								<img
+									loading="lazy"
 									className="block w-20 h-20"
 									src={Logo}
 									alt="hike-guide-logo"

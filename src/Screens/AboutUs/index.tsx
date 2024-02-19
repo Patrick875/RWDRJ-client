@@ -7,9 +7,51 @@ import { Icon } from "leaflet";
 import marker from "./../../assets/marker.gif";
 import Carousel from "./Carousel";
 import { partners, sections } from "../../constants";
-import { partner, section } from "../../Shared/types";
+import { CarouselItem, partner, section } from "../../Shared/types";
 import { Link } from "react-router-dom";
 import { TbWorld } from "react-icons/tb";
+import Count from "./Count";
+import Slider from "react-slick";
+
+function Partners({ partners }: { partners: partner[] }) {
+	const settings = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 5,
+		slidesToScroll: 6,
+	};
+	return (
+		<div>
+			<Slider {...settings}>
+				{partners &&
+					partners.map((part: partner, i) => (
+						<motion.div
+							className="relative block group"
+							key={crypto.randomUUID()}
+							initial={{ opacity: 0, scale: 0 }}
+							whileInView={{ opacity: 1, scale: 1 }}
+							viewport={{ amount: 0.3, once: true }}
+							transition={{ delay: 0.2 * i, duration: 0.5 }}>
+							<div className="h-32 w-full  group-hover:visible invisible z-20 absolute  bg-[rgba(0,0,0,0.44)]">
+								<Link
+									to={part.link}
+									target="blank"
+									className="flex items-center justify-center w-full h-32">
+									<TbWorld className="w-8 h-8 text-white" />
+								</Link>
+							</div>
+							<img
+								loading="lazy"
+								src={part.img}
+								className="block object-contain w-full h-32 bg-transparent md:object-center "
+							/>
+						</motion.div>
+					))}
+			</Slider>
+		</div>
+	);
+}
 
 const AboutUs = () => {
 	const container = {
@@ -39,40 +81,49 @@ const AboutUs = () => {
 		iconSize: [38, 38],
 	});
 
-	const carouselImages: string[] = ["bg-image-1", "bg-image-2", "bg-image-3"];
+	const carouselItems: CarouselItem[] = [
+		{
+			img: "bg-image-1",
+			text: "We are a network of young women physicians in Rwanda.",
+		},
+		{ img: "bg-image-2", text: "We are advocates for Reproductive Justice" },
+		{
+			img: "bg-image-3",
+			text: "We train women in the medical profession on digital and SRHR",
+		},
+	];
 
 	return (
 		<div>
 			<section
 				id="aboutus"
-				className=" flex flex-col min-h-[90vh] overflow-x-hidden">
+				className=" flex flex-col min-h-[96vh] overflow-x-hidden">
 				<Carousel
-					images={carouselImages}
-					className="w-full m-0 h-96 sm:h-64 xl:h-80 2xl:h-96">
-					<div className="flex flex-col w-full h-full gap-4 mx-auto font-montserrat md:w-5/6 ">
-						<motion.div
-							initial={{ y: -110, opacity: 0 }}
-							animate={{ y: 0, opacity: 1 }}
-							transition={{ delay: 1.2, duration: 0.8 }}
-							className="flex flex-col justify-center flex-1 w-full gap-4 mx-auto md:w-5/6">
-							<h1 className="px-6 text-3xl font-extrabold text-center md:px-0 text-sky-900">
-								Rwanda Women Doctors for Reproductive Justice
-							</h1>
-							<p className="px-6 text-sm font-bold text-center md:px-0 md:text-lg">
-								We are a network of young women physicians in Rwanda. We share
-								the spirit of activism driven by the passion for radically
-								advancing women's access to sexual and reproductive rights.
-							</p>
-							<div className="flex items-center justify-center pt-4 md:mt-4">
-								<Link
-									to="whoweare"
-									className="px-12 text-sm rounded-[4px] py-2 font-bold text-white bg-primary-orange ">
-									Read More
-								</Link>
-							</div>
-						</motion.div>
+					items={carouselItems}
+					className="w-full m-0 h-96 sm:h-64 xl:h-80 2xl:h-96"
+				/>
+			</section>
+			<section className="w-full py-6 bg-gradient-to-t from-primary-orange to-primary-orangeTrans">
+				<div className="grid w-5/6 grid-cols-1 gap-3 py-6 mx-auto bg-white md:gap-0 md:grid-cols-3 font-montserrat ">
+					<div className="text-center">
+						<p className="text-2xl font-bold">
+							<Count interval={6} countTo={151} />
+						</p>
+						<p className="font-semibold">Member Doctors</p>
 					</div>
-				</Carousel>
+					<div className="text-center">
+						<p className="text-2xl font-bold">
+							<Count interval={50} countTo={21} />
+						</p>
+						<p className="font-semibold">Educational events held</p>
+					</div>
+					<div className="text-center">
+						<p className="text-2xl font-bold">
+							<Count interval={100} countTo={12} />
+						</p>
+						<p className="font-semibold">Partner institutions</p>
+					</div>
+				</div>
 			</section>
 
 			<motion.section
@@ -119,6 +170,7 @@ const AboutUs = () => {
 						variants={container}
 						className="flex justify-center md:block">
 						<img
+							loading="lazy"
 							className="block object-contain w-64 h-48 md:h-64 "
 							src={Graphic}
 							alt="woman-graphic"
@@ -151,6 +203,7 @@ const AboutUs = () => {
 								i % 2 !== 0 && " md:flex-row-reverse "
 							} `}>
 							<img
+								loading="lazy"
 								className="block object-cover rounded-[12px] w-full md:w-1/2 h-48  "
 								src={sect.img}
 								alt={sect.title.toLowerCase()}
@@ -177,7 +230,20 @@ const AboutUs = () => {
 				</div>
 			</motion.section>
 
-			<motion.section
+			<motion.div
+				id="ourpartners"
+				viewport={{ once: true, amount: 0.2 }}
+				initial={{ opacity: 0.1, y: -50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.3, delay: 0.4 }}
+				className="w-full py-3 bg-white ">
+				<div className="w-5/6 py-4 mx-auto">
+					<div className="w-5/6 mx-auto">
+						<Partners partners={partners} />
+					</div>
+				</div>
+			</motion.div>
+			{/* {<motion.section
 				id="ourpartners"
 				viewport={{ once: true, amount: 0.2 }}
 				initial={{ opacity: 0.1, y: -50 }}
@@ -209,6 +275,7 @@ const AboutUs = () => {
 										</Link>
 									</div>
 									<img
+										loading="lazy"
 										src={part.img}
 										className="block object-contain w-full h-32 bg-transparent md:object-center "
 									/>
@@ -217,7 +284,7 @@ const AboutUs = () => {
 						</div>
 					)}
 				</div>
-			</motion.section>
+			</motion.section>} */}
 			<motion.section
 				id="news"
 				viewport={{ once: false, amount: 0.3 }}

@@ -83,6 +83,7 @@ function Training() {
 									i % 2 !== 0 && " md:flex-row-reverse "
 								} `}>
 								<img
+									loading="lazy"
 									className="block object-cover rounded-[12px] w-full md:w-1/2 h-48  "
 									src={sect.image}
 									alt={sect.title.toLowerCase()}

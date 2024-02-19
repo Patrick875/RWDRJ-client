@@ -22,7 +22,7 @@ function Contactus() {
 			</div>
 			<section id="contactus" className="w-5/6 py-8 mx-auto">
 				<p className="py-4 text-lg font-bold text-gray-600">Contact Us</p>
-				<div className="flex flex-col-reverse w-full md:flex-col">
+				<div className="flex flex-col-reverse w-full md:flex-row">
 					<div className="w-full pr-8 md:w-1/2">
 						<ContactUsForm />
 					</div>

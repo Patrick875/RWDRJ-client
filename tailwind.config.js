@@ -5,6 +5,7 @@ export default {
 		extend: {
 			colors: {
 				"primary-orange": "#C29F1D",
+				"primary-orangeTrans": "rgba(194, 159, 45,0.85)",
 				"hero-cover": "rgba(255,255,255,0.58)",
 				"page-cover": "rgba(0,0,0,0.68)",
 			},

@@ -29,7 +29,7 @@ function CampaignAndOrganizing() {
 						<p className="my-2 text-lg font-extrabold text-sky-900 ">
 							Gallery{" "}
 						</p>
-						<p className="text-xs ">Items yet to be added</p>
+						<p className="text-xs">No images added to the Gallery yet .</p>
 					</div>
 					<MoreLinks current="Campaign&Organizing" />
 				</div>
