@@ -23,7 +23,10 @@ const Footer = () => {
 					<div className="flex justify-center">
 						<div className="flex gap-3 my-3 ">
 							{navs.map((nav) => (
-								<Link className="block text-xs text-white" to={nav.to}>
+								<Link
+									key={crypto.randomUUID()}
+									className="block text-xs text-white"
+									to={nav.to}>
 									{nav.text}
 								</Link>
 							))}

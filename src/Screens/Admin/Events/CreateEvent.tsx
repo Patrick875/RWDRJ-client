@@ -2,8 +2,7 @@ import React, { useState, useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import instance from "../../../API";
-import { BlogPost } from "../../../Shared/types";
-import toast from "react-hot-toast";
+import { EventPost } from "../../../Shared/types";
 
 const modules = {
 	toolbar: {
@@ -22,18 +21,30 @@ const modules = {
 	},
 };
 
-const CreateBlog: React.FC = () => {
+const CreateEvent: React.FC = () => {
 	const [title, setTitle] = useState<string>("");
-	const [content, setContent] = useState<string>("");
+	const [description, setDescription] = useState<string>("");
+	const [dateend, setDateEnd] = useState<string>("");
+	const [datestart, setDateStart] = useState<string>("");
 	const [coverImage, setCoverImage] = useState<string>("");
 	const quillRef = useRef<ReactQuill>(null);
 
 	const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTitle(e.target.value);
 	};
+	const handleStartDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+		console.log("start", e.target.value);
+
+		const startDate = e.target.value;
+		setDateStart(startDate);
+	};
+	const handleEndDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const endDate = e.target.value;
+		setDateEnd(endDate);
+	};
 
 	const handleContentChange = (value: string) => {
-		setContent(value);
+		setDescription(value);
 	};
 
 	const handleCoverImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,19 +59,21 @@ const CreateBlog: React.FC = () => {
 	};
 
 	const handleSubmit = async () => {
-		const blogPost: BlogPost = {
+		const eventPost: EventPost = {
 			title,
-			content,
+			description,
 			coverImage,
+			dateend,
+			datestart,
 		};
 
 		await instance
-			.post("/blogs", blogPost)
-			.then(() => {
-				toast.success("Success !!!");
+			.post("/events", eventPost)
+			.then((res) => {
+				console.log("res", res);
 			})
 			.catch((err) => {
-				toast.error(err.code);
+				console.log("err", err);
 			});
 	};
 
@@ -97,11 +110,24 @@ const CreateBlog: React.FC = () => {
 					</div>
 				)}
 			</div>
-
+			<input
+				type="datetime-local"
+				placeholder="Enter start date"
+				value={datestart}
+				onChange={handleStartDate}
+				className="w-full p-2 mb-4 text-xs border border-gray-300 rounded placeholder:text-xs focus:outline-none focus:border-blue-500"
+			/>
+			<input
+				type="datetime-local"
+				placeholder="Enter End date"
+				value={dateend}
+				onChange={handleEndDate}
+				className="w-full p-2 mb-4 text-xs border border-gray-300 rounded placeholder:text-xs focus:outline-none focus:border-blue-500"
+			/>
 			<ReactQuill
 				ref={quillRef}
 				theme="snow"
-				value={content}
+				value={description}
 				onChange={handleContentChange}
 				placeholder="Write your blog post content here..."
 				className="mb-4"
@@ -117,4 +143,4 @@ const CreateBlog: React.FC = () => {
 	);
 };
 
-export default CreateBlog;
+export default CreateEvent;

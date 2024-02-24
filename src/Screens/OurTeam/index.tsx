@@ -22,7 +22,9 @@ function OurTeam() {
 				{teamMembers && (
 					<div className="grid grid-cols-1 gap-3 md:grid-cols-3 ">
 						{teamMembers.map((member: member) => (
-							<div className="bg-white rounded-[8px] ">
+							<div
+								key={crypto.randomUUID()}
+								className="bg-white rounded-[8px] ">
 								<img
 									loading="lazy"
 									src={member.img}

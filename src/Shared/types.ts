@@ -36,7 +36,18 @@ export interface BlogPost {
     refId?: string;
     title: string;
     content: string;
+    postedBy?: string;
+    datePosted?: string;
     coverImage: string;
+}
+export interface EventPost {
+    refId?: string;
+    title: string;
+    description: string;
+    coverImage: string;
+    datestart: string;
+    postedDate?: string;
+    dateend: string;
 }
 
 export interface CarouselItem {

@@ -28,7 +28,7 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 										setIsMenuToggeled((prev) => !prev);
 									}}
 									className="block px-2 py-2 font-bold hover:bg-slate-200 hover:border-b-primary-orange hover:border-bottom-1"
-									key={crypto.randomUUID()}
+									key={item.text}
 									to={item.to}>
 									{item.text}
 								</Link>
@@ -77,7 +77,7 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 						!item.subnavs ? (
 							<Link
 								className=" font-bold transition-hover duration-150 py-2  text-center  hover:border-b-primary-orange hover:border-b-[1.5px]"
-								key={crypto.randomUUID()}
+								key={item.text}
 								to={item.to}>
 								{item.text}
 							</Link>
@@ -85,7 +85,7 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 							<div className="relative group">
 								<p
 									className="py-2 font-bold text-center capitalize cursor-pointer group-hover:border-b-primary-orange hover:border-bottom-1"
-									key={crypto.randomUUID()}>
+									key={item.text}>
 									{item.text}
 								</p>
 								<div className="absolute z-50 hidden p-3 group-hover:block bg-slate-100">

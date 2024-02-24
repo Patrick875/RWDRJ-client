@@ -21,7 +21,7 @@ import { AnimatePresence } from "framer-motion";
 import News from "./Screens/News";
 import Blogs from "./Screens/Blogs";
 import Events from "./Screens/Events";
-import Publications from "./Screens/Publications";
+
 import HomeDashboard from "./Screens/Admin/HomeDashboard";
 import Pages from "./Screens/Admin/Pages";
 import BlogPage from "./Screens/Admin/BlogPage";
@@ -29,12 +29,24 @@ import EventsAdmin from "./Screens/Admin/EventsAdmin";
 import AllBlogs from "./Screens/Admin/Blogs/AllBlogs";
 import CreateBlog from "./Screens/Admin/Blogs/CreateBlog";
 import ViewBlog from "./Screens/Admin/Blogs/ViewBlog";
+import AllEvents from "./Screens/Admin/Events/AllEvents";
+import CreateEvent from "./Screens/Admin/Events/CreateEvent";
+import ViewEvent from "./Screens/Admin/Events/viewEvent";
+import BlogDetails from "./Screens/Blogs/BlogDetails";
+import EventDetails from "./Screens/Events/EventDetails";
+import { Toaster } from "react-hot-toast";
 
 function App() {
 	return (
 		<>
 			<AnimatePresence mode="wait">
 				<ScrollRestoration />
+				<Toaster
+					position="top-center"
+					toastOptions={{
+						duration: 5000,
+					}}
+				/>
 				<Routes>
 					<Route path="/" element={<Layout />}>
 						<Route index element={<AboutUs />} />
@@ -44,8 +56,9 @@ function App() {
 						<Route path="news" element={<News />}>
 							<Route index element={<Blogs />} />
 							<Route path="events" element={<Events />} />
-							<Route path="publications" element={<Publications />} />
 						</Route>
+						<Route path="news/blogs/:refId" element={<BlogDetails />} />
+						<Route path="news/events/:refId" element={<EventDetails />} />
 						<Route path="ourteam" element={<OurTeam />} />
 						<Route path="whatwedo/advocacy" element={<Advocacy />} />
 						<Route
@@ -75,6 +88,11 @@ function App() {
 								<Route index element={<AllBlogs />} />
 								<Route path="create" element={<CreateBlog />} />
 								<Route path=":refId" element={<ViewBlog />} />
+							</Route>
+							<Route path="events" element={<EventsAdmin />}>
+								<Route index element={<AllEvents />} />
+								<Route path="create" element={<CreateEvent />} />
+								<Route path=":refId" element={<ViewEvent />} />
 							</Route>
 							<Route path="events" element={<EventsAdmin />} />
 						</Route>

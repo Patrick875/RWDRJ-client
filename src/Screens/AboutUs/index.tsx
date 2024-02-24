@@ -1,4 +1,3 @@
-import { Timeline } from "react-twitter-widgets";
 import { motion } from "framer-motion";
 import Graphic from "../../assets/graphic.png";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
@@ -7,11 +6,21 @@ import { Icon } from "leaflet";
 import marker from "./../../assets/marker.gif";
 import Carousel from "./Carousel";
 import { partners, sections } from "../../constants";
-import { CarouselItem, partner, section } from "../../Shared/types";
+import {
+	BlogPost,
+	CarouselItem,
+	EventPost,
+	partner,
+	section,
+} from "../../Shared/types";
 import { Link } from "react-router-dom";
 import { TbWorld } from "react-icons/tb";
 import Count from "./Count";
 import Slider from "react-slick";
+import useFetchData from "../../Hooks/UseFetchData";
+import Event from "../../Shared/Event";
+import BlogCard from "../../Shared/BlogCard";
+import TwitterTimeLine from "./TwitterTimeLine";
 
 function Partners({ partners }: { partners: partner[] }) {
 	const settings = {
@@ -93,6 +102,9 @@ const AboutUs = () => {
 		},
 	];
 
+	const { data: blogs } = useFetchData<BlogPost[]>("/blogs");
+	const { data: events } = useFetchData<EventPost[]>("/events");
+
 	return (
 		<div>
 			<section
@@ -106,21 +118,21 @@ const AboutUs = () => {
 			<section className="w-full py-6 bg-gradient-to-t from-primary-orange to-primary-orangeTrans">
 				<div className="grid w-5/6 grid-cols-1 gap-3 py-6 mx-auto bg-white md:gap-0 md:grid-cols-3 font-montserrat ">
 					<div className="text-center">
-						<p className="text-2xl font-bold">
+						<div className="text-2xl font-bold">
 							<Count interval={6} countTo={151} />
-						</p>
+						</div>
 						<p className="font-semibold">Member Doctors</p>
 					</div>
 					<div className="text-center">
-						<p className="text-2xl font-bold">
+						<div className="text-2xl font-bold">
 							<Count interval={50} countTo={21} />
-						</p>
+						</div>
 						<p className="font-semibold">Educational events held</p>
 					</div>
 					<div className="text-center">
-						<p className="text-2xl font-bold">
+						<div className="text-2xl font-bold">
 							<Count interval={100} countTo={12} />
-						</p>
+						</div>
 						<p className="font-semibold">Partner institutions</p>
 					</div>
 				</div>
@@ -238,53 +250,14 @@ const AboutUs = () => {
 				transition={{ duration: 0.3, delay: 0.4 }}
 				className="w-full py-3 bg-white ">
 				<div className="w-5/6 py-4 mx-auto">
+					<p className="w-full my-1 text-lg font-bold text-center ">
+						Our Partners
+					</p>
 					<div className="w-5/6 mx-auto">
 						<Partners partners={partners} />
 					</div>
 				</div>
 			</motion.div>
-			{/* {<motion.section
-				id="ourpartners"
-				viewport={{ once: true, amount: 0.2 }}
-				initial={{ opacity: 0.1, y: -50 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.3, delay: 0.4 }}
-				className="flex flex-col w-full px-2 py-4 mx-auto bg-white ">
-				<div className="w-5/6 mx-auto">
-					<div className="w-full mx-auto md:w-2/3">
-						<p className="w-full my-1 text-lg font-bold text-center ">
-							Our Partners
-						</p>
-					</div>
-					{partners && (
-						<div className="grid grid-cols-2 gap-3 md:gap-2 md:grid-cols-5 ">
-							{partners.map((part: partner, i) => (
-								<motion.div
-									className="relative block group"
-									key={crypto.randomUUID()}
-									initial={{ opacity: 0, scale: 0 }}
-									whileInView={{ opacity: 1, scale: 1 }}
-									viewport={{ amount: 0.3, once: true }}
-									transition={{ delay: 0.2 * i, duration: 0.5 }}>
-									<div className="h-32 w-full  group-hover:visible invisible z-20 absolute  bg-[rgba(0,0,0,0.44)]">
-										<Link
-											to={part.link}
-											target="blank"
-											className="flex items-center justify-center w-full h-32">
-											<TbWorld className="w-8 h-8 text-white" />
-										</Link>
-									</div>
-									<img
-										loading="lazy"
-										src={part.img}
-										className="block object-contain w-full h-32 bg-transparent md:object-center "
-									/>
-								</motion.div>
-							))}
-						</div>
-					)}
-				</div>
-			</motion.section>} */}
 			<motion.section
 				id="news"
 				viewport={{ once: false, amount: 0.3 }}
@@ -297,23 +270,43 @@ const AboutUs = () => {
 				<div className="grid grid-cols-1 gap-2 md:grid-cols-3">
 					<div>
 						<p className="font-bold ">Latest Blogs</p>
-						<p className="text-xs">Latest event posts will be shown here</p>
+						{blogs && blogs.length === 0 && (
+							<p className="text-xs">Latest event posts will be shown here</p>
+						)}
+						{blogs && blogs.length !== 0 && (
+							<div>
+								{blogs.slice(0, 1).map((blog: BlogPost) => (
+									<BlogCard blog={blog} key={blog.refId} />
+								))}
+								<Link
+									to="/news"
+									className="px-4 font-bold rounded-[4px] bg-black py-1 text-white text-xs my-2 ">
+									More blogs
+								</Link>
+							</div>
+						)}
 					</div>
 					<div>
-						<p className="font-bold ">Latest events</p>
-						<p className="text-xs">Latest event posts will be shown here</p>
+						<p className="font-bold ">Latest Events</p>
+						{events && events.length === 0 && (
+							<p className="text-xs">Latest event posts will be shown here</p>
+						)}
+						{events && events.length !== 0 && (
+							<div>
+								{events.slice(0, 1).map((event: EventPost) => (
+									<Event event={event} key={event.refId} />
+								))}
+								<Link
+									to="/news/events"
+									className=" px-4 font-bold rounded-[4px] bg-black py-1 text-white text-xs my-2 ">
+									More Events
+								</Link>
+							</div>
+						)}
 					</div>
 					<div>
 						<p className="font-bold ">RWDRJ Tweets</p>
-						<Timeline
-							dataSource={{
-								sourceType: "profile",
-								screenName: "doctors_women",
-							}}
-							options={{
-								height: "300",
-							}}
-						/>
+						<TwitterTimeLine />
 					</div>
 				</div>
 			</motion.section>

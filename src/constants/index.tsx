@@ -251,3 +251,17 @@ export const sidenavs: sidenavType[] = [
 
 // 	return { content: replacedHtmlContent, contentImages };
 // }
+
+export function formatDate(date: string): string {
+	// Extract date components
+	const year = new Date(date).getFullYear();
+	const month = String(new Date(date).getMonth() + 1).padStart(2, "0"); // Month is zero-based
+	const day = String(new Date(date).getDate()).padStart(2, "0");
+	const hours = String(new Date(date).getHours()).padStart(2, "0");
+	const minutes = String(new Date(date).getMinutes()).padStart(2, "0");
+
+	// Format date string
+	const formattedDate = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+	return formattedDate;
+}

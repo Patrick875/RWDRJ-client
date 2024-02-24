@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom";
 import useFetchData from "../../../Hooks/UseFetchData";
-import { BlogPost } from "../../../Shared/types";
+import { EventPost } from "../../../Shared/types";
 
-function AllBlogs() {
-	const { data: blogs, loading } = useFetchData<BlogPost[]>("/blogs");
+function AllEvents() {
+	const { data: events, loading } = useFetchData<EventPost[]>("/events");
 
 	return (
 		<div>
 			<div className="flex items-center justify-between">
-				<p className="font-bold">All Blog posts</p>
+				<p className="font-bold">All Events </p>
 				<Link
 					to="create"
 					className="p-2 blog text-xs font-bold rounded-[4px] text-white bg-purple-900">
-					Create blog
+					Create event
 				</Link>
 			</div>
 			<div className="grid grid-cols-4 gap-4">
 				{loading && <p>Loading ...</p>}
-				{blogs &&
-					blogs.map((el: BlogPost) => (
+				{events &&
+					events.map((el: EventPost) => (
 						<Link className="block w-full p-1" to={el.refId ? el.refId : ""}>
 							<div className="bg-white rounded-[8px]">
 								<div className="w-full p-1 ">
@@ -37,4 +37,4 @@ function AllBlogs() {
 	);
 }
 
-export default AllBlogs;
+export default AllEvents;

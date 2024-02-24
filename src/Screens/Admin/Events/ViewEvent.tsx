@@ -4,8 +4,8 @@ import parse from "html-react-parser";
 import ReactQuill from "react-quill";
 import { useEffect, useMemo, useRef, useState } from "react";
 import instance from "../../../API";
-import { BlogPost } from "../../../Shared/types";
-import toast from "react-hot-toast";
+import { EventPost } from "../../../Shared/types";
+import { formatDate } from "../../../constants";
 
 const modules = {
 	toolbar: {
@@ -24,17 +24,19 @@ const modules = {
 	},
 };
 
-function ViewBlog() {
+function ViewEvent() {
 	const { refId } = useParams();
 	const quillRef = useRef<ReactQuill>(null);
-	const { data: blog, loading } = useFetchData<BlogPost>(`/blogs/${refId}`);
+	const { data: event, loading } = useFetchData<EventPost>(`/events/${refId}`);
 	const [title, setTitle] = useState<string>("");
-	const [content, setContent] = useState<string>("");
+	const [dateend, setDateEnd] = useState<string>("");
+	const [datestart, setDateStart] = useState<string>("");
+	const [description, setDescription] = useState<string>("");
 	const [coverImage, setCoverImage] = useState<string>("");
 	const [localCoverImage, setLocalCoverImage] = useState<string>("");
 
 	const lengthChanged = useMemo(() => {
-		if (blog) {
+		if (event) {
 			const currentEditor = quillRef.current?.getEditor();
 			const unprevEditor = currentEditor
 				? quillRef.current?.makeUnprivilegedEditor(currentEditor)
@@ -42,9 +44,9 @@ function ViewBlog() {
 
 			if (unprevEditor) {
 				if (
-					blog.content.length < unprevEditor?.getHTML().length ||
-					title.length !== blog.title.length ||
-					localCoverImage !== blog.coverImage
+					event.description.length < unprevEditor?.getHTML().length ||
+					title.length !== event.title.length ||
+					localCoverImage !== event.coverImage
 				) {
 					return true;
 				}
@@ -52,14 +54,14 @@ function ViewBlog() {
 				return false;
 			}
 		}
-	}, [content, title, localCoverImage]);
+	}, [description, title, localCoverImage]);
 
 	const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTitle(e.target.value);
 	};
 
 	const handleContentChange = (value: string) => {
-		setContent(value);
+		setDescription(value);
 	};
 	const handleCoverImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
@@ -72,37 +74,54 @@ function ViewBlog() {
 			reader.readAsDataURL(file);
 		}
 	};
+	const handleStartDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+		console.log("start", e.target.value);
+
+		const startDate = e.target.value;
+		setDateStart(startDate);
+	};
+	const handleEndDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const endDate = e.target.value;
+		setDateEnd(endDate);
+	};
 
 	const loggedIn: boolean = true;
-	const updateBlog = async () => {
-		const blogPost: BlogPost = {
-			content,
+	const updateEvent = async () => {
+		const eventPost: EventPost = {
+			description,
 			title,
 			coverImage,
+			dateend,
+			datestart,
 		};
+
 		await instance
-			.patch(`/blogs/${refId}`, blogPost)
-			.then(() => {
-				toast.success("Blog updated !!!");
+			.patch(`/events/${refId}`, eventPost)
+			.then((res) => {
+				console.log("res", res);
 			})
 			.catch((err) => {
-				toast.error(err.code);
+				console.log("err", err);
 			});
 	};
 
 	useEffect(() => {
-		if (blog) {
-			setContent(blog.content);
-			setTitle(blog.title);
-			setCoverImage(blog.coverImage);
-			setLocalCoverImage(blog.coverImage);
+		if (event) {
+			console.log("event", event);
+
+			setDescription(event.description);
+			setTitle(event.title);
+			setCoverImage(event.coverImage);
+			setLocalCoverImage(event.coverImage);
+			setDateEnd(formatDate(event.dateend));
+			setDateStart(formatDate(event.datestart));
 		}
-	}, [blog]);
+	}, [event]);
 
 	return (
 		<div>
 			{loading && <p>Loading ...</p>}
-			{!loading && blog && (
+			{!loading && event && (
 				<div>
 					<div
 						className="w-full h-48 bg-center bg-cover rounded-[8px]"
@@ -112,7 +131,7 @@ function ViewBlog() {
 								<input
 									onChange={handleTitleChange}
 									className="w-full p-2 text-center text-white bg-transparent font-hanuman focus:border-blue-500 "
-									defaultValue={blog.title}
+									defaultValue={event.title}
 									value={title}
 								/>
 								<div>
@@ -132,22 +151,36 @@ function ViewBlog() {
 							</div>
 						</div>
 					</div>
-					{!loggedIn && parse(blog.content)}
+					{!loggedIn && parse(event.description)}
 					{loggedIn && (
 						<div>
+							<input
+								type="datetime-local"
+								placeholder="Enter start date"
+								value={datestart}
+								onChange={handleStartDate}
+								className="w-full p-2 mb-4 text-xs border border-gray-300 rounded placeholder:text-xs focus:outline-none focus:border-blue-500"
+							/>
+							<input
+								type="datetime-local"
+								placeholder="Enter End date"
+								value={dateend}
+								onChange={handleEndDate}
+								className="w-full p-2 mb-4 text-xs border border-gray-300 rounded placeholder:text-xs focus:outline-none focus:border-blue-500"
+							/>
 							<ReactQuill
 								ref={quillRef}
 								theme="snow"
-								value={content}
-								defaultValue={blog.content}
+								value={description}
+								defaultValue={event.description}
 								onChange={handleContentChange}
-								placeholder="Write your blog post content here..."
+								placeholder="Write your event post description here..."
 								className="mb-4"
 								modules={modules}
 							/>
 							{lengthChanged && (
 								<button
-									onClick={updateBlog}
+									onClick={updateEvent}
 									className="text-white bg-emerald-950 font-bold p-1 rounded-[6px]">
 									Save
 								</button>
@@ -160,4 +193,4 @@ function ViewBlog() {
 	);
 }
 
-export default ViewBlog;
+export default ViewEvent;
