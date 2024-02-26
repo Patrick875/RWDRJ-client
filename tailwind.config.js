@@ -43,11 +43,7 @@ export default {
 				"5xl": "3.052rem",
 				"8xl": "5.52rem",
 			},
-			content: [
-				"./index.html",
-				"./src/**/*.{js,ts,jsx,tsx}",
-				"node_modules/flowbite-react/lib/esm/**/*.js",
-			],
+			content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 			screens: {
 				xs: "480px",
 				sm: "768px",
@@ -55,5 +51,5 @@ export default {
 			},
 		},
 	},
-	plugins: [require("flowbite/plugin")],
+	plugins: [],
 };
