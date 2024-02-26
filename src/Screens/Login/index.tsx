@@ -3,33 +3,32 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import instance from "../../API";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../../Context/UserContext";
-import Logo from "../../assets/h-guide-logo.png";
+import Logo from "../../assets/Logo.png";
 import { HashLoader } from "react-spinners";
-
+interface login {
+	email: string;
+	password: string;
+}
 const Login = () => {
-	const { register, handleSubmit } = useForm();
-	const [error, setError] = useState(false);
-	const [message, setMessage] = useState(null);
-	const [loading, setLoading] = useState(null);
-	const navigateToDashboard = (user) => {
+	const { register, handleSubmit } = useForm<login>();
+	const [error, setError] = useState<boolean | null>(false);
+	const [message, setMessage] = useState<boolean | null>(null);
+	const [loading, setLoading] = useState<boolean | null>(null);
+	const navigateToDashboard = () => {
 		navigate("dashboard");
 	};
-	const { loginUser, user } = useUser();
 	const navigate = useNavigate();
 	const handleOnFocus = () => {
 		setError(null);
 		setMessage(null);
 	};
-	const login = async (data) => {
-		console.log("data", data);
-
+	const login = async (data: login) => {
 		setLoading(true);
 		await instance
 			.post("/login", { ...data })
 			.then((res) => {
-				loginUser(res.data.user);
-				navigateToDashboard(res.data.user);
+				console.log("res", res);
+				navigateToDashboard();
 			})
 			.catch((err) => {
 				console.log(err);
@@ -49,13 +48,12 @@ const Login = () => {
 						<div>
 							<div className="flex items-center gap-2">
 								<img
+									loading="lazy"
 									className="block w-20 h-20"
 									src={Logo}
 									alt="hike-guide-logo"
 								/>
-								<p className="w-full text-xl font-bold text-center ">
-									<span className="text-emerald-900">HIKE</span> GUIDE
-								</p>
+								<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
 							</div>
 						</div>
 					</div>
@@ -103,15 +101,6 @@ const Login = () => {
 							to="/resetpassword"
 							className="block text-xs text-center text-sky-700 ">
 							Reset Password
-						</Link>
-						<p className="mt-2 text-xs text-center">
-							{" "}
-							Don't have an account ?{" "}
-						</p>
-						<Link
-							to="register"
-							className="block mt-3 text-xs font-bold text-center text-purple-900 ">
-							Create account
 						</Link>
 					</form>
 					{error && (

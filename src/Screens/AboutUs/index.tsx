@@ -1,149 +1,58 @@
-import { Timeline } from "react-twitter-widgets";
 import { motion } from "framer-motion";
-import Advocacy from "../../assets/advocacy.png";
-import Compain from "../../assets/Campain.png";
-import Digital from "../../assets/Digital.png";
-import Services from "../../assets/Services.png";
-import Training1 from "../../assets/Training1.webp";
-import Graphic from "../../assets/graphic.png";
-import Topbar from "../../Shared/Topbar";
-import doc1 from "../../assets/DOC1.webp";
-import doc2 from "../../assets/DOC2.webp";
-import doc3 from "../../assets/DOC3.webp";
-import doc4 from "../../assets/DOC4.webp";
-import doc5 from "../../assets/DOC5.webp";
-import doc6 from "../../assets/DOC6.webp";
-import doc7 from "../../assets/DOC7.webp";
-import doc8 from "../../assets/DOC8.webp";
-import doc9 from "../../assets/DOC9.webp";
+import Showing from "../../assets/showing.webp";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import { Icon } from "leaflet";
+import marker from "./../../assets/marker.gif";
+import Carousel from "./Carousel";
+import { partners, sections } from "../../constants";
+import { CarouselItem, NewsItem, partner, section } from "../../Shared/types";
+import { Link, useNavigate } from "react-router-dom";
+import { TbWorld } from "react-icons/tb";
+import Count from "./Count";
+import Slider from "react-slick";
+import useFetchData from "../../Hooks/UseFetchData";
 
-import partner1 from "../../assets/partner1.webp";
-import partner2 from "../../assets/partner2.webp";
-import partner3 from "../../assets/partner3.webp";
-import partner4 from "../../assets/partner4.webp";
-import partner5 from "../../assets/partner5.webp";
-import partner6 from "../../assets/partner6.webp";
-import partner7 from "../../assets/partner7.webp";
-import partner8 from "../../assets/partner8.webp";
-import partner9 from "../../assets/partner9.gif";
-import partner10 from "../../assets/partner10.webp";
+import TwitterTimeLine from "./TwitterTimeLine";
+import { HiCalendarDays } from "react-icons/hi2";
 
-// import slider1 from "../../assets/welcome-img.webp";
-// import slider2 from "../../assets/slider2.webp";
-// import slider3 from "../../assets/slider3.webp";
-// import slider4 from "../../assets/slider4.webp";
-// import { Button, Carousel } from "flowbite-react";
-
-import RWDRJ1 from "../../assets/RWDRJ1 1.png";
-
-interface section {
-	content: string;
-	title: string;
-	img?: string;
-}
-interface member {
-	name: string;
-	title: string;
-	img?: string;
+function Partners({ partners }: { partners: partner[] }) {
+	const settings = {
+		infinite: true,
+		autoplay: true,
+		speed: 500,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		arrows: false,
+		dots: true,
+	};
+	return (
+		<div className="flex-1 partner-slider">
+			<Slider {...settings}>
+				{partners &&
+					partners.map((part: partner) => (
+						<div className="relative block group" key={crypto.randomUUID()}>
+							<div className="h-32 w-full  group-hover:visible invisible z-20 absolute  bg-[rgba(0,0,0,0.44)]">
+								<Link
+									to={part.link}
+									target="blank"
+									className="flex items-center justify-center w-full h-32">
+									<TbWorld className="w-8 h-8 text-white" />
+								</Link>
+							</div>
+							<img
+								loading="lazy"
+								src={part.img}
+								className="block object-contain w-full h-32 bg-transparent md:object-center "
+							/>
+						</div>
+					))}
+			</Slider>
+		</div>
+	);
 }
 
 const AboutUs = () => {
-	const sections: section[] = [
-		{
-			content: `As a group of young women doctors, advocating for access to
-									legal and safe SRHR and friendly services is significantly
-									essential. We recognize women and girls' catastrophic
-									complications when they are denied rights to reproductive
-									services and opt for dangerous traditional options.`,
-			title: "Advocacy",
-			img: Advocacy,
-		},
-		{
-			img: Compain,
-			title: "Campaign&Organizing",
-			content:
-				"We believe in The power of feminist organizing.  Through collective actions, we aim to transform the gender relations that subordinate and devalue women. Feminist organizing sustains our movement and advances autonomy and equality for all women.",
-		},
-		{
-			img: Training1,
-			title: "Training",
-			content:
-				"Strengthening the network of young women pro-choice physicians: young physicians in Rwanda are less bound by abortion stigma than older physicians in Rwanda. ",
-		},
-		{
-			title: "Service Provision",
-			img: Services,
-			content:
-				"Dorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur neque.",
-		},
-		{
-			title: "Digital Health & SRHR",
-			img: Digital,
-			content:
-				"Nationally, abortion is only permissible in cases of rape, when the pregnant person is a child, forced marriage, in cases of incest committed with a person to the second degree of kinship, and when the pregnancy puts a risk to the health of the pregnant person or of the fetus. ",
-		},
-	];
-
-	const teamMembers: member[] = [
-		{
-			name: "Pacific Ufitinema",
-			title: "Executive Director",
-			img: doc1,
-		},
-		{
-			name: "Sandrine Umutoniwase",
-			title: "Assistant Director",
-			img: doc2,
-		},
-		{
-			name: "Clarisse Mutimukeye",
-			title: "Senior Program Director",
-			img: doc3,
-		},
-		{
-			name: "Fanny Giraneza",
-			title: "Finance&Grants Director",
-			img: doc4,
-		},
-		{
-			name: "Divine Ingabire",
-			title: "Campaigns Coordinator",
-			img: doc5,
-		},
-		{
-			name: "Girimpundu Revocathe",
-			title: "Phycologist",
-			img: doc6,
-		},
-		{
-			name: "Sandrine Umuhoza",
-			title: "Members Director",
-			img: doc7,
-		},
-		{
-			name: "Josee Murekeyisoni",
-			title: "IT&Communication Director",
-			img: doc8,
-		},
-		{
-			name: "Pierrette Mfurankunda",
-			title: "Policy and Law Director",
-			img: doc9,
-		},
-	];
-
-	const partners: string[] = [
-		partner1,
-		partner2,
-		partner3,
-		partner4,
-		partner5,
-		partner6,
-		partner7,
-		partner8,
-		partner9,
-		partner10,
-	];
 	const container = {
 		visible: {
 			hidden: { opacity: 0 },
@@ -166,226 +75,333 @@ const AboutUs = () => {
 		},
 	};
 
+	const customIcon = new Icon({
+		iconUrl: marker,
+		iconSize: [38, 38],
+	});
+
+	const carouselItems: CarouselItem[] = [
+		{
+			img: "bg-image-1",
+			text: "We are a network of young women physicians in Rwanda.",
+		},
+		{ img: "bg-image-2", text: "We are advocates for Reproductive Justice" },
+		{
+			img: "bg-image-3",
+			text: "We train women in the medical profession on digital and SRHR",
+		},
+	];
+
+	const navigate = useNavigate();
+	const { data: news } = useFetchData<NewsItem[]>("/news");
+
 	return (
 		<div>
-			<section className="flex flex-col min-h-[100vh]">
-				<Topbar />
-				<motion.div
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true, amount: 0.5 }}
-					transition={{ delay: 0.2, duration: 0.5 }}
-					variants={{
-						hidden: { opacity: 0, x: -50 },
-						visible: { opacity: 1, x: 0 },
-					}}
-					className="flex flex-col-reverse items-center justify-between w-5/6 mx-auto md:flex-row">
-					<div className="flex flex-col w-full gap-4 mx-auto md:w-1/2 md:mt-12">
-						<h1 className="text-3xl font-extrabold text-center md:text-start text-sky-900">
-							Rwanda Women Doctors for Reproductive Justice
-						</h1>
-						<p className="text-sm text-center md:text-lg md:text-start">
-							We are a network of young women physicians in Rwanda. We share the
-							spirit of activism driven by the passion for radically advancing
-							women's access to sexual and reproductive rights.
-						</p>
-						<div className="flex items-center justify-center pt-4 md:justify-start md:mt-4">
-							<button className="px-12 text-sm rounded-[4px] py-2 font-bold text-white bg-primary-orange ">
-								Learn More
-							</button>
-						</div>
-					</div>
-					<motion.div
-						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true, amount: 0.5 }}
-						transition={{ delay: 0.4, duration: 0.8 }}
-						variants={{
-							hidden: { opacity: 0, x: 50 },
-							visible: { opacity: 1, x: 0 },
-						}}
-						className="flex justify-center w-full md:w-1/2 md:block">
-						<img src={RWDRJ1} className="object-contain h-96 " />
-					</motion.div>
-				</motion.div>
+			<section
+				id="aboutus"
+				className=" flex flex-col min-h-[110vh] overflow-x-hidden">
+				<Carousel
+					items={carouselItems}
+					className="w-full m-0 h-96 sm:h-64 xl:h-80 2xl:h-96"
+				/>
 			</section>
-
-			<motion.section
-				viewport={{ once: false, amount: 0.3 }}
-				initial={{ opacity: 0.2 }}
-				animate={{ opacity: 1 }}
-				className="flex justify-center w-5/6 mx-auto">
-				<div className="flex flex-col-reverse justify-between flex-1 w-full px-2 md:flex-row">
-					<div className="flex flex-col items-center w-full md:w-1/2 ">
+			<section id="whatwedo" className=" bg-primary-orangeTrans">
+				<div className="flex justify-center w-5/6 mx-auto">
+					<div className="flex min-h-[90vh] flex-col  flex-1 w-full px-2 md:flex-row">
 						<motion.div
 							initial="hidden"
 							whileInView="visible"
+							transition={{ delay: 0.4, duration: 0.4 }}
 							viewport={{ once: true, amount: 0.5 }}
-							transition={{ delay: 0.6, duration: 0.8 }}
-							variants={{
-								hidden: { opacity: 0, x: -50 },
-								visible: { opacity: 1, x: 0 },
-							}}
-							className="my-3 ">
-							<p className="w-full my-4 text-xl font-bold text-center md:text-start md:w-1/2">
-								Our mission
-							</p>
-							<p className="text-sm text-center md:text-start">
-								{" "}
-								The ultimate mission is to create and strengthen a feminist
-								network of girls and young women to advance bodily autonomy and
-								sexual reproductive rights.
-							</p>
-							<div className="flex justify-center md:justify-start">
-								<button className=" px-2 md:my-12 my-6 py-2 transition-all  hover:bg-primary-orange hover:text-white shadow-md border-[1.25px] rounded-[4px] border-primary-orange text-xs bg-white">
-									More about our values and Objectives
-								</button>
-							</div>
-						</motion.div>
-					</div>
-					<motion.div
-						initial="hidden"
-						whileInView="visible"
-						transition={{ delay: 0.4, duration: 0.4 }}
-						viewport={{ once: true, amount: 0.5 }}
-						variants={container}
-						className="flex justify-center md:block">
-						<img
-							className="block object-contain w-64 h-48 md:h-64 "
-							src={Graphic}
-							alt="woman-graphic"
-						/>
-					</motion.div>
-				</div>
-			</motion.section>
-			<motion.section
-				initial="hidden"
-				whileInView="visible"
-				transition={{ delay: 0.4, duration: 0.6 }}
-				viewport={{ amount: 0.9 }}
-				variants={containerSides}
-				className="flex flex-col w-5/6 gap-4 px-2 py-4 mx-auto ">
-				<div className="w-2/3 mx-auto">
-					<p className="w-full my-1 text-lg font-bold text-center ">
-						What we do
-					</p>
-				</div>
-				<div className="flex flex-col gap-4">
-					{sections.map((sect: section, i) => (
-						<motion.div
-							initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-							animate={{ opacity: 1, x: 0 }}
-							viewport={{ amount: 0.7, once: true }}
-							transition={{ duration: 0.8, delay: i * 0.4 }}
-							key={sect.title}
-							className={`flex flex-col md:flex-row flex-1 mt-1 p-8 bg-white ${
-								i % 2 !== 0 && " md:flex-row-reverse "
-							} `}>
+							variants={container}
+							className="flex flex-col items-center justify-center flex-1 h-full ">
 							<img
-								className="block object-cover rounded-[12px] w-full md:w-1/2 h-48  "
-								src={sect.img}
-								alt={sect.title.toLowerCase()}
+								loading="lazy"
+								className="block object-contain md:mt-0 mt-4 rounded-[10px] "
+								src={Showing}
+								alt="woman-graphic"
 							/>
-							<div className="flex flex-col w-full pt-0 md:px-6 md:w-1/2">
-								<div className="flex-1">
-									<p className="my-4 mb-4 font-bold text-center md:mt-0 md:text-start text-bold text-md ">
-										{sect.title}
-									</p>
-									<p className="flex flex-col justify-center text-xs font-normal text-center md:text-justify">
-										{sect.content}
-									</p>
-									<div className="flex justify-center md:justify-start">
-										<button className="my-4 px-6 py-1 rounded-[4px] text-xs border-[1.5px] hover:bg-primary-orange hover:text-white transition-all  text-primary-orange bg-white text border-primary-orange">
-											Learn More
-										</button>
+						</motion.div>
+
+						<div className="flex flex-col items-center justify-center w-full md:w-1/2 ">
+							<motion.div
+								initial="hidden"
+								whileInView="visible"
+								viewport={{ once: true, amount: 0.5 }}
+								transition={{ delay: 0.6, duration: 0.8 }}
+								variants={{
+									hidden: { opacity: 0, x: -50 },
+									visible: { opacity: 1, x: 0 },
+								}}
+								className="p-6 py-0 pt-4 ">
+								<p className="w-full text-2xl font-bold text-center md:text-start md:w-1/2">
+									Who we are
+								</p>
+								<p className="my-3 text-lg text-center md:text-start">
+									{" "}
+									We are a dedicated network of young women physicians based in
+									Rwanda, committed to advocating for Reproductive Justice.
+									Through our work, we empower and educate women in the medical
+									field, providing training on digital healthcare tools and
+									Sexual and Reproductive Health and Rights (SRHR). Our mission
+									is to ensure access to comprehensive healthcare services while
+									promoting gender equity and rights for all individuals.
+								</p>
+								<div className="flex justify-center ">
+									<Link
+										to="mission"
+										className="w-full py-2 my-6 text-lg text-center transition-all bg-white rounded-full shadow-md outline-none md:w-1/2 hover:bg-blue-900 hover:text-white">
+										More about us
+									</Link>
+								</div>
+							</motion.div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section className="w-full bg-blue-900">
+				<motion.div
+					id="whatwedo"
+					initial="hidden"
+					whileInView="visible"
+					transition={{ delay: 0.4, duration: 0.6 }}
+					viewport={{ amount: 0.9 }}
+					variants={containerSides}
+					className="flex flex-col w-5/6 gap-4 py-4 mx-auto ">
+					<div className="w-2/3 mx-auto">
+						<p className="w-full my-1 text-2xl font-bold text-center text-white">
+							What we do
+						</p>
+					</div>
+					<div className="flex flex-col ">
+						{sections.map((sect: section, i) => (
+							<motion.div
+								initial={{ opacity: 0, x: i % 2 !== 1 ? -50 : 50 }}
+								whileInView={{ opacity: 1, x: 0 }}
+								viewport={{ amount: 0.3, once: true }}
+								transition={{ duration: 0.4, delay: 0.3 }}
+								key={sect.title}
+								className={`flex flex-col md:flex-row flex-1  p-8 bg-white ${
+									i % 2 !== 0 && " md:flex-row-reverse "
+								} `}>
+								<img
+									loading="lazy"
+									className="block object-cover rounded-[12px] w-full md:w-1/2 h-56  "
+									src={sect.img}
+									alt={sect.title.toLowerCase()}
+								/>
+								<div className="flex flex-col w-full pt-0 md:px-6 md:w-1/2">
+									<div className="flex-1">
+										<p className="my-4 mb-4 text-xl font-bold text-center md:text-start md:mt-0 text-bold ">
+											{sect.title}
+										</p>
+										<p className="flex flex-col justify-center font-normal text-center md:text-justify">
+											{sect.content}
+										</p>
+										<div className="flex justify-center md:justify-start">
+											<Link
+												to={sect.moreLink}
+												className="my-4 px-6 py-1 rounded-full md:rounded-[4px] text-lg border-[1.5px] hover:bg-primary-orange hover:text-white transition-all  text-primary-orange bg-white  border-primary-orange">
+												Read More
+											</Link>
+										</div>
 									</div>
 								</div>
-							</div>
-						</motion.div>
-					))}
-				</div>
-			</motion.section>
-			<motion.section
-				viewport={{ once: false, amount: 0.3 }}
-				initial={{ opacity: 0.2 }}
-				animate={{ opacity: 1 }}
-				className="flex flex-col w-5/6 gap-4 px-2 py-4 mx-auto ">
-				<div className="w-2/3 mx-auto">
-					<p className="w-full my-1 text-lg font-bold text-center ">Our Team</p>
-				</div>
-				{teamMembers && (
-					<div className="grid grid-cols-1 gap-3 md:grid-cols-3 ">
-						{teamMembers.map((member: member) => (
-							<div className="bg-white rounded-[8px] p-4">
-								<img src={member.img} className="object-contain w-full h-24" />
-								<p className="py-1 text-sm font-bold text-center">
-									{member.name}
-								</p>
-								<p className="text-xs text-center">{member.title}</p>
-							</div>
+							</motion.div>
 						))}
 					</div>
-				)}
-			</motion.section>
+				</motion.div>
+			</section>
+			<section className="w-full py-6 bg-gradient-to-t from-primary-orange to-primary-orangeTrans">
+				<div className="grid w-5/6 grid-cols-1 gap-3 py-6 mx-auto bg-white md:gap-0 md:grid-cols-3 font-montserrat ">
+					<div className="text-center">
+						<div className="text-2xl font-bold">
+							<Count interval={6} countTo={151} />
+						</div>
+						<p className="font-semibold">Member Doctors</p>
+					</div>
+					<div className="text-center">
+						<div className="flex items-center justify-center text-2xl font-bold ">
+							<Count interval={6} countTo={200} />
+							<p className="text-xl ps-2 font-hanuman">+</p>
+						</div>
+						<p className="font-semibold">People Reached</p>
+					</div>
+					<div className="text-center">
+						<div className="text-2xl font-bold">
+							<Count interval={100} countTo={10} />
+						</div>
+						<p className="font-semibold">Partner institutions</p>
+					</div>
+				</div>
+			</section>
+			;
 			<motion.section
+				id="news"
 				viewport={{ once: false, amount: 0.3 }}
 				initial={{ opacity: 0.2 }}
 				animate={{ opacity: 1 }}
-				className="flex flex-col w-5/6 px-2 py-4 mx-auto ">
+				className="flex flex-col w-5/6 gap-4 px-2 py-4 mx-auto  min-h-[60vh]">
 				<div className="w-full mx-auto md:w-2/3">
-					<p className="w-full my-1 text-lg font-bold text-center ">
-						Our Partners
+					<p className="w-full my-1 text-2xl font-bold text-center ">
+						Newsroom{" "}
 					</p>
 				</div>
-				{partners && (
-					<div className="grid grid-cols-2 gap-3 md:gap-0 md:grid-cols-5 ">
-						{partners.map((part: string) => (
-							<img
-								src={part}
-								className="object-contain w-full h-32 bg-transparent md:object-center "
-							/>
-						))}
+				<div className="grid flex-1 grid-cols-1 gap-2 md:grid-cols-3">
+					<div className="h-full">
+						{news && news.length === 0 && <p className="text-xs">News Room</p>}
+						{news && news.length !== 0 && (
+							<div className="h-full">
+								{news.map((blog) =>
+									Object.keys(blog).includes("content") ? (
+										<div
+											className="w-full bg-white rounded-[8px] hover group cursor-pointer"
+											onClick={() => {
+												navigate(`news/blogs/${blog.refId}`);
+											}}>
+											<div className="relative flex items-center justify-center h-32 overflow-hidden ">
+												<img
+													src={blog.coverImage}
+													className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
+												/>
+											</div>
+											<p className="px-2 py-1 text-xl font-bold capitalize">
+												{blog.title}
+											</p>
+											{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
+
+											<div className="px-2 py-2 ">
+												<p className="text-sm font-bold">RWDRJ</p>
+												<p className="text-xs ">
+													{blog.datePosted && blog.datePosted
+														? new Date(blog.datePosted).toLocaleDateString(
+																"fr-FR"
+														  )
+														: null}
+												</p>
+											</div>
+										</div>
+									) : (
+										<div
+											onClick={() => {
+												navigate(`news/events/${blog.refId}`);
+											}}
+											className="w-full bg-white rounded-[8px] cursor-pointer  group">
+											<div className="relative flex items-center justify-center h-32 overflow-hidden">
+												<img
+													src={blog.coverImage}
+													className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
+												/>
+											</div>
+											<p className="px-2 py-1 font-bold capitalize ">
+												{blog.title}
+											</p>
+
+											<div className="px-2 py-2 font-bold">
+												<p className="flex items-center gap-2 text-xs ">
+													<HiCalendarDays className="text-lg text-gray-500 " />
+													{blog.datestart
+														? new Date(blog.datestart).toLocaleDateString(
+																"fr-FR"
+														  )
+														: null}{" "}
+													<span className="font-bold"> - </span>
+													{blog.dateend
+														? new Date(blog.dateend).toLocaleDateString("fr-FR")
+														: null}
+												</p>
+												<p className="text-sm ">RWDRJ</p>
+											</div>
+										</div>
+									)
+								)}
+							</div>
+						)}
 					</div>
-				)}
+				</div>
 			</motion.section>
 			<motion.section
+				id="news"
 				viewport={{ once: false, amount: 0.3 }}
 				initial={{ opacity: 0.2 }}
 				animate={{ opacity: 1 }}
 				className="flex flex-col w-5/6 gap-4 px-2 py-4 mx-auto ">
 				<div className="w-full mx-auto md:w-2/3">
-					<p className="w-full my-1 text-lg font-bold text-center ">News</p>
+					<p className="w-full my-1 text-2xl font-bold text-center ">
+						Follow us{" "}
+					</p>
 				</div>
-				<div className="grid grid-cols-1 gap-2 md:grid-cols-3">
-					<Timeline
-						dataSource={{
-							sourceType: "profile",
-							screenName: "RwandaHealth",
-						}}
-						options={{
-							height: "300",
-						}}
-					/>
-					<Timeline
-						dataSource={{
-							sourceType: "profile",
-							screenName: "nsanzimanasabin",
-						}}
-						options={{
-							height: "300",
-						}}
-					/>
-					<Timeline
-						dataSource={{
-							sourceType: "profile",
-							screenName: "medsar_rwanda",
-						}}
-						options={{
-							height: "300",
-						}}
-					/>
+				<div className="grid grid-cols-1 gap-2 ">
+					<div>
+						<p className="font-bold ">RWDRJ Tweets</p>
+						<TwitterTimeLine profile="doctors_women" />
+					</div>
 				</div>
 			</motion.section>
+			<motion.div
+				id="ourpartners"
+				viewport={{ once: true, amount: 0.2 }}
+				initial={{ opacity: 0.1, y: -50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.3, delay: 0.4 }}
+				className="w-full py-3 bg-white  min-h-[40vh] md:min-h-[60vh] flex flex-col">
+				<div className="flex-1 w-5/6 py-4 mx-auto">
+					<p className="w-full my-1 text-2xl font-bold text-center ">
+						Our Partners
+					</p>
+					<div className="md:h-[50vh] w-5/6 mx-auto mt-12">
+						<Partners partners={partners} />
+					</div>
+				</div>
+			</motion.div>
+			<section id="contactus" className="w-5/6 md:py-8 mx-auto min-h-[90vh]">
+				<p className="py-4 text-2xl font-bold text-center">Contact Us</p>
+				<div className="flex flex-col-reverse items-center w-full md:items-start md:flex-row ">
+					<div className="w-full my-6 text-lg md:w-1/2">
+						<p className="font-bold text-center text-gray-600 md:text-start md:text-xl">
+							For any queries or concerns, don't hesitate to contact us
+						</p>
+						<p className="my-2 font-light text-center md:text-start">
+							Call us directly
+						</p>
+						<p className="my-2 font-bold text-center md:text-start ">
+							+250782864790
+						</p>
+						<p className="my-2 font-light text-center md:text-start">
+							Contact email
+						</p>
+						<p className="my-2 font-bold text-center md:text-start">
+							womenreproductivejustice@gmail.com
+						</p>
+						<p className="my-2 font-bold text-center md:text-start">
+							eb@womenrepro.org
+						</p>
+
+						<Link
+							to="contactus"
+							className="md:w-1/3 w-full   p-2 block my-4 md:my-2  text-center font-bold rounded-full md:rounded-[4px]  border-[1.5px] hover:bg-slate-800 hover:text-white transition-all  text-slate-800 bg-white  border-slate-800">
+							Reach out{" "}
+						</Link>
+					</div>
+					<div className="w-full md:w-1/2 min-h-[60vh] md:min-h-[86vh] ">
+						<MapContainer
+							className="w-full min-h-[60vh] rounded-[8px] "
+							center={[-1.936763, 30.089463]}
+							zoom={13}
+							scrollWheelZoom={false}>
+							<TileLayer
+								attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+							/>
+							<Marker icon={customIcon} position={[-1.936763, 30.089463]}>
+								<Popup>
+									<p className="font-bold text-primary-orange">KG 216 ST 20</p>
+								</Popup>
+							</Marker>
+						</MapContainer>
+					</div>
+				</div>
+			</section>
 		</div>
 	);
 };

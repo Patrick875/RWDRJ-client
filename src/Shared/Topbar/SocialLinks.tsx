@@ -1,11 +1,9 @@
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
-type Props = {};
-
-function SocialLinks({}: Props) {
+function SocialLinks() {
 	return (
-		<div className="  flex gap-2 items-center">
+		<div className="flex items-center gap-2 ">
 			<FaSquareXTwitter className="text-lg" />
 			<FaYoutube className="text-lg" />
 			<FaFacebook className="text-lg" />

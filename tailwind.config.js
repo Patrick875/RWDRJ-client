@@ -4,15 +4,26 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				"primary-orange": "#FA702F",
-				"back-cover": "rgba(255,255,255,0.72)",
+				"primary-orange": "#C29F1D",
+				"primary-orangeTrans": "rgba(194, 159, 45,0.85)",
+				"hero-cover": "rgba(255,255,255,0.58)",
+				"page-cover": "rgba(0,0,0,0.68)",
 			},
 			backgroundImage: {
-				"testimony-pattern": "url('/img/wave.svg')",
+				"image-1": "url('/img/image-1.webp')",
+				"image-2": "url('/img/image-3.webp')",
+				"image-3": "url('/img/image-2.webp')",
+				"image-whoweare": "url('/img/whoweare.webp')",
+				"image-advocacy": "url('/img/advocacy.webp')",
+				"image-training": "url('/img/training.webp')",
+				"image-service": "url('/img/service.webp')",
+				"image-digitalApp": "url('/img/digitalApp.webp')",
 			},
 			fontFamily: {
 				hanuman: ["Hanuman", "serif"],
 				montserrat: ["Montserrat", "sans-serif"],
+				playfair: ["Playfair Display", "serif"],
+				lora: ["Lora", "serif"],
 			},
 			fontSize: {
 				sm: "0.8rem",
@@ -35,6 +46,6 @@ export default {
 				md: "1060px",
 			},
 		},
-		plugins: [require("flowbite/plugin")],
 	},
+	plugins: [require("flowbite/plugin")],
 };
