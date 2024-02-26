@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import { navs } from "../../constants";
-import SocialLinks from "../../Shared/Topbar/SocialLinks";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 const Footer = () => {
 	return (
-		<footer className=" mt-8 text-white bg-[#0A142F] bg-primary-100">
-			<div className="flex justify-center w-5/6 gap-16 py-8 mx-auto md:flex">
+		<footer className=" h-[70vh]    text-white bg-[#0A142F] bg-primary-100">
+			<div className="flex justify-center w-5/6 gap-16 py-8 mx-auto md:justify-normal">
 				<div className="w-full mt-8 md:mt-0">
 					<div className="flex justify-center w-full">
 						<Link to="" className="block">
@@ -20,29 +21,52 @@ const Footer = () => {
 							</div>
 						</Link>
 					</div>
-					<div className="flex justify-center">
-						<div className="flex gap-3 my-3 ">
-							{navs.map((nav) => (
-								<Link
-									key={crypto.randomUUID()}
-									className="block text-xs text-white"
-									to={nav.to}>
-									{nav.text}
-								</Link>
-							))}
-						</div>
-					</div>
-					<div className="flex justify-center w-full">
-						<SocialLinks />
+					<div className="w-5/6 mx-auto text-center ">
+						<p className="my-3 text-2xl font-lora">
+							Rwanda Women Doctors For Reproductive Justice
+						</p>
+						<p className="my-2 text-lg ">
+							Empowering Women's Health, Advocating for Justice
+						</p>
 					</div>
 
-					<p className="py-2 text-sm text-center">
+					<hr className="bg-white border-[1px] mt-32" />
+					<div className="flex justify-between w-full mt-4">
+						<div className="flex justify-center md:justify-normal">
+							<div className="flex gap-4 my-3 ">
+								{navs.map((nav) => (
+									<Link
+										key={crypto.randomUUID()}
+										className="block text-lg text-white"
+										to={nav.to}>
+										{nav.text}
+									</Link>
+								))}
+							</div>
+						</div>
+						<div className="flex gap-4">
+							<div className="flex justify-center items-center rounded-full h-12 w-12 border-[1.8px] border-white">
+								<FaSquareXTwitter className="text-2xl " />
+							</div>
+							<div className="flex justify-center items-center rounded-full h-12 w-12 border-[1.8px] border-white">
+								<FaYoutube className="text-2xl" />
+							</div>
+							<div className="flex justify-center items-center rounded-full h-12 w-12 border-[1.8px] border-white">
+								<FaFacebook className="text-2xl" />
+							</div>
+							<div className="flex justify-center items-center rounded-full h-12 w-12 border-[1.8px] border-white">
+								<FaInstagram className="text-2xl" />
+							</div>
+						</div>
+					</div>
+
+					<p className="mt-2">
 						&copy;{new Date().getFullYear()} All Rights reserved Rwanda Women
 						Doctors For Reproductive Justice .
 					</p>
-					<p className="py-1 text-xs text-center text-white">
+					{/* {<p className="py-1 text-lg text-center text-white">
 						Developed By BAHO TECH INITIATIVE
-					</p>
+					</p>} */}
 				</div>
 			</div>
 		</footer>

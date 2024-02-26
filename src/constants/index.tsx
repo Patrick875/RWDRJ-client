@@ -9,7 +9,7 @@ import { MdEventAvailable, MdOutlineRestorePage } from "react-icons/md";
 
 import doc2 from "../assets/DOC2.webp";
 import doc3 from "../assets/DOC3.webp";
-
+import doc4 from "../assets/DOC4.webp";
 import doc5 from "../assets/DOC5.webp";
 import doc6 from "../assets/DOC6.webp";
 
@@ -28,9 +28,8 @@ import partner10 from "../assets/partner10.webp";
 
 import Advocacy from "../assets/advocacy.webp";
 import Compain from "../assets/Campaign.webp";
-import Digital from "../assets/Digital.png";
-import Services from "../assets/Services.png";
 import Training1 from "../assets/Training.webp";
+import Services from "../assets/Services.png";
 import { IoHomeOutline } from "react-icons/io5";
 import { CiTextAlignJustify } from "react-icons/ci";
 
@@ -56,13 +55,13 @@ export const navs: navItem[] = [
 				to: "whatwedo/training",
 			},
 			{
-				title: "Service Provision",
+				title: "Service Provision , Digital Health & SRHR",
 				to: "whatwedo/service-provision",
 			},
-			{
-				title: "Digital Health & SRHR",
-				to: "whatwedo/digital-health",
-			},
+			// {
+			// 	title: "Digital Health & SRHR",
+			// 	to: "whatwedo/digital-health",
+			// },
 		],
 	},
 	{
@@ -105,19 +104,19 @@ export const sections: section[] = [
 			"Strengthening the network of young women pro-choice physicians: young physicians in Rwanda are less bound by abortion stigma than older physicians in Rwanda. ",
 	},
 	{
-		title: "Service Provision",
+		title: "Service Provision & Digital Health & SRHR",
 		img: Services,
 		moreLink: "whatwedo/service-provision",
 		content:
 			"Nationally, abortion is only permissible in cases of rape, when the pregnant person is a child, forced marriage, in cases of incest committed with a person to the second degree of kinship, and when the pregnancy puts a risk to the health of the pregnant person or of the fetus.",
 	},
-	{
-		title: "Digital Health & SRHR",
-		img: Digital,
-		moreLink: "whatwedo/digital-health",
-		content: `The COVID-19 pandemic has shown us that remote therapy works. It helps people feel safe "especially those who wants to be anonymous".
-Telehealth increases access to healthcare in many ways. One is connecting people in need of care to providers.`,
-	},
+	// {
+	// 	title: "Digital Health & SRHR",
+	// 	img: Digital,
+	// 	moreLink: "whatwedo/digital-health",
+	// 	content: `The COVID-19 pandemic has shown us that remote therapy works. It helps people feel safe "especially those who wants to be anonymous".
+	// Telehealth increases access to healthcare in many ways. One is connecting people in need of care to providers.`,
+	// },
 ];
 
 export const teamMembers: member[] = [
@@ -136,11 +135,11 @@ export const teamMembers: member[] = [
 		title: "Senior Program Director",
 		img: doc3,
 	},
-	// {
-	// 	name: "Fanny Giraneza",
-	// 	title: "Finance&Grants Director",
-	// 	img: doc4,
-	// },
+	{
+		name: "Fanny Giraneza",
+		title: "Finance&Grants Director",
+		img: doc4,
+	},
 	{
 		name: "Divine Ingabire",
 		title: "Campaigns Coordinator",
@@ -194,7 +193,7 @@ export const objectives: string[] = [
 	" Conduct impact research related to right and SRHR.",
 	" Strengthen the network of feminists in Rwanda.",
 	" Increase access to legal support for girls and women related to sexual reproductive rights.",
-	"  Increase the partnership with other feminist organizations both locally and internationally.",
+	" Increase the partnership with other feminist organizations both locally and internationally.",
 ];
 
 export const serverUrl = "";

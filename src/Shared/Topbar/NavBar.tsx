@@ -19,7 +19,7 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 	return (
 		<div className="flex-1 ">
 			{!isAboveMediumScreens && (
-				<div className="flex flex-col flex-1 w-full gap-2 text-xs font-bold ">
+				<div className="flex flex-col flex-1 w-full gap-2 font-bold ">
 					<div className="ms-4">
 						{items.map((item: navItem) =>
 							!item.subnavs ? (
@@ -27,7 +27,7 @@ const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
 									onClick={() => {
 										setIsMenuToggeled((prev) => !prev);
 									}}
-									className="block px-2 py-2 font-bold hover:bg-slate-200 hover:border-b-primary-orange hover:border-bottom-1"
+									className="block px-2 py-2 text-lg font-bold hover:bg-slate-200 hover:border-b-primary-orange hover:border-bottom-1"
 									key={item.text}
 									to={item.to}>
 									{item.text}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -21,30 +21,30 @@ const Carousel: React.FC<ManualCarouselProps> = ({ items, className }) => {
 	};
 
 	return (
-		<div className={className}>
+		<div className={`${className} carouselIndex`}>
 			<Slider {...settings}>
 				{items.map((item: CarouselItem) => (
 					<div
 						className={` ${item.img} w-full mx-0 py-0 bg-cover bg-center  bg-no-repeat`}
 						key={crypto.randomUUID()}>
-						<div className="w-full h-[96vh] bg-hero-cover ">
-							<div className="relative flex flex-col w-full h-full gap-4 mx-auto font-montserrat">
+						<div className="w-full h-[110vh] bg-[rgba(244,244,249,0.80)] ">
+							<div className="relative w-full h-full mx-auto font-montserrat">
 								<motion.div
-									initial={{ y: -110, opacity: 0 }}
+									initial={{ y: -100, opacity: 0 }}
 									animate={{ y: 0, opacity: 1 }}
-									transition={{ delay: 1.2, duration: 0.8 }}
-									className="flex flex-col justify-center flex-1 w-full gap-4 mx-auto md:w-5/6">
-									<h1 className="px-6 text-3xl font-extrabold text-center md:px-0 text-sky-900">
-										Rwanda Women Doctors for Reproductive Justice
+									transition={{ delay: 1.2, duration: 1.4 }}
+									className="flex flex-col justify-center flex-1 w-full gap-4 mx-auto h-4/5 md:w-5/6">
+									<h1 className="px-6 py-5 pt-12 text-6xl font-extrabold text-center font-lora md:px-0 text-sky-900">
+										Rwanda Women Doctors For Reproductive Justice
 									</h1>
-									<p className="px-6 text-sm font-bold text-center md:px-0 md:text-lg">
-										{item.text}
+									<p className="px-6 py-4 text-2xl font-bold leading-6 text-center md:px-0 md:text-2xl">
+										Empowering Women's Health, Advocating for Justice
 									</p>
-									<div className="flex items-center justify-center pt-4 md:mt-4">
+									<div className="flex items-center justify-center pt-6 ">
 										<Link
 											to="whoweare"
-											className="px-12 text-sm rounded-[4px] py-2 font-bold text-white bg-primary-orange ">
-											Read More
+											className="px-12 py-2 text-lg font-bold text-white rounded-full bg-primary-orange ">
+											More about us
 										</Link>
 									</div>
 								</motion.div>

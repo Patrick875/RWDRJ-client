@@ -23,7 +23,8 @@ function ScrollToTopButton() {
 			animate={{ x: 0, y: 0, opacity: 1 }}
 			transition={{ delay: 0.6, duration: 0.4 }}
 			onClick={handleSetToTop}
-			className={`fixed bottom-0 w-16  h-16 items-center justify-center rounded-lg right-2 mx-auto text-white bg-primary-orange z-150   ${
+			style={{ zIndex: 10000 }}
+			className={`fixed bottom-0 w-16  h-16 items-center justify-center rounded-lg right-2 mx-auto text-white bg-primary-orange    ${
 				position > 20 ? " flex " : " hidden "
 			}  `}>
 			<div className="flex items-center justify-between ">

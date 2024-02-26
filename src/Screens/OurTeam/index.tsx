@@ -6,11 +6,16 @@ import { motion } from "framer-motion";
 function OurTeam() {
 	return (
 		<AnimatePage>
-			<div className="flex flex-col items-center justify-center w-full h-56 bg-center bg-cover bg-image-whoweare">
+			<div className="flex flex-col items-center h-[60vh] justify-center w-full  bg-center bg-cover bg-image-whoweare">
 				<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
-					<p className="w-5/6 text-xl font-bold text-center text-white">
-						Meet Our Team
+					<p className="w-5/6 text-3xl font-bold text-center text-white font-lora">
+						Teamwork is at the heart of each and every one of our endeavours.
 					</p>
+				</div>
+			</div>
+			<div className=" bg-blue-900 text-white font-lora h-[20vh] flex flex-col justify-center">
+				<div className="w-5/6 mx-auto">
+					<p className="p-3 text-2xl text-center ">Meet the Team</p>
 				</div>
 			</div>
 			<motion.div

@@ -1,10 +1,14 @@
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 
-function TwitterTimeLine() {
+interface Props {
+	profile: string;
+}
+
+function TwitterTimeLine({ profile }: Props) {
 	return (
 		<TwitterTimelineEmbed
 			sourceType="profile"
-			screenName="doctors_women"
+			screenName={profile}
 			options={{
 				height: "300",
 			}}

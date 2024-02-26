@@ -17,10 +17,13 @@ export default {
 				"image-advocacy": "url('/img/advocacy.webp')",
 				"image-training": "url('/img/training.webp')",
 				"image-service": "url('/img/service.webp')",
+				"image-digitalApp": "url('/img/digitalApp.webp')",
 			},
 			fontFamily: {
 				hanuman: ["Hanuman", "serif"],
 				montserrat: ["Montserrat", "sans-serif"],
+				playfair: ["Playfair Display", "serif"],
+				lora: ["Lora", "serif"],
 			},
 			fontSize: {
 				sm: "0.8rem",
