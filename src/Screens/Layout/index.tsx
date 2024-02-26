@@ -3,7 +3,6 @@ import Footer from "../Footer";
 import Topbar from "../../Shared/Topbar";
 import { useEffect, useState } from "react";
 import ScrollToTopButton from "../../Shared/ScrollToTopButton";
-import { GiPositionMarker } from "react-icons/gi";
 
 const Layout = () => {
 	const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);

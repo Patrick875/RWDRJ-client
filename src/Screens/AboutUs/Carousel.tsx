@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -34,7 +34,7 @@ const Carousel: React.FC<ManualCarouselProps> = ({ items, className }) => {
 									animate={{ y: 0, opacity: 1 }}
 									transition={{ delay: 1.2, duration: 1.4 }}
 									className="flex flex-col justify-center flex-1 w-full gap-4 mx-auto h-4/5 md:w-5/6">
-									<h1 className="px-6 py-5 pt-12 text-6xl font-extrabold text-center font-lora md:px-0 text-sky-900">
+									<h1 className="px-6 py-5 pt-12 text-2xl font-extrabold text-center md:text-6xl font-lora md:px-0 text-sky-900">
 										Rwanda Women Doctors For Reproductive Justice
 									</h1>
 									<p className="px-6 py-4 text-2xl font-bold leading-6 text-center md:px-0 md:text-2xl">

@@ -1,5 +1,4 @@
 import AnimatePage from "../../Shared/AnimatePage";
-import MoreLinks from "../../Shared/MoreLinks";
 
 function CampaignAndOrganizing() {
 	return (
@@ -25,7 +24,7 @@ function CampaignAndOrganizing() {
 				</div>
 				<div className="bg-blue-900 ">
 					<div className="w-5/6 mx-auto ">
-						<div className="flex-col justify-center h-full py-4 text-lg ">
+						<div className="flex-col justify-center h-full py-4 text-lg text-center md:text-start ">
 							<p className="p-3 text-2xl text-center text-white font-lora">
 								16 Days of Activism Against Gender-Based Violence Campaign
 							</p>
@@ -45,7 +44,7 @@ function CampaignAndOrganizing() {
 								Kigali, 24 November 2017- The Government of Rwanda has launched
 								the 16days of Activism against Violence under the theme.
 							</p>
-							<p className="p-3 text-white">
+							<p className="p-3 text-white ">
 								Rwanda Women Doctors For Reproductive Justice (RWDFRJ) took a
 								significant stride in the global fight against gender based
 								violence (GBV) by spearheading a campaign during the annual 16

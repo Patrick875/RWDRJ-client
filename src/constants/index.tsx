@@ -29,7 +29,7 @@ import partner10 from "../assets/partner10.webp";
 import Advocacy from "../assets/advocacy.webp";
 import Compain from "../assets/Campaign.webp";
 import Training1 from "../assets/Training.webp";
-import Services from "../assets/Services.png";
+import Services from "../assets/Services.webp";
 import { IoHomeOutline } from "react-icons/io5";
 import { CiTextAlignJustify } from "react-icons/ci";
 

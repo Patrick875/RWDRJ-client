@@ -24,7 +24,8 @@ function BlogCard({ blog }: Props) {
 					className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
 				/>
 			</div>
-			<p className="px-2 py-1 text-sm font-bold capitalize">{blog.title}</p>
+			<p className="px-2 py-1 text-xl font-bold capitalize">{blog.title}</p>
+			{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
 
 			<div className="px-2 py-2 ">
 				<p className="text-sm font-bold">RWDRJ</p>

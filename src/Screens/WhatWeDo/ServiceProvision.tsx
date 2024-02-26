@@ -7,7 +7,7 @@ function ServiceProvision() {
 	return (
 		<AnimatePage>
 			<div className="relative">
-				<div className="flex flex-col items-center justify-center w-full h-[60vh] bg-cover bg-image-service">
+				<div className="flex flex-col items-center justify-center w-full min-h-[60vh] bg-cover bg-fixed bg-image-service">
 					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
 						<p className="w-5/6 text-3xl font-bold text-center font-lora ">
 							Service Provision , Digital Health & SRHR
@@ -52,13 +52,13 @@ function ServiceProvision() {
 					</div>
 				</div>
 
-				<div className="h-[140vh]  relative flex flex-col  bg-image-digitalApp  bg-contain  bg-fixed ">
-					<div className="flex flex-col items-center justify-center h-[40vh]  w-full mx-auto bg-[rgba(244,244,249,0.70)]">
+				<div className="md:h-[140vh]  relative flex flex-col  bg-image-digitalApp  bg-contain  bg-fixed ">
+					<div className="flex flex-col items-center justify-center min-h-[40vh]  w-full mx-auto bg-[rgba(244,244,249,0.70)]">
 						<p className="text-2xl font-bold text-center font-lora ">
 							Digital Health & SRHR
 						</p>
 					</div>
-					<div className="bg-white h-[100vh] flex flex-col">
+					<div className="bg-white min-h-[100vh] flex flex-col">
 						<div className="h-[40vh] flex flex-col justify-center">
 							<p className="w-5/6 py-4 mx-auto my-3 text-xl text-center font-lora">
 								The COVID-19 pandemic has shown us that remote therapy works. It
@@ -68,17 +68,17 @@ function ServiceProvision() {
 						</div>
 
 						<div className="flex-1 text-white bg-blue-900">
-							<div className="flex flex-col w-5/6 p-8 mx-auto mt-1 md:flex-row">
-								<div className="flex flex-col flex-1 w-1/2">
+							<div className="flex flex-col w-5/6 p-4 mx-auto mt-1 md:p-8 md:flex-row">
+								<div className="flex flex-col flex-1 w-full md:w-1/2">
 									<img
 										loading="lazy"
-										className="block object-cover object-top rounded-[12px] w-full  h-80  "
+										className="block object-contain rounded-[12px] w-full  h-80  "
 										src={Assap}
 										alt={"safe-abortion-app"}
 									/>
 								</div>
-								<div className="flex-1 w-1/2 ps-6">
-									<p className="text-xl font-bold font-lora">
+								<div className="flex-1 w-full my-8 text-center md:my-0 md:w-1/2 md:text-start md:ps-6">
+									<p className="my-8 text-xl font-bold my font-lora">
 										Telehealth and The AASAP Finder Platform
 									</p>
 									<p className="my-2 text-lg ">
@@ -95,7 +95,7 @@ function ServiceProvision() {
 									</p>
 									<div className="flex w-full my-3">
 										<Link
-											className="flex items-center justify-center w-1/2 gap-4 py-2 text-lg font-bold text-center text-white transition-all ease-in bg-teal-900 delay-50 hover:bg-white hover:text-teal-900 "
+											className="flex items-center justify-center w-full gap-4 py-2 text-lg font-bold text-center text-white transition-all ease-in bg-primary-orange md:w-1/2 delay-50 hover:bg-white hover:text-primary-orange "
 											target="blank"
 											to="https://aasapfinder.org/">
 											<TbWorld className="w-6 h-6" />

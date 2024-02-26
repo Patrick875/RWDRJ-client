@@ -9,6 +9,8 @@ import { navs } from "../../constants";
 import { useLocation } from "react-router-dom";
 import Logo from "../Logo";
 import { GiPositionMarker } from "react-icons/gi";
+import { BsClock, BsPhone } from "react-icons/bs";
+import { RiMailLine } from "react-icons/ri";
 
 interface topbarProps {
 	isTopOfPage: boolean;
@@ -22,17 +24,26 @@ const Topbar = ({ isTopOfPage }: topbarProps) => {
 
 	return (
 		<>
-			<div className="flex justify-between px-4 py-1 mx-auto text-lg font-bold h-30 text-sky-900 bg-primary-orangeTrans">
-				<div className="flex items-center gap-4 ">
+			<div className="flex flex-row justify-between gap-3 px-4 py-1 text-sm font-bold md:text-lg h-30 text-sky-900 bg-primary-orangeTrans">
+				<div className="flex flex-col gap-1 md:gap-4 md:items-center md:flex-row ">
 					<div className="flex items-center gap-3">
 						<GiPositionMarker />
 						<p>KG 216 ST 20</p>
 					</div>
-					<p className="flex gap-3">Daily: 8:30 AM to 5:00 PM</p>
+					<p className="flex items-center gap-3">
+						<BsClock />
+						Daily: 8:30 AM to 5:00 PM
+					</p>
 				</div>
-				<div className="flex items-center gap-4">
-					<p>+250 782 864 790</p>
-					<p>eb@womenrepro.org</p>
+				<div className="flex flex-col gap-1 md:items-center ">
+					<p className="flex items-center gap-2">
+						<BsPhone />
+						+250 782 864 790
+					</p>
+					<p className="flex items-center gap-2">
+						<RiMailLine />
+						eb@womenrepro.org
+					</p>
 				</div>
 			</div>
 			<nav className="sticky top-0 " style={{ zIndex: 10000 }}>

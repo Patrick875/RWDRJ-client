@@ -31,7 +31,7 @@ import CreateBlog from "./Screens/Admin/Blogs/CreateBlog";
 import ViewBlog from "./Screens/Admin/Blogs/ViewBlog";
 import AllEvents from "./Screens/Admin/Events/AllEvents";
 import CreateEvent from "./Screens/Admin/Events/CreateEvent";
-import ViewEvent from "./Screens/Admin/Events/viewEvent";
+import ViewEvent from "./Screens/Admin/Events/ViewEvent";
 import BlogDetails from "./Screens/Blogs/BlogDetails";
 import EventDetails from "./Screens/Events/EventDetails";
 import { Toaster } from "react-hot-toast";

@@ -5,8 +5,8 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 const Footer = () => {
 	return (
-		<footer className=" h-[70vh]    text-white bg-[#0A142F] bg-primary-100">
-			<div className="flex justify-center w-5/6 gap-16 py-8 mx-auto md:justify-normal">
+		<footer className=" min-h-[70vh]    text-white bg-[#0A142F] bg-primary-100">
+			<div className="flex justify-center w-5/6 h-full gap-16 py-8 mx-auto md:justify-normal">
 				<div className="w-full mt-8 md:mt-0">
 					<div className="flex justify-center w-full">
 						<Link to="" className="block">
@@ -31,36 +31,38 @@ const Footer = () => {
 					</div>
 
 					<hr className="bg-white border-[1px] mt-32" />
-					<div className="flex justify-between w-full mt-4">
+					<div className="flex flex-col justify-between w-full mt-4 md:flex-row">
 						<div className="flex justify-center md:justify-normal">
-							<div className="flex gap-4 my-3 ">
+							<div className="flex gap-4 my-3">
 								{navs.map((nav) => (
 									<Link
 										key={crypto.randomUUID()}
-										className="block text-lg text-white"
+										className="block text-sm text-white md:text-lg"
 										to={nav.to}>
 										{nav.text}
 									</Link>
 								))}
 							</div>
 						</div>
-						<div className="flex gap-4">
-							<div className="flex justify-center items-center rounded-full h-12 w-12 border-[1.8px] border-white">
-								<FaSquareXTwitter className="text-2xl " />
-							</div>
-							<div className="flex justify-center items-center rounded-full h-12 w-12 border-[1.8px] border-white">
-								<FaYoutube className="text-2xl" />
-							</div>
-							<div className="flex justify-center items-center rounded-full h-12 w-12 border-[1.8px] border-white">
-								<FaFacebook className="text-2xl" />
-							</div>
-							<div className="flex justify-center items-center rounded-full h-12 w-12 border-[1.8px] border-white">
-								<FaInstagram className="text-2xl" />
+						<div className="flex justify-center md:block">
+							<div className="flex gap-4">
+								<div className="flex justify-center items-center rounded-full md:h-12 md:w-12  h-8 w-8  md:border-[1.8px] border-white">
+									<FaSquareXTwitter className="text-2xl " />
+								</div>
+								<div className="flex justify-center items-center rounded-full md:h-12 md:w-12 h-8 w-8  md:border-[1.8px] border-white">
+									<FaYoutube className="text-2xl" />
+								</div>
+								<div className="flex justify-center items-center rounded-full md:h-12 md:w-12 h-8 w-8  md:border-[1.8px] border-white">
+									<FaFacebook className="text-2xl" />
+								</div>
+								<div className="flex justify-center items-center rounded-full md:h-12 md:w-12  h-8 w-8 md:border-[1.8px] border-white">
+									<FaInstagram className="text-2xl" />
+								</div>
 							</div>
 						</div>
 					</div>
 
-					<p className="mt-2">
+					<p className="mt-2 text-center md:text-start">
 						&copy;{new Date().getFullYear()} All Rights reserved Rwanda Women
 						Doctors For Reproductive Justice .
 					</p>

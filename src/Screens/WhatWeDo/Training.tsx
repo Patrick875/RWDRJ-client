@@ -4,7 +4,7 @@ import training2 from "./../../assets/images/training2.webp";
 import training3 from "./../../assets/images/training3.webp";
 import training4 from "./../../assets/images/training4.webp";
 import training5 from "./../../assets/images/training5.webp";
-import MoreLinks from "../../Shared/MoreLinks";
+
 import AnimatePage from "../../Shared/AnimatePage";
 
 interface card {
@@ -83,7 +83,7 @@ function Training() {
 									className={`flex flex-col md:flex-row flex-1 mt-1 p-8 bg-white ${
 										i % 2 !== 0 && " md:flex-row-reverse "
 									} `}>
-									<div className="flex flex-col w-1/2">
+									<div className="flex flex-col w-full md:w-1/2">
 										<img
 											loading="lazy"
 											className="block object-cover object-top rounded-[12px] w-full  h-72  "

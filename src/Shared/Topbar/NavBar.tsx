@@ -13,7 +13,7 @@ interface navbarProps {
 }
 
 const NavBar = ({ items, setIsMenuToggeled }: navbarProps) => {
-	const isAboveMediumScreens = useMediaQuery("(min-width:1060px") || true;
+	const isAboveMediumScreens = useMediaQuery("(min-width:1060px");
 	const [isDown, setIsDown] = useState<boolean>(false);
 
 	return (

@@ -19,3 +19,10 @@ body,
 .carouselIndex {
 	z-index: 400 !important;
 }
+
+.partner-slider > .slick-slide {
+	margin: 0 1.4rem !important;
+}
+.partner-slider > .slick-list {
+	margin: 0 -1.4rem !important;
+}

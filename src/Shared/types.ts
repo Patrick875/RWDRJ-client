@@ -38,19 +38,31 @@ export interface BlogPost {
     content: string;
     postedBy?: string;
     datePosted?: string;
+    description?: string;
     coverImage: string;
+    datestart?: string;
+    postedDate?: string;
+    dateend?: string;
 }
 export interface EventPost {
     refId?: string;
     title: string;
+    content?: string;
     description: string;
     coverImage: string;
     datestart: string;
     postedDate?: string;
     dateend: string;
+    datePosted?: string;
+
 }
 
 export interface CarouselItem {
     img: string;
     text: string;
 }
+
+
+export type NewsItem = BlogPost | EventPost;
+
+
