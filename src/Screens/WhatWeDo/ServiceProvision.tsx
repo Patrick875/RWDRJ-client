@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import AnimatePage from "../../Shared/AnimatePage";
-import Assap from "../../assets/assap.jpg";
 import { TbWorld } from "react-icons/tb";
 
 function ServiceProvision() {
@@ -73,7 +72,7 @@ function ServiceProvision() {
 									<img
 										loading="lazy"
 										className="block object-contain rounded-[12px] w-full  h-80  "
-										src={Assap}
+										src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953552/RWDJ-IMAGES/assap_iellep.jpg"
 										alt={"safe-abortion-app"}
 									/>
 								</div>

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Showing from "../../assets/showing.webp";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
@@ -118,7 +117,7 @@ const AboutUs = () => {
 							<img
 								loading="lazy"
 								className="block object-contain md:mt-0 mt-4 rounded-[10px] "
-								src={Showing}
+								src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953566/RWDJ-IMAGES/showing_aou8ga.webp"
 								alt="woman-graphic"
 							/>
 						</motion.div>

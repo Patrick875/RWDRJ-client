@@ -1,6 +1,4 @@
 import AnimatePage from "../../Shared/AnimatePage";
-import AdvocacyImage2 from "../../assets/comp7.webp";
-import AdvocacyImage1 from "../../assets/advocacy.webp";
 
 function Advocacy() {
 	return (
@@ -29,7 +27,7 @@ function Advocacy() {
 							<img
 								loading="lazy"
 								className="block object-contain rounded-[14px] h-72 "
-								src={AdvocacyImage2}
+								src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953645/RWDJ-IMAGES/comp7_lcemqg.webp"
 								alt="advocacy-2"
 							/>
 						</div>
@@ -66,7 +64,7 @@ function Advocacy() {
 							<img
 								loading="lazy"
 								className="block object-contain rounded-[14px] h-72 "
-								src={AdvocacyImage1}
+								src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953554/RWDJ-IMAGES/advocacy_mnyasq.webp"
 								alt="advocacy-1"
 							/>
 						</div>

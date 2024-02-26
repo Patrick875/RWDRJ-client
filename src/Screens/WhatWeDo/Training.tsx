@@ -1,9 +1,4 @@
 import { motion } from "framer-motion";
-import training1 from "./../../assets/images/training1.webp";
-import training2 from "./../../assets/images/training2.webp";
-import training3 from "./../../assets/images/training3.webp";
-import training4 from "./../../assets/images/training4.webp";
-import training5 from "./../../assets/images/training5.webp";
 
 import AnimatePage from "../../Shared/AnimatePage";
 
@@ -17,31 +12,36 @@ function Training() {
 	const cards: card[] = [
 		{
 			title: "Medical Aspect of Safe Abortion",
-			image: training1,
+			image:
+				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953651/RWDJ-IMAGES/training1_q8thry.webp",
 			content:
 				"We conduct series of training with young female physicians to increase their skills on medical aspect of safe abortion in the local context. We use hands on simulation skills that provide them with better understanding on safe abortion service provision and post abortion care.",
 		},
 		{
 			title: "Legal Aspect of Safe Abortion",
-			image: training2,
+			image:
+				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953652/RWDJ-IMAGES/training2_r67cul.webp",
 			content:
 				"We provide training to young female medical doctors on legal aspect of abortion in the Rwandan context. We ensure they are guided on best practice while providing the safe services.",
 		},
 		{
 			title: "Creating future female pro-choice",
-			image: training3,
+			image:
+				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953654/RWDJ-IMAGES/training3_qmbjhh.webp",
 			content:
 				"We collaborate actively with the medical students for choice at the University of Rwanda to increase girls students’ knowledge on abortion, covering topics related to legal and medical aspects of abortion in the local context.",
 		},
 		{
 			title: "Increasing Acceptance of Safe Abortion",
-			image: training4,
+			image:
+				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953659/RWDJ-IMAGES/training4_cwnkrp.webp",
 			content:
 				"We conduct series of safe space open discussions with girls and young women, especially female physicians to increase acceptance around safe abortion and behavior change.",
 		},
 		{
 			title: "Creating safe space for knowledge sharing",
-			image: training5,
+			image:
+				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953659/RWDJ-IMAGES/training5_si2dnf.webp",
 			content:
 				"We empower girls and women to open up for discussions on matters related to Reproductive Justice, equip them with advocacy skills, knowledge sharing, research and campaigning.",
 		},
