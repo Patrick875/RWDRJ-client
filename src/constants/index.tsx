@@ -223,31 +223,6 @@ export const sidenavs: sidenavType[] = [
 	},
 ];
 
-// function extractAndReplaceBase64ImageData(htmlContent: string): {
-// 	content: string;
-// 	contentImages: string[];
-// } {
-// 	const imgTagsRegex = /<img.*?src="(data:image\/[^;]+;base64,([^"]+))".*?>/g;
-// 	const contentImages: string[] = [];
-// 	let index = 1;
-
-// 	let replacedHtmlContent = htmlContent.replace(
-// 		imgTagsRegex,
-// 		(_, imageData, base64Data) => {
-// 			contentImages.push(imageData); // Push original base64 string
-// 			return _.replace(base64Data, `IMAGE-${index++}`); // Replace src attribute with IMAGE-1, IMAGE-2, etc.
-// 		}
-// 	);
-
-// 	// Remove 'data:image/png;base64,' prefix from the replaced content
-// 	replacedHtmlContent = replacedHtmlContent.replace(
-// 		/data:image\/png;base64,/g,
-// 		""
-// 	);
-
-// 	return { content: replacedHtmlContent, contentImages };
-// }
-
 export function formatDate(date: string): string {
 	// Extract date components
 	const year = new Date(date).getFullYear();

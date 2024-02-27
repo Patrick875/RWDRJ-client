@@ -14,6 +14,7 @@ import Slider from "react-slick";
 
 import TwitterTimeLine from "./TwitterTimeLine";
 import { HiCalendarDays } from "react-icons/hi2";
+import useFetchData from "../../Hooks/UseFetchData";
 
 function Partners({ partners }: { partners: partner[] }) {
 	const settings = {
@@ -245,14 +246,18 @@ const AboutUs = () => {
 				className="flex flex-col w-5/6 gap-4 px-2 py-4 mx-auto  min-h-[60vh]">
 				<div className="w-full mx-auto md:w-2/3">
 					<p className="w-full my-1 text-2xl font-bold text-center ">
-						Newsroom{" "}
+						Newsroom
 					</p>
 				</div>
-				<div className="grid flex-1 grid-cols-1 gap-2 md:grid-cols-3">
+				<div className="flex-1 ">
 					<div className="h-full">
-						{news && news.length === 0 && <p className="text-xs">News Room</p>}
+						{news && news.length === 0 && (
+							<p className="text-xl text-center text-gray-500">
+								News and other updates are posted here
+							</p>
+						)}
 						{news && news.length !== 0 && (
-							<div className="h-full">
+							<div className="grid h-full grid-cols-1 gap-2 md:grid-cols-3">
 								{news.map((blog) =>
 									Object.keys(blog).includes("content") ? (
 										<div
