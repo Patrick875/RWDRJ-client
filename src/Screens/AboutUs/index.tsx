@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { TbWorld } from "react-icons/tb";
 import Count from "./Count";
 import Slider from "react-slick";
-import useFetchData from "../../Hooks/UseFetchData";
+// import useFetchData from "../../Hooks/UseFetchData";
 
 import TwitterTimeLine from "./TwitterTimeLine";
 import { HiCalendarDays } from "react-icons/hi2";
@@ -92,7 +92,9 @@ const AboutUs = () => {
 	];
 
 	const navigate = useNavigate();
-	const { data: news } = useFetchData<NewsItem[]>("/news");
+	// const { data: news } = useFetchData<NewsItem[]>("/news");
+
+	const news: NewsItem[] = [];
 
 	return (
 		<div>
