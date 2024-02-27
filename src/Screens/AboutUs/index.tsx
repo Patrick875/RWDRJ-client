@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Showing from "../../assets/showing.webp";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
@@ -11,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { TbWorld } from "react-icons/tb";
 import Count from "./Count";
 import Slider from "react-slick";
-import useFetchData from "../../Hooks/UseFetchData";
+// import useFetchData from "../../Hooks/UseFetchData";
 
 import TwitterTimeLine from "./TwitterTimeLine";
 import { HiCalendarDays } from "react-icons/hi2";
@@ -93,7 +92,9 @@ const AboutUs = () => {
 	];
 
 	const navigate = useNavigate();
-	const { data: news } = useFetchData<NewsItem[]>("/news");
+	// const { data: news } = useFetchData<NewsItem[]>("/news");
+
+	const news: NewsItem[] = [];
 
 	return (
 		<div>
@@ -118,7 +119,7 @@ const AboutUs = () => {
 							<img
 								loading="lazy"
 								className="block object-contain md:mt-0 mt-4 rounded-[10px] "
-								src={Showing}
+								src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953566/RWDJ-IMAGES/showing_aou8ga.webp"
 								alt="woman-graphic"
 							/>
 						</motion.div>

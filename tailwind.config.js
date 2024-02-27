@@ -10,14 +10,22 @@ export default {
 				"page-cover": "rgba(0,0,0,0.68)",
 			},
 			backgroundImage: {
-				"image-1": "url('/img/image-1.webp')",
-				"image-2": "url('/img/image-3.webp')",
-				"image-3": "url('/img/image-2.webp')",
-				"image-whoweare": "url('/img/whoweare.webp')",
-				"image-advocacy": "url('/img/advocacy.webp')",
-				"image-training": "url('/img/training.webp')",
-				"image-service": "url('/img/service.webp')",
-				"image-digitalApp": "url('/img/digitalApp.webp')",
+				"image-1":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953721/RWDJ-IMAGES/image-1_hab59o.webp')",
+				"image-2":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953723/RWDJ-IMAGES/image-2_lqhyen.webp')",
+				"image-3":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953718/RWDJ-IMAGES/image-3_xgqxve.webp')",
+				"image-whoweare":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953716/RWDJ-IMAGES/whoweare_a5cyzd.webp')",
+				"image-advocacy":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953709/RWDJ-IMAGES/advocacy_s2gkbb.webp')",
+				"image-training":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953713/RWDJ-IMAGES/training_t1nyco.webp')",
+				"image-service":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953715/RWDJ-IMAGES/service_men0k2.webp')",
+				"image-digitalApp":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953708/RWDJ-IMAGES/digitalApp_okod5l.webp')",
 			},
 			fontFamily: {
 				hanuman: ["Hanuman", "serif"],

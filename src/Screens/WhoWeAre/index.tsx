@@ -1,6 +1,4 @@
 import AnimatePage from "../../Shared/AnimatePage";
-import graphic from "../../assets/graphic.png";
-import objectiveImage from "../../assets/images/training5.webp";
 import { objectives } from "../../constants";
 
 function WhoWeAre() {
@@ -62,7 +60,7 @@ function WhoWeAre() {
 									<img
 										loading="lazy"
 										className="block h-96 object-contain rounded-[10px] "
-										src={graphic}
+										src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/graphic_y9v2fr.png"
 										alt="woman-graphic"
 									/>
 								</div>
@@ -104,7 +102,7 @@ function WhoWeAre() {
 								<img
 									loading="lazy"
 									className="block h-96 object-contain rounded-[10px] "
-									src={objectiveImage}
+									src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953659/RWDJ-IMAGES/training5_si2dnf.webp"
 									alt="woman-graphic"
 								/>
 							</div>

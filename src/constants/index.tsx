@@ -7,29 +7,6 @@ import {
 } from "../Shared/types";
 import { MdEventAvailable, MdOutlineRestorePage } from "react-icons/md";
 
-import doc2 from "../assets/DOC2.webp";
-import doc3 from "../assets/DOC3.webp";
-import doc4 from "../assets/DOC4.webp";
-import doc5 from "../assets/DOC5.webp";
-import doc6 from "../assets/DOC6.webp";
-
-import doc8 from "../assets/DOC8.webp";
-
-import partner1 from "../assets/partner1.gif";
-import partner2 from "../assets/partner2.webp";
-import partner3 from "../assets/partner3.webp";
-import partner4 from "../assets/partner4.webp";
-import partner5 from "../assets/partner5.webp";
-import partner6 from "../assets/partner6.webp";
-import partner7 from "../assets/partner7.webp";
-import partner8 from "../assets/partner8.webp";
-import partner9 from "../assets/partner9.webp";
-import partner10 from "../assets/partner10.webp";
-
-import Advocacy from "../assets/advocacy.webp";
-import Compain from "../assets/Campaign.webp";
-import Training1 from "../assets/Training.webp";
-import Services from "../assets/Services.webp";
 import { IoHomeOutline } from "react-icons/io5";
 import { CiTextAlignJustify } from "react-icons/ci";
 
@@ -86,18 +63,18 @@ export const sections: section[] = [
 									complications when they are denied rights to reproductive
 									services and opt for dangerous traditional options.`,
 		title: "Advocacy",
-		img: Advocacy,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953554/RWDJ-IMAGES/advocacy_mnyasq.webp",
 		moreLink: "whatwedo/advocacy",
 	},
 	{
-		img: Compain,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953554/RWDJ-IMAGES/Campaign_cdsg7b.webp",
 		title: "Campaign&Organizing",
 		moreLink: "whatwedo/campaign-organizing",
 		content:
 			"We believe in The power of feminist organizing.  Through collective actions, we aim to transform the gender relations that subordinate and devalue women. Feminist organizing sustains our movement and advances autonomy and equality for all women.",
 	},
 	{
-		img: Training1,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953713/RWDJ-IMAGES/training_t1nyco.webp",
 		title: "Training",
 		moreLink: "whatwedo/training",
 		content:
@@ -105,18 +82,11 @@ export const sections: section[] = [
 	},
 	{
 		title: "Service Provision & Digital Health & SRHR",
-		img: Services,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953708/RWDJ-IMAGES/digitalApp_okod5l.webp",
 		moreLink: "whatwedo/service-provision",
 		content:
 			"Nationally, abortion is only permissible in cases of rape, when the pregnant person is a child, forced marriage, in cases of incest committed with a person to the second degree of kinship, and when the pregnancy puts a risk to the health of the pregnant person or of the fetus.",
 	},
-	// {
-	// 	title: "Digital Health & SRHR",
-	// 	img: Digital,
-	// 	moreLink: "whatwedo/digital-health",
-	// 	content: `The COVID-19 pandemic has shown us that remote therapy works. It helps people feel safe "especially those who wants to be anonymous".
-	// Telehealth increases access to healthcare in many ways. One is connecting people in need of care to providers.`,
-	// },
 ];
 
 export const teamMembers: member[] = [
@@ -128,27 +98,27 @@ export const teamMembers: member[] = [
 	{
 		name: "Sandrine Umutoniwase",
 		title: "Assistant Director",
-		img: doc2,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953554/RWDJ-IMAGES/DOC2_koeehg.webp",
 	},
 	{
 		name: "Clarisse Mutimukeye",
 		title: "Senior Program Director",
-		img: doc3,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953555/RWDJ-IMAGES/DOC3_z2ujja.webp",
 	},
 	{
 		name: "Fanny Giraneza",
 		title: "Finance&Grants Director",
-		img: doc4,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953555/RWDJ-IMAGES/DOC4_mp1ifz.webp",
 	},
 	{
 		name: "Divine Ingabire",
 		title: "Campaigns Coordinator",
-		img: doc5,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953555/RWDJ-IMAGES/DOC5_y48gls.webp",
 	},
 	{
 		name: "Girimpundu Revocathe",
 		title: "Psycologist",
-		img: doc6,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953555/RWDJ-IMAGES/DOC6_zwyfe3.webp",
 	},
 	// {
 	// 	name: "Sandrine Umuhoza",
@@ -158,7 +128,7 @@ export const teamMembers: member[] = [
 	{
 		name: "Josee Murekeyisoni",
 		title: "IT&Communication Director",
-		img: doc8,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953556/RWDJ-IMAGES/DOC8_azqglv.webp",
 	},
 	// {
 	// 	name: "Pierrette Mfurankunda",
@@ -168,19 +138,46 @@ export const teamMembers: member[] = [
 ];
 
 export const partners: partner[] = [
-	{ link: "https://youngfeministfund.org/", img: partner1 },
-	{ link: "https://numun.fund/", img: partner2 },
-	{ link: "https://www.medicaldoctorsforchoice.org/mscf", img: partner3 },
-	{ link: "https://www.flavoursfp.org/", img: partner4 },
-	{ link: "https://msfc.org/", img: partner5 },
-	{ link: "https://afroark.org/", img: partner6 },
-	{ link: "https://app.companion.rw/", img: partner7 },
-	{ link: "https://www.medsarwanda.org/", img: partner8 },
+	{
+		link: "https://youngfeministfund.org/",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953556/RWDJ-IMAGES/partner1_amjw3o.gif",
+	},
+	{
+		link: "https://numun.fund/",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner2_uolebp.webp",
+	},
+	{
+		link: "https://www.medicaldoctorsforchoice.org/mscf",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner3_gwqnhq.webp",
+	},
+	{
+		link: "https://www.flavoursfp.org/",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner4_lfsw82.webp",
+	},
+	{
+		link: "https://msfc.org/",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner5_tuokco.webp",
+	},
+	{
+		link: "https://afroark.org/",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner6_wzv1u5.webp",
+	},
+	{
+		link: "https://app.companion.rw/",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner7_ssllnm.webp",
+	},
+	{
+		link: "https://www.medsarwanda.org/",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner8_u0lpxl.webp",
+	},
 	{
 		link: "https://www.flavoursfp.org/save-safe-abortion-videos-edutainment",
-		img: partner9,
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner9_khc16p.webp",
 	},
-	{ link: "https://www.hprwanda.org/", img: partner10 },
+	{
+		link: "https://www.hprwanda.org/",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner10_ofwzzc.webp",
+	},
 ];
 
 export const objectives: string[] = [
