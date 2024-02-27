@@ -14,7 +14,7 @@ import Slider from "react-slick";
 
 import TwitterTimeLine from "./TwitterTimeLine";
 import { HiCalendarDays } from "react-icons/hi2";
-import useFetchData from "../../Hooks/UseFetchData";
+// import useFetchData from "../../Hooks/UseFetchData";
 
 function Partners({ partners }: { partners: partner[] }) {
 	const settings = {

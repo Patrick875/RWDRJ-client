@@ -1,9 +1,11 @@
 import { HiCalendarDays } from "react-icons/hi2";
 // import useFetchData from "../../Hooks/UseFetchData";
 import { NewsItem } from "../../Shared/types";
+import { useNavigate } from "react-router";
 
 function News() {
 	// const { data: news } = useFetchData<NewsItem[]>("/news");
+	const navigate = useNavigate();
 	const news: NewsItem[] = [];
 	return (
 		<div>
