@@ -46,9 +46,11 @@ const Footer = () => {
 						</div>
 						<div className="flex justify-center md:block">
 							<div className="flex gap-4">
-								<div className="flex justify-center items-center rounded-full md:h-12 md:w-12  h-8 w-8  md:border-[1.8px] border-white">
+								<Link
+									to="https://twitter.com/doctors_women"
+									className="flex justify-center items-center rounded-full md:h-12 md:w-12  h-8 w-8  md:border-[1.8px] border-white">
 									<FaSquareXTwitter className="text-2xl " />
-								</div>
+								</Link>
 								<div className="flex justify-center items-center rounded-full md:h-12 md:w-12 h-8 w-8  md:border-[1.8px] border-white">
 									<FaYoutube className="text-2xl" />
 								</div>
