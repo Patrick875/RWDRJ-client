@@ -401,7 +401,7 @@ const AboutUs = () => {
 							/>
 							<Marker icon={customIcon} position={[-1.936763, 30.089463]}>
 								<Popup>
-									<p className="font-bold text-primary-orange">KG 216 ST 20</p>
+									<p className="font-bold text-primary-orange">20 KG 596 St</p>
 								</Popup>
 							</Marker>
 						</MapContainer>

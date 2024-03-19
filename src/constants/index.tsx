@@ -90,11 +90,11 @@ export const sections: section[] = [
 ];
 
 export const teamMembers: member[] = [
-	// {
-	// 	name: "Pacific Ufitinema",
-	// 	title: "Executive Director",
-	// 	img: doc1,
-	// },
+	{
+		name: "Pacific Ufitinema",
+		title: "Executive Director",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1710869621/pacifique_s9gxj0.webp",
+	},
 	{
 		name: "Sandrine Umutoniwase",
 		title: "Assistant Director",
@@ -120,11 +120,11 @@ export const teamMembers: member[] = [
 		title: "Psycologist",
 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953555/RWDJ-IMAGES/DOC6_zwyfe3.webp",
 	},
-	// {
-	// 	name: "Sandrine Umuhoza",
-	// 	title: "Members Director",
-	// 	img: doc7,
-	// },
+	{
+		name: "Sandrine Umuhoza",
+		title: "Members Director",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1710869672/Umuhoza-Sandrine_eq4qih.webp",
+	},
 	{
 		name: "Josee Murekeyisoni",
 		title: "IT&Communication Director",
