@@ -38,7 +38,7 @@ const Topbar = ({ isTopOfPage }: topbarProps) => {
 				<div className="flex flex-col gap-1 md:items-center ">
 					<p className="flex items-center gap-2">
 						<BsPhone />
-						+250 782 864 790
+						+250 782 864 790 / +250 794 418 097
 					</p>
 					<p className="flex items-center gap-2">
 						<RiMailLine />

@@ -155,6 +155,10 @@ export const partners: partner[] = [
 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner4_lfsw82.webp",
 	},
 	{
+		link: "https://www.afriyanrwanda.org/",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1711030480/RWDJ-IMAGES/afriyan_logo_ciythu.jpg",
+	},
+	{
 		link: "https://msfc.org/",
 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner5_tuokco.webp",
 	},
@@ -195,6 +199,7 @@ export const objectives: string[] = [
 
 export const serverUrl = "";
 export const localServerUrl = "http://localhost:5000/";
+export const frontendUrl = "http://localhost:5173";
 
 export const sidenavs: sidenavType[] = [
 	{
@@ -233,6 +238,19 @@ export function formatDate(date: string): string {
 
 	// Format date string
 	const formattedDate = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+	return formattedDate;
+}
+export function formatPostedDate(date: string): string {
+	// Extract date components
+	const year = new Date(date).getFullYear();
+	const month = String(new Date(date).getMonth() + 1).padStart(2, "0"); // Month is zero-based
+	const day = String(new Date(date).getDate()).padStart(2, "0");
+	const hours = String(new Date(date).getHours()).padStart(2, "0");
+	const minutes = String(new Date(date).getMinutes()).padStart(2, "0");
+
+	// Format date string
+	const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
 
 	return formattedDate;
 }

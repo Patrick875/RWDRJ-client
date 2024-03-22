@@ -51,7 +51,7 @@ function ServiceProvision() {
 					</div>
 				</div>
 
-				<div className="md:h-[140vh]  relative flex flex-col  bg-image-digitalApp  bg-contain  bg-fixed ">
+				<div className="md:min-h-[140vh]  relative flex flex-col  bg-image-digitalApp  bg-contain  bg-fixed ">
 					<div className="flex flex-col items-center justify-center min-h-[40vh]  w-full mx-auto bg-[rgba(244,244,249,0.70)]">
 						<p className="text-2xl font-bold text-center font-lora ">
 							Digital Health & SRHR

@@ -31,7 +31,9 @@ function Contactus() {
 							For any queries or concerns, don't hesitate to contact us
 						</p>
 						<p className="my-2 text-sm font-light">Call us directly</p>
-						<p className="my-2 font-bold text-md">+250782864790</p>
+						<p className="my-2 font-bold text-md">
+							+250 782 864 790 / +250 794 418 097
+						</p>
 						<p className="my-2 text-sm font-light">Contact email</p>
 						<p className="my-2 font-bold text-md">
 							womenreproductivejustice@gmail.com

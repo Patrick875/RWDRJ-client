@@ -18,7 +18,7 @@ const modules = {
 			[{ indent: "-1" }, { indent: "+1" }],
 			[{ direction: "rtl" }],
 			[{ align: [] }],
-			["link"],
+			["link", "image"],
 			["clean"],
 		],
 	},
@@ -74,6 +74,17 @@ function ViewBlog() {
 	};
 
 	const loggedIn: boolean = true;
+
+	const deleteBlog = async () => {
+		await instance
+			.delete(`/blogs/${refId}`)
+			.then(() => {
+				toast.success("Blog deleted!!!");
+			})
+			.catch(() => {
+				toast.error("Something went wrong!!!");
+			});
+	};
 	const updateBlog = async () => {
 		const blogPost: BlogPost = {
 			content,
@@ -129,6 +140,12 @@ function ViewBlog() {
 										Update Cover Image
 									</label>
 								</div>
+								<button
+									type="button"
+									onClick={deleteBlog}
+									className="w-full py-2 text-xs text-white bg-pink-800">
+									Delete Blog Post
+								</button>
 							</div>
 						</div>
 					</div>
