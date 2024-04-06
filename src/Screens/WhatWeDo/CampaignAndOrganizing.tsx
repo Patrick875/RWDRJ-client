@@ -6,7 +6,7 @@ function CampaignAndOrganizing() {
 			<div className="">
 				<div className="flex flex-col items-center justify-center w-full h-[60vh] bg-center bg-cover bg-image-whoweare">
 					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto  bg-[rgba(244,244,249,0.70)]">
-						<p className="w-5/6 text-3xl font-bold text-center text-black font-lora">
+						<p className="w-5/6 text-5xl font-bold text-center text-black font-lora">
 							Campaign & Organizing
 						</p>
 					</div>
@@ -24,11 +24,11 @@ function CampaignAndOrganizing() {
 				</div>
 				<div className="bg-blue-900 ">
 					<div className="w-5/6 mx-auto ">
-						<div className="flex-col justify-center h-full py-4 text-lg text-center md:text-start ">
+						<div className="flex-col justify-center h-full py-4 text-lg text-center text-justify md:text-start ">
 							<p className="p-3 text-2xl text-center text-white font-lora">
 								16 Days of Activism Against Gender-Based Violence Campaign
 							</p>
-							<p className="p-3 text-white">
+							<p className="p-3 text-justify text-white">
 								Each year, from 25 November to 10 December, World Human Rights
 								Day, the 16 Days of Activism campaign calls for action against
 								one of the world ’s most persistent violations of human rights –

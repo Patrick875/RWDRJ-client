@@ -10,6 +10,8 @@ export default {
 				"page-cover": "rgba(0,0,0,0.68)",
 			},
 			backgroundImage: {
+				"image-our-team":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1712413957/RWDJ-IMAGES/team_agw2q9.jpg')",
 				"image-1":
 					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953721/RWDJ-IMAGES/image-1_hab59o.webp')",
 				"image-2":

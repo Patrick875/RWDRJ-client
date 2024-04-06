@@ -219,20 +219,20 @@ const AboutUs = () => {
 				<div className="grid w-5/6 grid-cols-1 gap-3 py-6 mx-auto bg-white md:gap-0 md:grid-cols-3 font-montserrat ">
 					<div className="text-center">
 						<div className="text-2xl font-bold">
-							<Count interval={6} countTo={151} />
+							<Count interval={6} countTo={107} />
 						</div>
-						<p className="font-semibold">Member Doctors</p>
+						<p className="font-semibold">Members</p>
 					</div>
 					<div className="text-center">
 						<div className="flex items-center justify-center text-2xl font-bold ">
-							<Count interval={6} countTo={200} />
+							<Count interval={6} countTo={800} />
 							<p className="text-xl ps-2 font-hanuman">+</p>
 						</div>
 						<p className="font-semibold">People Reached</p>
 					</div>
 					<div className="text-center">
 						<div className="text-2xl font-bold">
-							<Count interval={100} countTo={10} />
+							<Count interval={100} countTo={12} />
 						</div>
 						<p className="font-semibold">Partner institutions</p>
 					</div>
@@ -256,73 +256,6 @@ const AboutUs = () => {
 							<p className="text-xl text-center text-gray-500">
 								News and other updates are posted here
 							</p>
-						)}
-						{news && news.length !== 0 && (
-							<div className="grid h-full grid-cols-1 gap-2 md:grid-cols-3">
-								{news.map((blog) =>
-									Object.keys(blog).includes("content") ? (
-										<div
-											className="w-full bg-white rounded-[8px] hover group cursor-pointer"
-											onClick={() => {
-												navigate(`news/blogs/${blog.refId}`);
-											}}>
-											<div className="relative flex items-center justify-center h-32 overflow-hidden ">
-												<img
-													src={blog.coverImage}
-													className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
-												/>
-											</div>
-											<p className="px-2 py-1 text-xl font-bold capitalize">
-												{blog.title}
-											</p>
-											{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
-
-											<div className="px-2 py-2 ">
-												<p className="text-sm font-bold">RWDRJ</p>
-												<p className="text-xs ">
-													{blog.datePosted && blog.datePosted
-														? new Date(blog.datePosted).toLocaleDateString(
-																"fr-FR"
-														  )
-														: null}
-												</p>
-											</div>
-										</div>
-									) : (
-										<div
-											onClick={() => {
-												navigate(`news/events/${blog.refId}`);
-											}}
-											className="w-full bg-white rounded-[8px] cursor-pointer  group">
-											<div className="relative flex items-center justify-center h-32 overflow-hidden">
-												<img
-													src={blog.coverImage}
-													className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
-												/>
-											</div>
-											<p className="px-2 py-1 font-bold capitalize ">
-												{blog.title}
-											</p>
-
-											<div className="px-2 py-2 font-bold">
-												<p className="flex items-center gap-2 text-xs ">
-													<HiCalendarDays className="text-lg text-gray-500 " />
-													{blog.datestart
-														? new Date(blog.datestart).toLocaleDateString(
-																"fr-FR"
-														  )
-														: null}{" "}
-													<span className="font-bold"> - </span>
-													{blog.dateend
-														? new Date(blog.dateend).toLocaleDateString("fr-FR")
-														: null}
-												</p>
-												<p className="text-sm ">RWDRJ</p>
-											</div>
-										</div>
-									)
-								)}
-							</div>
 						)}
 					</div>
 				</div>
@@ -414,3 +347,71 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+
+// {news && news.length !== 0 && (
+// 	<div className="grid h-full grid-cols-1 gap-2 md:grid-cols-3">
+// 		{news.map((blog) =>
+// 			Object.keys(blog).includes("content") ? (
+// 				<div
+// 					className="w-full bg-white rounded-[8px] hover group cursor-pointer"
+// 					onClick={() => {
+// 						navigate(`news/blogs/${blog.refId}`);
+// 					}}>
+// 					<div className="relative flex items-center justify-center h-32 overflow-hidden ">
+// 						<img
+// 							src={blog.coverImage}
+// 							className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
+// 						/>
+// 					</div>
+// 					<p className="px-2 py-1 text-xl font-bold capitalize">
+// 						{blog.title}
+// 					</p>
+// 					{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
+
+// 					<div className="px-2 py-2 ">
+// 						<p className="text-sm font-bold">RWDRJ</p>
+// 						<p className="text-xs ">
+// 							{blog.datePosted && blog.datePosted
+// 								? new Date(blog.datePosted).toLocaleDateString(
+// 										"fr-FR"
+// 								  )
+// 								: null}
+// 						</p>
+// 					</div>
+// 				</div>
+// 			) : (
+// 				<div
+// 					onClick={() => {
+// 						navigate(`news/events/${blog.refId}`);
+// 					}}
+// 					className="w-full bg-white rounded-[8px] cursor-pointer  group">
+// 					<div className="relative flex items-center justify-center h-32 overflow-hidden">
+// 						<img
+// 							src={blog.coverImage}
+// 							className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
+// 						/>
+// 					</div>
+// 					<p className="px-2 py-1 font-bold capitalize ">
+// 						{blog.title}
+// 					</p>
+
+// 					<div className="px-2 py-2 font-bold">
+// 						<p className="flex items-center gap-2 text-xs ">
+// 							<HiCalendarDays className="text-lg text-gray-500 " />
+// 							{blog.datestart
+// 								? new Date(blog.datestart).toLocaleDateString(
+// 										"fr-FR"
+// 								  )
+// 								: null}{" "}
+// 							<span className="font-bold"> - </span>
+// 							{blog.dateend
+// 								? new Date(blog.dateend).toLocaleDateString("fr-FR")
+// 								: null}
+// 						</p>
+// 						<p className="text-sm ">RWDRJ</p>
+// 					</div>
+// 				</div>
+// 			)
+// 		)}
+// 	</div>
+// )}

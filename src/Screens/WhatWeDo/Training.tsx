@@ -51,7 +51,7 @@ function Training() {
 			<div className="">
 				<div className="flex flex-col items-center justify-center w-full h-[60vh] bg-center bg-cover bg-image-training">
 					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
-						<p className="w-5/6 text-3xl font-bold text-center font-lora ">
+						<p className="w-5/6 text-5xl font-bold text-center font-lora ">
 							Training
 						</p>
 					</div>

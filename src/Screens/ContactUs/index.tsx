@@ -15,7 +15,7 @@ function Contactus() {
 		<AnimatePage>
 			<div className="flex flex-col items-center justify-center w-full h-[60vh] bg-center bg-cover bg-image-whoweare">
 				<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
-					<p className="w-5/6 text-xl font-bold text-center text-white">
+					<p className="w-5/6 text-3xl font-bold text-center text-white">
 						We are always eager to hear from you!!!
 					</p>
 				</div>
@@ -52,7 +52,7 @@ function Contactus() {
 							<Marker icon={customIcon} position={[-1.936763, 30.089463]}>
 								<Popup>
 									<p className="text-xs font-bold text-primary-orange">
-										KG 216 ST 20
+										KG 596 ST 20
 									</p>
 								</Popup>
 							</Marker>

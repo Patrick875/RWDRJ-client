@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 function OurTeam() {
 	return (
 		<AnimatePage>
-			<div className="flex flex-col items-center h-[60vh] justify-center w-full  bg-center bg-cover bg-image-whoweare">
+			<div className="flex flex-col items-center h-[60vh] justify-center w-full  bg-top bg-cover bg-image-our-team">
 				<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
-					<p className="w-5/6 text-3xl font-bold text-center text-white font-lora">
+					<p className="w-5/6 mt-24 text-3xl font-bold text-center text-white font-lora">
 						Teamwork is at the heart of each and every one of our endeavours.
 					</p>
 				</div>
