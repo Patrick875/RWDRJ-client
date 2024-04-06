@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom";
 import useFetchData from "../../../Hooks/UseFetchData";
 import parse from "html-react-parser";
-import ReactQuill from "react-quill";
+import ReactQuill, { Quill } from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import ImageResize from "quill-image-resize-module-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import instance from "../../../API";
 import { BlogPost } from "../../../Shared/types";
 import toast from "react-hot-toast";
+
+Quill.register("modules/imageResize", ImageResize);
 
 const modules = {
 	toolbar: {
@@ -23,6 +27,23 @@ const modules = {
 		],
 	},
 };
+
+const formats = [
+	"header",
+	"font",
+	"size",
+	"bold",
+	"italic",
+	"underline",
+	"strike",
+	"blockquote",
+	"list",
+	"bullet",
+	"indent",
+	"link",
+	"image",
+	"video",
+];
 
 function ViewBlog() {
 	const { refId } = useParams();
@@ -161,6 +182,7 @@ function ViewBlog() {
 								placeholder="Write your blog post content here..."
 								className="mb-4"
 								modules={modules}
+								formats={formats}
 							/>
 							{lengthChanged && (
 								<button

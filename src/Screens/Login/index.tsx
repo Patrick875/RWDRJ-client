@@ -5,15 +5,18 @@ import instance from "../../API";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import { HashLoader } from "react-spinners";
+import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 interface login {
 	email: string;
 	password: string;
 }
 const Login = () => {
-	const { register, handleSubmit } = useForm<login>();
+	const [visible, setVisible] = useState<boolean>(false);
+	const { register, handleSubmit, watch } = useForm<login>();
 	const [error, setError] = useState<boolean | null>(false);
 	const [message, setMessage] = useState<boolean | null>(null);
 	const [loading, setLoading] = useState<boolean | null>(null);
+	const password = watch("password") || "";
 	const navigateToDashboard = () => {
 		navigate("dashboard");
 	};
@@ -59,6 +62,7 @@ const Login = () => {
 					</div>
 
 					<form onSubmit={handleSubmit(login)} className="px-8 pt-2 mx-2 p-9">
+						<p className="my-3 text-lg font-bold text-center">Login</p>
 						<div>
 							<label
 								htmlFor="id"
@@ -79,13 +83,22 @@ const Login = () => {
 								className="block my-2 text-xs font-medium text-gray-700 ">
 								Password
 							</label>
-							<input
-								type="password"
-								onFocus={handleOnFocus}
-								className="w-full px-3 py-1 border border-gray-500 rounded shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-								id="password"
-								{...register("password")}
-							/>
+							<div className="flex w-full gap-2 bg-white border border-gray-500 rounded shadow-sm">
+								<input
+									type={visible ? "text" : "password"}
+									className="w-[90%] px-3  focus:outline-none focus:ring-0 focus:border-none border-none py-1 bg-transparent"
+									id="password"
+									{...register("password")}
+								/>
+								{password && password.length > 1 && (
+									<button
+										className="focus:outline-none focus:ring-0"
+										type="button"
+										onClick={() => setVisible(!visible)}>
+										{visible ? <IoIosEyeOff /> : <IoIosEye />}
+									</button>
+								)}
+							</div>
 						</div>
 
 						<button
@@ -97,11 +110,14 @@ const Login = () => {
 								<HashLoader color="#fff" loading={loading} size={15} />
 							)}
 						</button>
-						<Link
-							to="/resetpassword"
-							className="block text-xs text-center text-sky-700 ">
-							Reset Password
-						</Link>
+						<p className="text-center">
+							Forgot your password ?
+							<Link
+								to="forgotpassword"
+								className="text-center ps-2 text-sky-700">
+								Click here
+							</Link>
+						</p>
 					</form>
 					{error && (
 						<p className="flex items-center justify-center pb-4 ">

@@ -71,7 +71,7 @@ const AboutUs = () => {
 			transition: {
 				type: "spring",
 				bounce: 0.4,
-				duration: 0.8,
+				duration: 0.4,
 			},
 		},
 	};
@@ -167,8 +167,8 @@ const AboutUs = () => {
 					id="whatwedo"
 					initial="hidden"
 					whileInView="visible"
-					transition={{ delay: 0.4, duration: 0.6 }}
-					viewport={{ amount: 0.9 }}
+					transition={{ delay: 0.2, duration: 0.6 }}
+					viewport={{ amount: 0.4 }}
 					variants={containerSides}
 					className="flex flex-col w-5/6 gap-4 py-4 mx-auto ">
 					<div className="w-2/3 mx-auto">
