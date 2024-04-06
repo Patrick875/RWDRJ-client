@@ -114,7 +114,7 @@ export const teamMembers: member[] = [
 	{
 		name: "Diane Ishime Nzanana",
 		title: "Senior Program Director",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1712413825/RWDJ-IMAGES/Nzanana_d557b9.jpg",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1712415636/RWDJ-IMAGES/NzananaDiane_rzezzz.jpg",
 	},
 
 	{

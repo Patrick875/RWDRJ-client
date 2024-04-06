@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import QuillResize from "quill-resize-module";
 import "quill-resize-module/dist/resize.css";
 import instance from "../../../API";
 import { BlogPost } from "../../../Shared/types";

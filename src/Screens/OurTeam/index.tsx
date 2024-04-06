@@ -33,7 +33,11 @@ function OurTeam() {
 								<img
 									loading="lazy"
 									src={member.img}
-									className="object-cover overlay-slate-800   rounded-t-[8px] object-top w-full p-0 h-52"
+									className={`object-top overlay-slate-800   rounded-t-[8px] ${
+										member.name.toLocaleLowerCase().includes("nzanana")
+											? " object-contain"
+											: " object-cover"
+									} w-full p-0 h-52`}
 								/>
 								<p className="px-4 py-1 font-bold text-center">{member.name}</p>
 								<p className="px-4 py-1 text-sm text-center">{member.title}</p>

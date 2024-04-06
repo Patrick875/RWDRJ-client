@@ -9,8 +9,8 @@ import {
 	TwitterShareButton,
 } from "react-share";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaFacebook, FaLinkedinIn, FaInstagram } from "react-icons/fa";
-import { SiChainlink } from "react-icons/si";
+import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
+// import { SiChainlink } from "react-icons/si";
 
 function BlogDetails() {
 	const { refId } = useParams();

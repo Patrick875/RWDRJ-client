@@ -3,7 +3,7 @@ import Layout from "./Screens/Layout";
 import AboutUs from "./Screens/AboutUs";
 import LayoutAdmin from "./Screens/Admin/LayoutAdmin";
 import Login from "./Screens/Login";
-import RegisterUser from "./Screens/RegisterUser";
+// import RegisterUser from "./Screens/RegisterUser";
 import AdminDashboard from "./Screens/Admin/AdminDashboard";
 import PrivateRoute from "./Screens/Admin/PrivateRoute";
 import WhoWeAre from "./Screens/WhoWeAre";
