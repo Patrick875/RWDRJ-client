@@ -3,7 +3,7 @@ import Layout from "./Screens/Layout";
 import AboutUs from "./Screens/AboutUs";
 import LayoutAdmin from "./Screens/Admin/LayoutAdmin";
 import Login from "./Screens/Login";
-import RegisterUser from "./Screens/RegisterUser";
+// import RegisterUser from "./Screens/RegisterUser";
 import AdminDashboard from "./Screens/Admin/AdminDashboard";
 import PrivateRoute from "./Screens/Admin/PrivateRoute";
 import WhoWeAre from "./Screens/WhoWeAre";
@@ -35,6 +35,8 @@ import ViewEvent from "./Screens/Admin/Events/ViewEvent";
 import BlogDetails from "./Screens/Blogs/BlogDetails";
 import EventDetails from "./Screens/Events/EventDetails";
 import { Toaster } from "react-hot-toast";
+import ResetPassword from "./Screens/Admin/ResetPassword";
+import ForgotPassword from "./Screens/Admin/ForgotPassword";
 
 function App() {
 	return (
@@ -76,9 +78,10 @@ function App() {
 						/>
 						<Route />
 					</Route>
+					<Route path="resetpassword/:token" element={<ResetPassword />} />
 					<Route path="/admin" element={<LayoutAdmin />}>
 						<Route index element={<Login />} />
-						<Route path="register" element={<RegisterUser />} />
+						<Route path="forgotpassword" element={<ForgotPassword />} />
 						<Route
 							path="dashboard"
 							element={<PrivateRoute element={<AdminDashboard />} />}>

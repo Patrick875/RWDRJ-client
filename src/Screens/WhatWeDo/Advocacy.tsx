@@ -6,14 +6,14 @@ function Advocacy() {
 			<div className="">
 				<div className="flex flex-col items-center justify-center w-full min-h-[60vh] bg-bottom   bg-cover  bg-image-advocacy">
 					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
-						<p className="w-5/6 text-3xl font-bold text-center text-black font-lora">
+						<p className="w-5/6 text-5xl font-bold text-center text-black font-lora">
 							Advocacy
 						</p>
 					</div>
 				</div>
 
 				<div className="p-3 bg-primary-orange min-h-[60vh] flex flex-col justify-center items-center">
-					<p className="w-5/6 p-3 mx-auto text-2xl font-bold text-center font-lora ">
+					<p className="w-5/6 p-3 mx-auto text-2xl font-bold text-center text font-lora ">
 						As a group of young women doctors, advocating for access to legal
 						and safe SRHR and friendly services is significantly essential. We
 						recognize women and girls' catastrophic complications when they are
@@ -35,7 +35,7 @@ function Advocacy() {
 							<p className="p-3 text-2xl text-center text-white md:text-start font-lora">
 								Advocating for Sexual Reproductive Health Rights
 							</p>
-							<p className="p-3 text-white ">
+							<p className="p-3 text-justify text-white">
 								Lack of access to sexual reproductive health and rights violates
 								various human rights of women and girls, including the right to
 								life, the highest attainable standard of physical and mental
@@ -52,7 +52,7 @@ function Advocacy() {
 							<p className="p-3 text-2xl text-white font-lora ">
 								Empowering Women Physicians for Change
 							</p>
-							<p className="p-3 text-lg text-white ">
+							<p className="p-3 text-lg text-justify text-white">
 								As young women physicians, we believe that our voice from the
 								lived experiences, knowledge, and evidence we generate in our
 								medical career we best positioned to enable the environment for

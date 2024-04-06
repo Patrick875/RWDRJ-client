@@ -2,10 +2,14 @@ import { useParams } from "react-router-dom";
 import useFetchData from "../../../Hooks/UseFetchData";
 import parse from "html-react-parser";
 import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+// import ImageResize from "quill-image-resize-module-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import instance from "../../../API";
 import { BlogPost } from "../../../Shared/types";
 import toast from "react-hot-toast";
+
+// Quill.register("modules/imageResize", ImageResize);
 
 const modules = {
 	toolbar: {
@@ -18,11 +22,28 @@ const modules = {
 			[{ indent: "-1" }, { indent: "+1" }],
 			[{ direction: "rtl" }],
 			[{ align: [] }],
-			["link"],
+			["link", "image"],
 			["clean"],
 		],
 	},
 };
+
+const formats = [
+	"header",
+	"font",
+	"size",
+	"bold",
+	"italic",
+	"underline",
+	"strike",
+	"blockquote",
+	"list",
+	"bullet",
+	"indent",
+	"link",
+	"image",
+	"video",
+];
 
 function ViewBlog() {
 	const { refId } = useParams();
@@ -74,6 +95,17 @@ function ViewBlog() {
 	};
 
 	const loggedIn: boolean = true;
+
+	const deleteBlog = async () => {
+		await instance
+			.delete(`/blogs/${refId}`)
+			.then(() => {
+				toast.success("Blog deleted!!!");
+			})
+			.catch(() => {
+				toast.error("Something went wrong!!!");
+			});
+	};
 	const updateBlog = async () => {
 		const blogPost: BlogPost = {
 			content,
@@ -129,6 +161,12 @@ function ViewBlog() {
 										Update Cover Image
 									</label>
 								</div>
+								<button
+									type="button"
+									onClick={deleteBlog}
+									className="w-full py-2 text-xs text-white bg-pink-800">
+									Delete Blog Post
+								</button>
 							</div>
 						</div>
 					</div>
@@ -144,6 +182,7 @@ function ViewBlog() {
 								placeholder="Write your blog post content here..."
 								className="mb-4"
 								modules={modules}
+								formats={formats}
 							/>
 							{lengthChanged && (
 								<button

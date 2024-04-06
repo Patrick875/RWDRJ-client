@@ -15,7 +15,7 @@ function Contactus() {
 		<AnimatePage>
 			<div className="flex flex-col items-center justify-center w-full h-[60vh] bg-center bg-cover bg-image-whoweare">
 				<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
-					<p className="w-5/6 text-xl font-bold text-center text-white">
+					<p className="w-5/6 text-3xl font-bold text-center text-white">
 						We are always eager to hear from you!!!
 					</p>
 				</div>
@@ -31,7 +31,9 @@ function Contactus() {
 							For any queries or concerns, don't hesitate to contact us
 						</p>
 						<p className="my-2 text-sm font-light">Call us directly</p>
-						<p className="my-2 font-bold text-md">+250782864790</p>
+						<p className="my-2 font-bold text-md">
+							+250 782 864 790 / +250 794 418 097
+						</p>
 						<p className="my-2 text-sm font-light">Contact email</p>
 						<p className="my-2 font-bold text-md">
 							womenreproductivejustice@gmail.com
@@ -50,7 +52,7 @@ function Contactus() {
 							<Marker icon={customIcon} position={[-1.936763, 30.089463]}>
 								<Popup>
 									<p className="text-xs font-bold text-primary-orange">
-										KG 216 ST 20
+										KG 596 ST 20
 									</p>
 								</Popup>
 							</Marker>

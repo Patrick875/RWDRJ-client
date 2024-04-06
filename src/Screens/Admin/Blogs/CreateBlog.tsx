@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import "quill-resize-module/dist/resize.css";
 import instance from "../../../API";
 import { BlogPost } from "../../../Shared/types";
 import toast from "react-hot-toast";
@@ -16,9 +17,12 @@ const modules = {
 			[{ indent: "-1" }, { indent: "+1" }],
 			[{ direction: "rtl" }],
 			[{ align: [] }],
-			["link"],
+			["link", "image"],
 			["clean"],
 		],
+	},
+	resizing: {
+		modules: ["Resize", "DisplaySize"],
 	},
 };
 

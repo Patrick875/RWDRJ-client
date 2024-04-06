@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 function OurTeam() {
 	return (
 		<AnimatePage>
-			<div className="flex flex-col items-center h-[60vh] justify-center w-full  bg-center bg-cover bg-image-whoweare">
+			<div className="flex flex-col items-center h-[60vh] justify-center w-full  bg-top bg-cover bg-image-our-team">
 				<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
-					<p className="w-5/6 text-3xl font-bold text-center text-white font-lora">
+					<p className="w-5/6 mt-24 text-3xl font-bold text-center text-white font-lora">
 						Teamwork is at the heart of each and every one of our endeavours.
 					</p>
 				</div>
@@ -33,7 +33,11 @@ function OurTeam() {
 								<img
 									loading="lazy"
 									src={member.img}
-									className="object-cover overlay-slate-800   rounded-t-[8px] object-top w-full p-0 h-52"
+									className={`object-top overlay-slate-800   rounded-t-[8px] ${
+										member.name.toLocaleLowerCase().includes("nzanana")
+											? " object-contain"
+											: " object-cover"
+									} w-full p-0 h-52`}
 								/>
 								<p className="px-4 py-1 font-bold text-center">{member.name}</p>
 								<p className="px-4 py-1 text-sm text-center">{member.title}</p>
