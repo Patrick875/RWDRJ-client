@@ -29,7 +29,7 @@ function ServiceProvision() {
 					</div>
 				</div>
 				<div className="text-white bg-blue-900">
-					<div className="w-5/6 px-4 py-6 mx-auto ">
+					<div className="w-5/6 px-4 py-6 mx-auto text-justify">
 						<p className="p-3 text-xl ">
 							However access to SRHR services, especially safe abortion care, is
 							still almost impossible, due to many conscious objectors. Our
@@ -80,7 +80,7 @@ function ServiceProvision() {
 									<p className="my-8 text-xl font-bold my font-lora">
 										Telehealth and The AASAP Finder Platform
 									</p>
-									<p className="my-2 text-lg ">
+									<p className="my-2 text-lg text-justify ">
 										Telehealth is the practice of delivering healthcare services
 										remotely through technology, enabling patients to access
 										medical care and information without visiting a physical

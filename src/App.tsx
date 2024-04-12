@@ -27,7 +27,7 @@ import Pages from "./Screens/Admin/Pages";
 import BlogPage from "./Screens/Admin/BlogPage";
 import EventsAdmin from "./Screens/Admin/EventsAdmin";
 import AllBlogs from "./Screens/Admin/Blogs/AllBlogs";
-import CreateBlog from "./Screens/Admin/Blogs/CreateBlog";
+// import CreateBlog from "./Screens/Admin/Blogs/CreateBlog";
 import ViewBlog from "./Screens/Admin/Blogs/ViewBlog";
 import AllEvents from "./Screens/Admin/Events/AllEvents";
 import CreateEvent from "./Screens/Admin/Events/CreateEvent";
@@ -89,7 +89,7 @@ function App() {
 							<Route path="pages" element={<Pages />} />
 							<Route path="blogs" element={<BlogPage />}>
 								<Route index element={<AllBlogs />} />
-								<Route path="create" element={<CreateBlog />} />
+								{/* {<Route path="create" element={<CreateBlog />} />} */}
 								<Route path=":refId" element={<ViewBlog />} />
 							</Route>
 							<Route path="events" element={<EventsAdmin />}>
