@@ -6,7 +6,7 @@ import marker from "./../../assets/marker.gif";
 import Carousel from "./Carousel";
 import { partners, sections } from "../../constants";
 import { CarouselItem, NewsItem, partner, section } from "../../Shared/types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TbWorld } from "react-icons/tb";
 import Count from "./Count";
 import Slider from "react-slick";
@@ -15,7 +15,8 @@ import Slider from "react-slick";
 import TwitterTimeLine from "./TwitterTimeLine";
 // import { HiCalendarDays } from "react-icons/hi2";
 import useFetchData from "../../Hooks/UseFetchData";
-// import useFetchData from "../../Hooks/UseFetchData";
+
+import { HiCalendarDays } from "react-icons/hi2";
 
 function Partners({ partners }: { partners: partner[] }) {
 	const settings = {
@@ -93,7 +94,7 @@ const AboutUs = () => {
 		},
 	];
 
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	const { data: news } = useFetchData<NewsItem[]>("/news");
 
 	// const news: NewsItem[] = [];
@@ -252,10 +253,72 @@ const AboutUs = () => {
 				</div>
 				<div className="flex-1 ">
 					<div className="h-full">
-						{news && news.length === 0 && (
-							<p className="text-xl text-center text-gray-500">
-								News and other updates are posted here
-							</p>
+						{news && news.length !== 0 && (
+							<div className="grid h-full grid-cols-1 gap-2 md:grid-cols-3">
+								{news.map((blog) =>
+									Object.keys(blog).includes("content") ? (
+										<div
+											className="w-full bg-white rounded-[8px] hover group cursor-pointer"
+											onClick={() => {
+												navigate(`news/blogs/${blog.refId}`);
+											}}>
+											<div className="relative flex items-center justify-center h-32 overflow-hidden ">
+												<img
+													src={blog.coverImage}
+													className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
+												/>
+											</div>
+											<p className="px-2 py-1 text-xl font-bold capitalize">
+												{blog.title}
+											</p>
+											{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
+
+											<div className="px-2 py-2 ">
+												<p className="text-sm font-bold">RWDRJ</p>
+												<p className="text-xs ">
+													{blog.datePosted && blog.datePosted
+														? new Date(blog.datePosted).toLocaleDateString(
+																"fr-FR"
+														  )
+														: null}
+												</p>
+											</div>
+										</div>
+									) : (
+										<div
+											onClick={() => {
+												navigate(`news/events/${blog.refId}`);
+											}}
+											className="w-full bg-white rounded-[8px] cursor-pointer  group">
+											<div className="relative flex items-center justify-center h-32 overflow-hidden">
+												<img
+													src={blog.coverImage}
+													className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
+												/>
+											</div>
+											<p className="px-2 py-1 font-bold capitalize ">
+												{blog.title}
+											</p>
+
+											<div className="px-2 py-2 font-bold">
+												<p className="flex items-center gap-2 text-xs ">
+													<HiCalendarDays className="text-lg text-gray-500 " />
+													{blog.datestart
+														? new Date(blog.datestart).toLocaleDateString(
+																"fr-FR"
+														  )
+														: null}{" "}
+													<span className="font-bold"> - </span>
+													{blog.dateend
+														? new Date(blog.dateend).toLocaleDateString("fr-FR")
+														: null}
+												</p>
+												<p className="text-sm ">RWDRJ</p>
+											</div>
+										</div>
+									)
+								)}
+							</div>
 						)}
 					</div>
 				</div>
@@ -348,70 +411,66 @@ const AboutUs = () => {
 
 export default AboutUs;
 
-// {news && news.length !== 0 && (
-// 	<div className="grid h-full grid-cols-1 gap-2 md:grid-cols-3">
-// 		{news.map((blog) =>
-// 			Object.keys(blog).includes("content") ? (
-// 				<div
-// 					className="w-full bg-white rounded-[8px] hover group cursor-pointer"
-// 					onClick={() => {
-// 						navigate(`news/blogs/${blog.refId}`);
-// 					}}>
-// 					<div className="relative flex items-center justify-center h-32 overflow-hidden ">
-// 						<img
-// 							src={blog.coverImage}
-// 							className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
-// 						/>
-// 					</div>
-// 					<p className="px-2 py-1 text-xl font-bold capitalize">
-// 						{blog.title}
-// 					</p>
-// 					{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
-
-// 					<div className="px-2 py-2 ">
-// 						<p className="text-sm font-bold">RWDRJ</p>
-// 						<p className="text-xs ">
-// 							{blog.datePosted && blog.datePosted
-// 								? new Date(blog.datePosted).toLocaleDateString(
-// 										"fr-FR"
-// 								  )
-// 								: null}
+// {
+// 	news && news.length !== 0 && (
+// 		<div className="grid h-full grid-cols-1 gap-2 md:grid-cols-3">
+// 			{news.map((blog) =>
+// 				Object.keys(blog).includes("content") ? (
+// 					<div
+// 						className="w-full bg-white rounded-[8px] hover group cursor-pointer"
+// 						onClick={() => {
+// 							navigate(`news/blogs/${blog.refId}`);
+// 						}}>
+// 						<div className="relative flex items-center justify-center h-32 overflow-hidden ">
+// 							<img
+// 								src={blog.coverImage}
+// 								className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
+// 							/>
+// 						</div>
+// 						<p className="px-2 py-1 text-xl font-bold capitalize">
+// 							{blog.title}
 // 						</p>
-// 					</div>
-// 				</div>
-// 			) : (
-// 				<div
-// 					onClick={() => {
-// 						navigate(`news/events/${blog.refId}`);
-// 					}}
-// 					className="w-full bg-white rounded-[8px] cursor-pointer  group">
-// 					<div className="relative flex items-center justify-center h-32 overflow-hidden">
-// 						<img
-// 							src={blog.coverImage}
-// 							className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
-// 						/>
-// 					</div>
-// 					<p className="px-2 py-1 font-bold capitalize ">
-// 						{blog.title}
-// 					</p>
+// 						{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
 
-// 					<div className="px-2 py-2 font-bold">
-// 						<p className="flex items-center gap-2 text-xs ">
-// 							<HiCalendarDays className="text-lg text-gray-500 " />
-// 							{blog.datestart
-// 								? new Date(blog.datestart).toLocaleDateString(
-// 										"fr-FR"
-// 								  )
-// 								: null}{" "}
-// 							<span className="font-bold"> - </span>
-// 							{blog.dateend
-// 								? new Date(blog.dateend).toLocaleDateString("fr-FR")
-// 								: null}
-// 						</p>
-// 						<p className="text-sm ">RWDRJ</p>
+// 						<div className="px-2 py-2 ">
+// 							<p className="text-sm font-bold">RWDRJ</p>
+// 							<p className="text-xs ">
+// 								{blog.datePosted && blog.datePosted
+// 									? new Date(blog.datePosted).toLocaleDateString("fr-FR")
+// 									: null}
+// 							</p>
+// 						</div>
 // 					</div>
-// 				</div>
-// 			)
-// 		)}
-// 	</div>
-// )}
+// 				) : (
+// 					<div
+// 						onClick={() => {
+// 							navigate(`news/events/${blog.refId}`);
+// 						}}
+// 						className="w-full bg-white rounded-[8px] cursor-pointer  group">
+// 						<div className="relative flex items-center justify-center h-32 overflow-hidden">
+// 							<img
+// 								src={blog.coverImage}
+// 								className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
+// 							/>
+// 						</div>
+// 						<p className="px-2 py-1 font-bold capitalize ">{blog.title}</p>
+
+// 						<div className="px-2 py-2 font-bold">
+// 							<p className="flex items-center gap-2 text-xs ">
+// 								<HiCalendarDays className="text-lg text-gray-500 " />
+// 								{blog.datestart
+// 									? new Date(blog.datestart).toLocaleDateString("fr-FR")
+// 									: null}{" "}
+// 								<span className="font-bold"> - </span>
+// 								{blog.dateend
+// 									? new Date(blog.dateend).toLocaleDateString("fr-FR")
+// 									: null}
+// 							</p>
+// 							<p className="text-sm ">RWDRJ</p>
+// 						</div>
+// 					</div>
+// 				)
+// 			)}
+// 		</div>
+// 	);
+// }

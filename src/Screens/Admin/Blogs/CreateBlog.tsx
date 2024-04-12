@@ -1,44 +1,54 @@
-import React, { useState, useRef } from "react";
-import ReactQuill from "react-quill";
+import React, { useState } from "react";
+//import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "quill-resize-module/dist/resize.css";
-import instance from "../../../API";
-import { BlogPost } from "../../../Shared/types";
-import toast from "react-hot-toast";
+// import instance from "../../../API";
+// import { BlogPost } from "../../../Shared/types";
+// import { CKEditor } from "@ckeditor/ckeditor5-react";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import {ImageResize} from
+// import toast from "react-hot-toast";
 
-const modules = {
-	toolbar: {
-		container: [
-			[{ size: ["small", false, "large", "huge"] }],
-			["bold", "italic", "underline", "strike"],
-			["blockquote", "code-block"],
-			[{ list: "ordered" }, { list: "bullet" }],
-			[{ script: "sub" }, { script: "super" }],
-			[{ indent: "-1" }, { indent: "+1" }],
-			[{ direction: "rtl" }],
-			[{ align: [] }],
-			["link", "image"],
-			["clean"],
-		],
-	},
-	resizing: {
-		modules: ["Resize", "DisplaySize"],
-	},
-};
+// const modules = {
+// 	toolbar: {
+// 		container: [
+// 			[{ size: ["small", false, "large", "huge"] }],
+// 			["bold", "italic", "underline", "strike"],
+// 			["blockquote", "code-block"],
+// 			[{ list: "ordered" }, { list: "bullet" }],
+// 			[{ script: "sub" }, { script: "super" }],
+// 			[{ indent: "-1" }, { indent: "+1" }],
+// 			[{ direction: "rtl" }],
+// 			[{ align: [] }],
+// 			["link", "image"],
+// 			["clean"],
+// 		],
+// 	},
+// 	resizing: {
+// 		modules: ["Resize", "DisplaySize"],
+// 	},
+// };
 
 const CreateBlog: React.FC = () => {
 	const [title, setTitle] = useState<string>("");
-	const [content, setContent] = useState<string>("");
+	// const [content, setContent] = useState<string>("");
 	const [coverImage, setCoverImage] = useState<string>("");
-	const quillRef = useRef<ReactQuill>(null);
+	// const quillRef = useRef<ReactQuill>(null);
+
+	// const [editorText, setEditorText] = useState("");
+
+	// const handleEditorChange = (event, editor) => {
+	// 	const data = editor.getData();
+	// 	setEditorText(data);
+	// };
 
 	const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTitle(e.target.value);
 	};
 
-	const handleContentChange = (value: string) => {
-		setContent(value);
-	};
+	// const handleContentChange = (value: string) => {
+	// 	setContent(value);
+	// };
 
 	const handleCoverImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
@@ -51,22 +61,24 @@ const CreateBlog: React.FC = () => {
 		}
 	};
 
-	const handleSubmit = async () => {
-		const blogPost: BlogPost = {
-			title,
-			content,
-			coverImage,
-		};
+	// const handleSubmit = async () => {
+	// 	const blogPost: BlogPost = {
+	// 		title,
+	// 		content: editorText,
+	// 		coverImage,
+	// 	};
 
-		await instance
-			.post("/blogs", blogPost)
-			.then(() => {
-				toast.success("Success !!!");
-			})
-			.catch((err) => {
-				toast.error(err.code);
-			});
-	};
+	// 	console.log("blogPost", blogPost);
+
+	// 	await instance
+	// 		.post("/blogs", blogPost)
+	// 		.then(() => {
+	// 			toast.success("Success !!!");
+	// 		})
+	// 		.catch((err) => {
+	// 			toast.error(err.code);
+	// 		});
+	// };
 
 	return (
 		<div className="p-4">
@@ -101,20 +113,9 @@ const CreateBlog: React.FC = () => {
 					</div>
 				)}
 			</div>
+			{/* {<CKEditor editor={ClassicEditor} onChange={handleEditorChange} />} */}
 
-			<ReactQuill
-				ref={quillRef}
-				theme="snow"
-				value={content}
-				onChange={handleContentChange}
-				placeholder="Write your blog post content here..."
-				className="mb-4"
-				modules={modules}
-			/>
-
-			<button
-				onClick={handleSubmit}
-				className="px-4 py-2 text-sm font-bold text-white rounded bg-emerald-700 hover:bg-emerald-900">
+			<button className="px-4 py-2 text-sm font-bold text-white rounded bg-emerald-700 hover:bg-emerald-900">
 				Submit
 			</button>
 		</div>

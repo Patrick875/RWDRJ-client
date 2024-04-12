@@ -35,6 +35,10 @@ export default {
 				playfair: ["Playfair Display", "serif"],
 				lora: ["Lora", "serif"],
 			},
+			content: {
+				openquotes: "url('./assets/openquotes.svg')",
+				closequotes: "url('./assets/closequotes.svg')",
+			},
 			fontSize: {
 				sm: "0.8rem",
 				base: "1rem",
