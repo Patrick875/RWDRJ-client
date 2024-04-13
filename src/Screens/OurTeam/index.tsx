@@ -34,7 +34,8 @@ function OurTeam() {
 									loading="lazy"
 									src={member.img}
 									className={`object-top overlay-slate-800   rounded-t-[8px] ${
-										member.name.toLocaleLowerCase().includes("nzanana")
+										member.name.toLocaleLowerCase().includes("nzanana") ||
+										member.name.toLocaleLowerCase().includes("umuhoza")
 											? " object-contain"
 											: " object-cover"
 									} w-full p-0 h-52`}

@@ -2,12 +2,11 @@ import React, { useState } from "react";
 //import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "quill-resize-module/dist/resize.css";
-// import instance from "../../../API";
-// import { BlogPost } from "../../../Shared/types";
-// import { CKEditor } from "@ckeditor/ckeditor5-react";
-// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-// import {ImageResize} from
-// import toast from "react-hot-toast";
+import instance from "../../../API";
+import { BlogPost } from "../../../Shared/types";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import toast from "react-hot-toast";
 
 // const modules = {
 // 	toolbar: {
@@ -35,20 +34,16 @@ const CreateBlog: React.FC = () => {
 	const [coverImage, setCoverImage] = useState<string>("");
 	// const quillRef = useRef<ReactQuill>(null);
 
-	// const [editorText, setEditorText] = useState("");
+	const [editorText, setEditorText] = useState("");
 
-	// const handleEditorChange = (event, editor) => {
-	// 	const data = editor.getData();
-	// 	setEditorText(data);
-	// };
+	const handleEditorChange = (_event: any, editor: any) => {
+		const data = editor.getData();
+		setEditorText(data);
+	};
 
 	const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTitle(e.target.value);
 	};
-
-	// const handleContentChange = (value: string) => {
-	// 	setContent(value);
-	// };
 
 	const handleCoverImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
@@ -61,24 +56,24 @@ const CreateBlog: React.FC = () => {
 		}
 	};
 
-	// const handleSubmit = async () => {
-	// 	const blogPost: BlogPost = {
-	// 		title,
-	// 		content: editorText,
-	// 		coverImage,
-	// 	};
+	const handleSubmit = async () => {
+		const blogPost: BlogPost = {
+			title,
+			content: editorText,
+			coverImage,
+		};
 
-	// 	console.log("blogPost", blogPost);
+		console.log("blogPost", blogPost);
 
-	// 	await instance
-	// 		.post("/blogs", blogPost)
-	// 		.then(() => {
-	// 			toast.success("Success !!!");
-	// 		})
-	// 		.catch((err) => {
-	// 			toast.error(err.code);
-	// 		});
-	// };
+		await instance
+			.post("/blogs", blogPost)
+			.then(() => {
+				toast.success("Success !!!");
+			})
+			.catch((err) => {
+				toast.error(err.code);
+			});
+	};
 
 	return (
 		<div className="p-4">
@@ -113,9 +108,11 @@ const CreateBlog: React.FC = () => {
 					</div>
 				)}
 			</div>
-			{/* {<CKEditor editor={ClassicEditor} onChange={handleEditorChange} />} */}
+			<CKEditor editor={ClassicEditor} onChange={handleEditorChange} />
 
-			<button className="px-4 py-2 text-sm font-bold text-white rounded bg-emerald-700 hover:bg-emerald-900">
+			<button
+				onClick={handleSubmit}
+				className="px-4 py-2 text-sm font-bold text-white rounded bg-emerald-700 hover:bg-emerald-900">
 				Submit
 			</button>
 		</div>

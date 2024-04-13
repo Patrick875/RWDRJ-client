@@ -1,12 +1,12 @@
 import { HiCalendarDays } from "react-icons/hi2";
-// import useFetchData from "../../Hooks/UseFetchData";
+import useFetchData from "../../Hooks/UseFetchData";
 import { NewsItem } from "../../Shared/types";
 import { useNavigate } from "react-router-dom";
 
 function News() {
-	// const { data: news } = useFetchData<NewsItem[]>("/news");
+	const { data: news } = useFetchData<NewsItem[]>("/news");
 	const navigate = useNavigate();
-	const news: NewsItem[] = [];
+	// const news: NewsItem[] = [];
 	return (
 		<div>
 			<div className="flex flex-col items-center justify-center w-full min-h-[60vh] bg-center bg-cover bg-image-whoweare">
@@ -17,7 +17,7 @@ function News() {
 				</div>
 			</div>
 			<div className="w-11/12 mx-auto ">
-				<div className="min-h-[80vh]">
+				<div className="min-h-[80vh] mt-10">
 					{(news && news.length === 0) ||
 						(!news && (
 							<p className="text-2xl text-center text-gray-500">
@@ -25,34 +25,35 @@ function News() {
 							</p>
 						))}
 					{news && news.length !== 0 && (
-						<div className="grid h-full grid-cols-2 md:grid-cols-4">
+						<div className="grid h-full ">
 							{news.map((blog) =>
 								Object.keys(blog).includes("content") ? (
 									<div
-										className="w-full bg-white rounded-[8px] hover group cursor-pointer"
+										className="w-full flex my-2 shadow min-h-[30vh] bg-white rounded-[8px] hover group cursor-pointer"
 										onClick={() => {
-											navigate(`news/blogs/${blog.refId}`);
+											navigate(`blogs/${blog.refId}`);
 										}}>
-										<div className="relative flex items-center justify-center h-32 overflow-hidden ">
+										<div className="relative min-h-[30vh] flex items-center justify-center w-1/2  overflow-hidden ">
 											<img
 												src={blog.coverImage}
-												className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
+												className="absolute block object-cover w-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
 											/>
 										</div>
-										<p className="px-2 py-1 text-xl font-bold capitalize">
-											{blog.title}
-										</p>
-										{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
-
-										<div className="px-2 py-2 ">
-											<p className="text-sm font-bold">RWDRJ</p>
-											<p className="text-xs ">
-												{blog.datePosted && blog.datePosted
-													? new Date(blog.datePosted).toLocaleDateString(
-															"fr-FR"
-													  )
-													: null}
+										<div className="w-1/2">
+											<p className="px-2 py-1 text-xl font-bold capitalize">
+												{blog.title}
 											</p>
+
+											<div className="px-2 py-2 ">
+												<p className="text-sm font-bold">RWDRJ</p>
+												<p className="text-xs ">
+													{blog.datePosted && blog.datePosted
+														? new Date(blog.datePosted).toLocaleDateString(
+																"fr-FR"
+														  )
+														: null}
+												</p>
+											</div>
 										</div>
 									</div>
 								) : (

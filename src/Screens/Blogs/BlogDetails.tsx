@@ -41,11 +41,11 @@ function BlogDetails() {
 
 					{blog && (
 						<div>
-							<div className="w-5/6 py-4 mx-auto text-center md:py-3 md:text-start">
+							<div className="w-5/6 py-4 mx-auto text-justify md:py-3 ">
 								{parse(blog.content)}
 								<p className="pt-3 text-lg font-bold">Share on </p>
 							</div>
-							<div className="flex w-5/6 gap-4 pt-2 mx-auto mb-3 text-center md:py-3 md:text-start">
+							<div className="flex  justify-center sm:justify-stretch w-5/6 gap-4 pt-2 mx-auto mb-3 text-center md:py-3 md:text-start">
 								<FacebookShareButton url={`${frontendUrl}${pathname}`}>
 									<FaFacebook className="text-3xl text-sky-700 " />
 								</FacebookShareButton>
