@@ -82,7 +82,7 @@ export const sections: section[] = [
 	},
 	{
 		title: "Service Provision & Digital Health & SRHR",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953708/RWDJ-IMAGES/digitalApp_okod5l.webp",
+		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1712939108/IMG_5647_fylfhn.jpg",
 		moreLink: "whatwedo/service-provision",
 		content:
 			"Nationally, abortion is only permissible in cases of rape, when the pregnant person is a child, forced marriage, in cases of incest committed with a person to the second degree of kinship, and when the pregnancy puts a risk to the health of the pregnant person or of the fetus.",
@@ -200,7 +200,7 @@ export const objectives: string[] = [
 	" Increase the partnership with other feminist organizations both locally and internationally.",
 ];
 
-export const serverUrl = "";
+export const serverUrl = "https://rwdrj-server.onrender.com/";
 export const localServerUrl = "http://localhost:5000/";
 export const frontendUrl = "http://localhost:5173";
 

@@ -1,87 +1,35 @@
 import { useParams } from "react-router-dom";
 import useFetchData from "../../../Hooks/UseFetchData";
 import parse from "html-react-parser";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 // import ImageResize from "quill-image-resize-module-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import instance from "../../../API";
 import { BlogPost } from "../../../Shared/types";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import toast from "react-hot-toast";
 
 // Quill.register("modules/imageResize", ImageResize);
 
-const modules = {
-	toolbar: {
-		container: [
-			[{ size: ["small", false, "large", "huge"] }],
-			["bold", "italic", "underline", "strike"],
-			["blockquote", "code-block"],
-			[{ list: "ordered" }, { list: "bullet" }],
-			[{ script: "sub" }, { script: "super" }],
-			[{ indent: "-1" }, { indent: "+1" }],
-			[{ direction: "rtl" }],
-			[{ align: [] }],
-			["link", "image"],
-			["clean"],
-		],
-	},
-};
-
-const formats = [
-	"header",
-	"font",
-	"size",
-	"bold",
-	"italic",
-	"underline",
-	"strike",
-	"blockquote",
-	"list",
-	"bullet",
-	"indent",
-	"link",
-	"image",
-	"video",
-];
-
 function ViewBlog() {
 	const { refId } = useParams();
-	const quillRef = useRef<ReactQuill>(null);
 	const { data: blog, loading } = useFetchData<BlogPost>(`/blogs/${refId}`);
 	const [title, setTitle] = useState<string>("");
-	const [content, setContent] = useState<string>("");
 	const [coverImage, setCoverImage] = useState<string>("");
 	const [localCoverImage, setLocalCoverImage] = useState<string>("");
-
-	const lengthChanged = useMemo(() => {
-		if (blog) {
-			const currentEditor = quillRef.current?.getEditor();
-			const unprevEditor = currentEditor
-				? quillRef.current?.makeUnprivilegedEditor(currentEditor)
-				: null;
-
-			if (unprevEditor) {
-				if (
-					blog.content.length < unprevEditor?.getHTML().length ||
-					title.length !== blog.title.length ||
-					localCoverImage !== blog.coverImage
-				) {
-					return true;
-				}
-			} else {
-				return false;
-			}
-		}
-	}, [content, title, localCoverImage]);
 
 	const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTitle(e.target.value);
 	};
 
-	const handleContentChange = (value: string) => {
-		setContent(value);
+	const [editorContent, setEditorContent] = useState("");
+
+	// Function to handle editor content changes
+	const handleEditorChange = (_event: any, editor: any) => {
+		const data = editor.getData();
+		setEditorContent(data);
 	};
+
 	const handleCoverImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
 		if (file) {
@@ -108,7 +56,7 @@ function ViewBlog() {
 	};
 	const updateBlog = async () => {
 		const blogPost: BlogPost = {
-			content,
+			content: editorContent,
 			title,
 			coverImage,
 		};
@@ -120,11 +68,11 @@ function ViewBlog() {
 			.catch((err) => {
 				toast.error(err.code);
 			});
+		console.log("blog... Post", blogPost);
 	};
 
 	useEffect(() => {
 		if (blog) {
-			setContent(blog.content);
 			setTitle(blog.title);
 			setCoverImage(blog.coverImage);
 			setLocalCoverImage(blog.coverImage);
@@ -173,24 +121,20 @@ function ViewBlog() {
 					{!loggedIn && parse(blog.content)}
 					{loggedIn && (
 						<div>
-							<ReactQuill
-								ref={quillRef}
-								theme="snow"
-								value={content}
-								defaultValue={blog.content}
-								onChange={handleContentChange}
-								placeholder="Write your blog post content here..."
-								className="mb-4"
-								modules={modules}
-								formats={formats}
+							<CKEditor
+								editor={ClassicEditor}
+								data={blog.content}
+								onReady={(editor) => {
+									console.log("Editor is ready to use!", editor);
+								}}
+								onChange={handleEditorChange}
 							/>
-							{lengthChanged && (
-								<button
-									onClick={updateBlog}
-									className="text-white bg-emerald-950 font-bold p-1 rounded-[6px]">
-									Save
-								</button>
-							)}
+
+							<button
+								onClick={updateBlog}
+								className="text-white bg-emerald-950 font-bold p-1 rounded-[6px]">
+								Save
+							</button>
 						</div>
 					)}
 				</div>

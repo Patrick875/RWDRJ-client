@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+	content: [
+		"./index.html",
+		"./src/**/*.{js,ts,jsx,tsx}",
+		"node_modules/flowbite-react/lib/esm/**/*.js",
+	],
 	theme: {
 		extend: {
 			colors: {
@@ -23,11 +27,11 @@ export default {
 				"image-advocacy":
 					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953709/RWDJ-IMAGES/advocacy_s2gkbb.webp')",
 				"image-training":
-					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953713/RWDJ-IMAGES/training_t1nyco.webp')",
-				"image-service":
 					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953715/RWDJ-IMAGES/service_men0k2.webp')",
+				"image-service":
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1712939108/IMG_5647_fylfhn.jpg')",
 				"image-digitalApp":
-					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1708953708/RWDJ-IMAGES/digitalApp_okod5l.webp')",
+					"url('https://res.cloudinary.com/didikwl4i/image/upload/v1712940031/_DSC6473_lw1kba.jpg')",
 			},
 			fontFamily: {
 				hanuman: ["Hanuman", "serif"],
@@ -49,16 +53,12 @@ export default {
 				"5xl": "3.052rem",
 				"8xl": "5.52rem",
 			},
-			content: [
-				"./index.html",
-				"./src/**/*.{js,ts,jsx,tsx}",
-				"node_modules/flowbite-react/lib/esm/**/*.js",
-			],
-			screens: {
-				xs: "480px",
-				sm: "768px",
-				md: "1060px",
-			},
+		},
+
+		screens: {
+			xs: "480px",
+			sm: "768px",
+			md: "1060px",
 		},
 	},
 	plugins: [require("flowbite/plugin")],
