@@ -38,6 +38,23 @@ import { Toaster } from "react-hot-toast";
 import ResetPassword from "./Screens/Admin/ResetPassword";
 import ForgotPassword from "./Screens/Admin/ForgotPassword";
 import Page404 from "./Screens/ErrorPages/Page404";
+import AllPages from "./Screens/Admin/Pages/AllPages";
+import GeneralInfo from "./Screens/Admin/Pages/GeneralInfo";
+import TeamMembers from "./Screens/Admin/Pages/TeamMembers";
+import Partners from "./Screens/Admin/Pages/Partners";
+import TeamMembersLayout from "./Screens/Admin/Pages/TeamMembersLayout";
+import TeamMember from "./Screens/Admin/Pages/TeamMember";
+import AllPartners from "./Screens/Admin/Pages/AllPartners";
+import Partner from "./Screens/Admin/Pages/Partner";
+import CreatePartner from "./Screens/Admin/Pages/CreatePartner";
+import AdminAdvocacyPage from "./Screens/Admin/Pages/AdminAdvocacyPage";
+import AdminDigitalHealth from "./Screens/Admin/Pages/AdminDigitalHealth";
+import AdminContactUs from "./Screens/Admin/Pages/AdminContactUs";
+import AdminCompaign from "./Screens/Admin/Pages/AdminCompaign";
+import AdminTraining from "./Screens/Admin/Pages/AdminTraining";
+import AdminAboutUs from "./Screens/Admin/Pages/AdminAboutUs";
+import AdminOurTeam from "./Screens/Admin/Pages/AdminOurTeam";
+import AdminOutlet from "./Screens/Admin/Pages/AdminOutlet";
 
 function App() {
 	return (
@@ -77,6 +94,7 @@ function App() {
 							path="whatwedo/digital-health"
 							element={<DigitalHealthSHSR />}
 						/>
+						<Route path="whatwedo/events" element={<Events />} />
 						<Route />
 					</Route>
 					<Route path="resetpassword/:token" element={<ResetPassword />} />
@@ -87,7 +105,28 @@ function App() {
 							path="dashboard"
 							element={<PrivateRoute element={<AdminDashboard />} />}>
 							<Route index element={<HomeDashboard />} />
-							<Route path="pages" element={<Pages />} />
+							<Route path="pages" element={<Pages />}>
+								<Route index element={<AllPages />} />
+								<Route path="advocacy" element={<AdminAdvocacyPage />} />
+								{/* {<Route path="digitalinfo" element={<AdminDigitalHealth />} />} */}
+								<Route path="contactus" element={<AdminContactUs />} />
+								<Route path="compaign" element={<AdminCompaign />} />
+								<Route path="training" element={<AdminOutlet />}>
+									<Route index element={<AdminTraining />} />
+								</Route>
+								<Route path="aboutus" element={<AdminAboutUs />} />
+								<Route path="ourteam" element={<AdminOurTeam />} />
+								<Route path="generalinfo" element={<GeneralInfo />} />
+								<Route path="team" element={<TeamMembersLayout />}>
+									<Route index element={<TeamMembers />} />
+									<Route path=":id" element={<TeamMember />} />
+								</Route>
+								<Route path="partners" element={<Partners />}>
+									<Route index element={<AllPartners />} />
+									<Route path=":id" element={<Partner />} />
+									<Route path="create" element={<CreatePartner />} />
+								</Route>
+							</Route>
 							<Route path="blogs" element={<BlogPage />}>
 								<Route index element={<AllBlogs />} />
 								<Route path="create" element={<CreateBlog />} />

@@ -2,9 +2,10 @@ import { HiCalendarDays } from "react-icons/hi2";
 import useFetchData from "../../Hooks/UseFetchData";
 import { NewsItem } from "../../Shared/types";
 import { useNavigate } from "react-router-dom";
+import { ClockLoader } from "react-spinners";
 
 function News() {
-	const { data: news } = useFetchData<NewsItem[]>("/news");
+	const { data: news, loading } = useFetchData<NewsItem[]>("/news");
 	const navigate = useNavigate();
 	// const news: NewsItem[] = [];
 	return (
@@ -17,12 +18,17 @@ function News() {
 				</div>
 			</div>
 			<div className="w-11/12 mx-auto ">
-				<div className="min-h-[80vh] mt-10">
+				<div className="min-h-[60vh] mt-10">
 					{(news && news.length === 0) ||
-						(!news && (
-							<p className="text-2xl text-center text-gray-500">
-								No current content !!
-							</p>
+						!news ||
+						(loading && (
+							<div className="min-h-[100vh] flex flex-col items-center justify-center">
+								<ClockLoader
+									color="#c29f1d"
+									loading={loading}
+									className="text-6xl bg-primary-orange"
+								/>
+							</div>
 						))}
 					{news && news.length !== 0 && (
 						<div className="grid h-full ">
@@ -46,13 +52,13 @@ function News() {
 
 											<div className="px-2 py-2 ">
 												<p className="text-sm font-bold">RWDRJ</p>
-												<p className="text-xs ">
+												{/* {<p className="text-xs ">
 													{blog.datePosted && blog.datePosted
 														? new Date(blog.datePosted).toLocaleDateString(
 																"fr-FR"
 														  )
 														: null}
-												</p>
+												</p>} */}
 											</div>
 										</div>
 									</div>

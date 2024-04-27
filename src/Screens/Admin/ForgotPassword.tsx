@@ -20,7 +20,7 @@ const ForgotPassword = () => {
 	const login = async (data: forgotPassword) => {
 		setLoading(true);
 		await instance
-			.post("/forgotpassword", { ...data })
+			.post("/admin/forgotpassword", { ...data })
 			.then((res) => {
 				toast.success(res.data.message);
 				navigateToLogin();
