@@ -1,75 +1,87 @@
+import useFetchData from "../../Hooks/UseFetchData";
 import AnimatePage from "../../Shared/AnimatePage";
+import { advocacyPage, sectionSchema } from "../../Shared/types";
+import parse from "html-react-parser";
+import { ClockLoader } from "react-spinners";
 
 function Advocacy() {
+	const { data: advocacy, loading } = useFetchData<advocacyPage[]>("/advocacy");
+
 	return (
 		<AnimatePage>
 			<div className="">
-				<div className="flex flex-col items-center justify-center w-full min-h-[60vh] bg-bottom   bg-cover  bg-image-advocacy">
-					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
-						<p className="w-5/6 text-5xl font-bold text-center text-black font-lora">
-							Advocacy
-						</p>
-					</div>
-				</div>
+				{!loading && advocacy && advocacy.length > 0 ? (
+					<>
+						<div
+							style={{
+								backgroundImage:
+									advocacy && advocacy.length > 0
+										? `url(${advocacy[0].coverImage})`
+										: "",
+							}}
+							className="flex flex-col items-center justify-center w-full md:min-h-[60vh] min-h-[40vh] bg-bottom   bg-cover ">
+							<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
+								<p className="w-5/6 text-2xl font-bold text-center text-black md:text-5xl font-lora">
+									{advocacy && advocacy.length > 0 ? advocacy[0].title : ""}
+								</p>
+							</div>
+						</div>
 
-				<div className="p-3 bg-primary-orange min-h-[60vh] flex flex-col justify-center items-center">
-					<p className="w-5/6 p-3 mx-auto text-2xl font-bold text-center text font-lora ">
-						As a group of young women doctors, advocating for access to legal
-						and safe SRHR and friendly services is significantly essential. We
-						recognize women and girls' catastrophic complications when they are
-						denied rights to reproductive services and opt for dangerous
-						traditional options.
-					</p>
-				</div>
-				<div className="bg-blue-900 ">
-					<div className="flex flex-col md:flex-row w-5/6 mx-auto min-h-[70vh]">
-						<div className="flex flex-col items-center justify-center h-full px-2 py-4 w-fullmd:w-1/2">
-							<img
-								loading="lazy"
-								className="block object-contain rounded-[14px] h-72 "
-								src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953645/RWDJ-IMAGES/comp7_lcemqg.webp"
-								alt="advocacy-2"
-							/>
-						</div>
-						<div className="flex flex-col justify-center w-full h-full py-4 text-lg text-center md:text-start md:w-1/2">
-							<p className="p-3 text-2xl text-center text-white md:text-start font-lora">
-								Advocating for Sexual Reproductive Health Rights
-							</p>
-							<p className="p-3 text-justify text-white">
-								Lack of access to sexual reproductive health and rights violates
-								various human rights of women and girls, including the right to
-								life, the highest attainable standard of physical and mental
-								health, and the freedom to decide on family planning. Our
-								organization engages young women doctors to advance safe
-								abortion access, essential for saving lives and achieving
-								reproductive health rights and justice through evidence-based
-								advocacy.
+						<div className="p-3 bg-primary-orange min-h-[40vh] flex flex-col justify-center items-center">
+							<p className="w-full p-3 text-center md:mx-auto md:w-5/6 md:text-2xl text font-lora ">
+								{advocacy && advocacy.length > 0
+									? parse(advocacy[0].subtitle)
+									: ""}
 							</p>
 						</div>
+						<div className="bg-blue-900 ">
+							{advocacy &&
+							advocacy.length > 0 &&
+							advocacy[0].sections.length > 0
+								? advocacy[0].sections.map(
+										(sect: sectionSchema, index: number) => {
+											return (
+												<div
+													key={crypto.randomUUID()}
+													className={`flex flex-col  gap-1 md:gap-5 ${
+														index % 2 === 0
+															? " md:flex-row "
+															: "md:flex-row-reverse"
+													} w-5/6 mx-auto min-h-[40vh]`}>
+													<div className="flex flex-col items-center justify-center w-full h-full py-4 md:w-1/2">
+														<img
+															loading="lazy"
+															className="block object-cover w-full rounded-[14px] h-72 "
+															src={sect.coverImage}
+															alt="advocacy-2"
+														/>
+													</div>
+													<div className="flex flex-col justify-center w-full h-full py-1 text-lg text-center md:py-4 md:text-start md:w-1/2">
+														<p className="p-3 px-0 text-lg text-center text-white md:text-2xl md:text-start font-lora">
+															{sect.title}
+														</p>
+														<p className="p-3 px-0 text-sm text-justify text-white md:text-lg">
+															{sect && sect.content
+																? parse(`${sect.content}`)
+																: ""}
+														</p>
+													</div>
+												</div>
+											);
+										}
+								  )
+								: null}
+						</div>
+					</>
+				) : (
+					<div className="min-h-[100vh] flex flex-col items-center justify-center">
+						<ClockLoader
+							color="#c29f1d"
+							loading={loading}
+							className="text-6xl bg-primary-orange"
+						/>
 					</div>
-					<div className="flex flex-col-reverse w-5/6 mx-auto md:flex-row ">
-						<div className="flex flex-col justify-center w-full h-full px-2 py-4 text-center md:text-start md:w-1/2">
-							<p className="p-3 text-2xl text-white font-lora ">
-								Empowering Women Physicians for Change
-							</p>
-							<p className="p-3 text-lg text-justify text-white">
-								As young women physicians, we believe that our voice from the
-								lived experiences, knowledge, and evidence we generate in our
-								medical career we best positioned to enable the environment for
-								quality comprehensive abortion care through a supportive
-								framework of law and policy changes and promotion.
-							</p>
-						</div>
-						<div className="flex flex-col items-center justify-center w-full h-full px-2 py-4 md:w-1/2">
-							<img
-								loading="lazy"
-								className="block object-contain rounded-[14px] h-72 "
-								src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953554/RWDJ-IMAGES/advocacy_mnyasq.webp"
-								alt="advocacy-1"
-							/>
-						</div>
-					</div>
-				</div>
+				)}
 			</div>
 		</AnimatePage>
 	);

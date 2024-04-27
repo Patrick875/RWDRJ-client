@@ -1,10 +1,4 @@
-import {
-	member,
-	navItem,
-	section,
-	partner,
-	sidenavType,
-} from "../Shared/types";
+import { navItem, section, partner, sidenavType } from "../Shared/types";
 import { MdEventAvailable, MdOutlineRestorePage } from "react-icons/md";
 
 import { IoHomeOutline } from "react-icons/io5";
@@ -50,6 +44,10 @@ export const navs: navItem[] = [
 		to: "news",
 	},
 	{
+		text: "Events",
+		to: "events",
+	},
+	{
 		text: "Contact us",
 		to: "contactus",
 	},
@@ -89,103 +87,52 @@ export const sections: section[] = [
 	},
 ];
 
-export const teamMembers: member[] = [
-	{
-		name: "Pacific Ufitinema",
-		title: "Executive Director",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1710869621/pacifique_s9gxj0.webp",
-	},
-	{
-		name: "Josee Murekeyisoni",
-		title: "Deputy Director",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953556/RWDJ-IMAGES/DOC8_azqglv.webp",
-	},
-	{
-		name: "Girimpundu Revocathe",
-		title: "Secretary/Psycologist",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953555/RWDJ-IMAGES/DOC6_zwyfe3.webp",
-	},
-	{
-		name: "Fanny Giraneza",
-		title: "Finance&Grants Director",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953555/RWDJ-IMAGES/DOC4_mp1ifz.webp",
-	},
-
-	{
-		name: "Diane Ishime Nzanana",
-		title: "Senior Program Director",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1712415636/RWDJ-IMAGES/NzananaDiane_rzezzz.jpg",
-	},
-
-	{
-		name: "Divine Ingabire",
-		title: "Campaigns Coordinator",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953555/RWDJ-IMAGES/DOC5_y48gls.webp",
-	},
-	{
-		name: "Sandrine Umuhoza",
-		title: "Members Director",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1710869672/Umuhoza-Sandrine_eq4qih.webp",
-	},
-	{
-		name: "Sandrine Umutoniwase",
-		title: "IT&Communication Director",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953554/RWDJ-IMAGES/DOC2_koeehg.webp",
-	},
-
-	// {
-	// 	name: "Pierrette Mfurankunda",
-	// 	title: "Policy and Law Director",
-	// 	img: doc9,
-	// },
-];
-
-export const partners: partner[] = [
-	{
-		link: "https://youngfeministfund.org/",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953556/RWDJ-IMAGES/partner1_amjw3o.gif",
-	},
-	{
-		link: "https://numun.fund/",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner2_uolebp.webp",
-	},
-	{
-		link: "https://www.medicaldoctorsforchoice.org/mscf",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner3_gwqnhq.webp",
-	},
-	{
-		link: "https://www.flavoursfp.org/",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner4_lfsw82.webp",
-	},
-	{
-		link: "https://www.afriyanrwanda.org/",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1711030480/RWDJ-IMAGES/afriyan_logo_ciythu.jpg",
-	},
-	{
-		link: "https://msfc.org/",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner5_tuokco.webp",
-	},
-	{
-		link: "https://afroark.org/",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner6_wzv1u5.webp",
-	},
-	{
-		link: "https://app.companion.rw/",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner7_ssllnm.webp",
-	},
-	{
-		link: "https://www.medsarwanda.org/",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner8_u0lpxl.webp",
-	},
-	{
-		link: "https://www.flavoursfp.org/save-safe-abortion-videos-edutainment",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner9_khc16p.webp",
-	},
-	{
-		link: "https://www.hprwanda.org/",
-		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner10_ofwzzc.webp",
-	},
-];
+// export const partners: partner[] = [
+// 	{
+// 		link: "https://youngfeministfund.org/",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953556/RWDJ-IMAGES/partner1_amjw3o.gif",
+// 	},
+// 	{
+// 		link: "https://numun.fund/",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner2_uolebp.webp",
+// 	},
+// 	{
+// 		link: "https://www.medicaldoctorsforchoice.org/mscf",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner3_gwqnhq.webp",
+// 	},
+// 	{
+// 		link: "https://www.flavoursfp.org/",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner4_lfsw82.webp",
+// 	},
+// 	{
+// 		link: "https://www.afriyanrwanda.org/",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1711030480/RWDJ-IMAGES/afriyan_logo_ciythu.jpg",
+// 	},
+// 	{
+// 		link: "https://msfc.org/",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner5_tuokco.webp",
+// 	},
+// 	{
+// 		link: "https://afroark.org/",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953557/RWDJ-IMAGES/partner6_wzv1u5.webp",
+// 	},
+// 	{
+// 		link: "https://app.companion.rw/",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner7_ssllnm.webp",
+// 	},
+// 	{
+// 		link: "https://www.medsarwanda.org/",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner8_u0lpxl.webp",
+// 	},
+// 	{
+// 		link: "https://www.flavoursfp.org/save-safe-abortion-videos-edutainment",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner9_khc16p.webp",
+// 	},
+// 	{
+// 		link: "https://www.hprwanda.org/",
+// 		img: "https://res.cloudinary.com/didikwl4i/image/upload/v1708953558/RWDJ-IMAGES/partner10_ofwzzc.webp",
+// 	},
+// ];
 
 export const objectives: string[] = [
 	" Improve the access for girls and women in Rwanda to high quality sexual reproductive health services.",
@@ -200,7 +147,7 @@ export const objectives: string[] = [
 	" Increase the partnership with other feminist organizations both locally and internationally.",
 ];
 
-export const serverUrl = "https://rwdrj-server.onrender.com/";
+export const serverUrl = "https://rwdrj-server-0a7m.onrender.com/";
 export const localServerUrl = "http://localhost:5000/";
 export const frontendUrl = "http://localhost:5173";
 
@@ -257,3 +204,13 @@ export function formatPostedDate(date: string): string {
 
 	return formattedDate;
 }
+
+export const fileToDataURL = (file: File): Promise<any> => {
+	return new Promise((resolve) => {
+		const reader = new FileReader();
+		reader.onloadend = () => {
+			resolve(reader.result);
+		};
+		reader.readAsDataURL(file);
+	});
+};

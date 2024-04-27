@@ -3,9 +3,12 @@ import Logo from "../../assets/Logo.png";
 import { navs } from "../../constants";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import useFetchData from "../../Hooks/UseFetchData";
+import { SiteData } from "../../Shared/types";
 const Footer = () => {
+	const { data: siteData } = useFetchData<SiteData[]>("/");
 	return (
-		<footer className=" min-h-[70vh]    text-white bg-[#0A142F] bg-primary-100">
+		<footer className=" min-h-[50vh]    text-white bg-[#0A142F] bg-primary-100">
 			<div className="flex justify-center w-5/6 h-full gap-16 py-8 mx-auto md:justify-normal">
 				<div className="w-full mt-8 md:mt-0">
 					<div className="flex justify-center w-full">
@@ -21,16 +24,14 @@ const Footer = () => {
 							</div>
 						</Link>
 					</div>
-					<div className="w-5/6 mx-auto text-center ">
-						<p className="my-3 text-2xl font-lora">
-							Rwanda Women Doctors For Reproductive Justice
+					<div className="w-11/12 mx-auto text-center ">
+						<p className="my-3 text-xl font-lora">
+							{siteData && siteData[0].title}
 						</p>
-						<p className="my-2 text-lg ">
-							Empowering Women's Health, Advocating for Justice
-						</p>
+						<p className="my-2 text-lg ">{siteData && siteData[0].subtitle}</p>
 					</div>
 
-					<hr className="bg-white border-[1px] mt-32" />
+					<hr className="bg-white border-[1px] mt-18" />
 					<div className="flex flex-col justify-between w-full mt-4 md:flex-row">
 						<div className="flex justify-center md:justify-normal">
 							<div className="flex gap-4 my-3">

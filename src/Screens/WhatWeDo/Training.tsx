@@ -1,116 +1,100 @@
 import { motion } from "framer-motion";
-
 import AnimatePage from "../../Shared/AnimatePage";
-
-interface card {
-	title: string;
-	image: string;
-	content: string;
-}
+import useFetchData from "../../Hooks/UseFetchData";
+import { sectionSchema, trainingPage } from "../../Shared/types";
+import parse from "html-react-parser";
+import { ClockLoader } from "react-spinners";
 
 function Training() {
-	const cards: card[] = [
-		{
-			title: "Medical Aspect of Safe Abortion",
-			image:
-				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953651/RWDJ-IMAGES/training1_q8thry.webp",
-			content:
-				"We conduct series of training with young female physicians to increase their skills on medical aspect of safe abortion in the local context. We use hands on simulation skills that provide them with better understanding on safe abortion service provision and post abortion care.",
-		},
-		{
-			title: "Legal Aspect of Safe Abortion",
-			image:
-				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953652/RWDJ-IMAGES/training2_r67cul.webp",
-			content:
-				"We provide training to young female medical doctors on legal aspect of abortion in the Rwandan context. We ensure they are guided on best practice while providing the safe services.",
-		},
-		{
-			title: "Creating future female pro-choice",
-			image:
-				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953654/RWDJ-IMAGES/training3_qmbjhh.webp",
-			content:
-				"We collaborate actively with the medical students for choice at the University of Rwanda to increase girls students’ knowledge on abortion, covering topics related to legal and medical aspects of abortion in the local context.",
-		},
-		{
-			title: "Increasing Acceptance of Safe Abortion",
-			image:
-				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953659/RWDJ-IMAGES/training4_cwnkrp.webp",
-			content:
-				"We conduct series of safe space open discussions with girls and young women, especially female physicians to increase acceptance around safe abortion and behavior change.",
-		},
-		{
-			title: "Creating safe space for knowledge sharing",
-			image:
-				"https://res.cloudinary.com/didikwl4i/image/upload/v1708953659/RWDJ-IMAGES/training5_si2dnf.webp",
-			content:
-				"We empower girls and women to open up for discussions on matters related to Reproductive Justice, equip them with advocacy skills, knowledge sharing, research and campaigning.",
-		},
-	];
+	const { data: trainingPage, loading } =
+		useFetchData<trainingPage[]>("/training");
+
 	return (
-		<AnimatePage>
-			<div className="">
-				<div className="flex flex-col items-center justify-center w-full h-[60vh] bg-center bg-cover bg-image-training">
-					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
-						<p className="w-5/6 text-5xl font-bold text-center font-lora ">
-							Training
-						</p>
-					</div>
+		<>
+			{loading || !trainingPage ? (
+				<div className="min-h-[100vh] flex flex-col items-center justify-center">
+					<ClockLoader
+						color="#c29f1d"
+						loading={loading}
+						className="text-6xl bg-primary-orange"
+					/>
 				</div>
+			) : (
+				<AnimatePage>
+					<div className="">
+						<div
+							style={{
+								backgroundImage: `url(${
+									trainingPage && trainingPage[0]
+										? trainingPage[0].coverImage
+										: ""
+								})`,
+							}}
+							className="flex flex-col items-center justify-center w-full h-[60vh] bg-center bg-cover ">
+							<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
+								<p className="w-5/6 text-5xl font-bold text-center font-lora ">
+									{trainingPage && trainingPage[0] && trainingPage[0].title}
+								</p>
+							</div>
+						</div>
 
-				<div className="">
-					<div className="bg-primary-orange">
-						<div className="w-5/6 p-3 mx-auto h-[60vh] flex flex-col justify-center">
-							<p className="p-3 text-2xl text-center font-lora ">
-								We aim at strengthening the network of young women pro-choice
-								physicians, by building capacity of our members, women networks,
-								youth and women led organizations, and future pro-choice female
-								physicians. We want to achieve this through sharing knowledge on
-								medical and legal aspect of SRHR, Advocacy, digital skills,
-								research and organizing.
-							</p>
+						<div className="">
+							<div className="bg-primary-orange">
+								<div className="w-5/6 p-3 mx-auto h-[50vh] flex flex-col justify-center">
+									<p className="p-3 text-2xl text-center font-lora ">
+										{trainingPage &&
+											trainingPage[0] &&
+											trainingPage[0].subtitle}
+									</p>
+								</div>
+							</div>
+
+							<div className="w-5/6 mx-auto">
+								<div>
+									{trainingPage && trainingPage[0]
+										? trainingPage[0].sections.map(
+												(sect: sectionSchema, i: number) => (
+													<motion.div
+														initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+														animate={{ opacity: 1, x: 0 }}
+														viewport={{ amount: 0.7, once: true }}
+														transition={{ duration: 0.8, delay: i * 0.4 }}
+														key={crypto.randomUUID()}
+														className={`flex flex-col md:flex-row flex-1 mt-1 p-8 bg-white ${
+															i % 2 !== 0 && " md:flex-row-reverse "
+														} `}>
+														<div className="flex flex-col w-full md:w-1/2">
+															<img
+																loading="lazy"
+																className="block object-cover object-top rounded-[12px] w-full  h-72  "
+																src={sect.coverImage}
+																alt={"sawa"}
+															/>
+														</div>
+														<div className="flex flex-col w-full pt-0 md:px-6 md:w-1/2">
+															<div className="flex-1">
+																<p className="my-2 text-xl font-bold text-center font-lora md:mt-0 md:text-start text-bold text-md ">
+																	{`0${i + 1}`}{" "}
+																</p>
+																<p className="my-4 mb-4 text-xl font-bold text-center font-lora text-primary-orange md:mt-0 md:text-start text-bold text-md ">
+																	{sect.title}
+																</p>
+																<p className="flex flex-col justify-center text-lg font-normal text-center md:text-justify">
+																	{parse(`<p>${sect.content}</p>`)}
+																</p>
+															</div>
+														</div>
+													</motion.div>
+												)
+										  )
+										: null}
+								</div>
+							</div>
 						</div>
 					</div>
-
-					<div className="w-5/6 mx-auto">
-						<div>
-							{cards.map((sect: card, i) => (
-								<motion.div
-									initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-									animate={{ opacity: 1, x: 0 }}
-									viewport={{ amount: 0.7, once: true }}
-									transition={{ duration: 0.8, delay: i * 0.4 }}
-									key={sect.title}
-									className={`flex flex-col md:flex-row flex-1 mt-1 p-8 bg-white ${
-										i % 2 !== 0 && " md:flex-row-reverse "
-									} `}>
-									<div className="flex flex-col w-full md:w-1/2">
-										<img
-											loading="lazy"
-											className="block object-cover object-top rounded-[12px] w-full  h-72  "
-											src={sect.image}
-											alt={sect.title.toLowerCase()}
-										/>
-									</div>
-									<div className="flex flex-col w-full pt-0 md:px-6 md:w-1/2">
-										<div className="flex-1">
-											<p className="my-2 text-xl font-bold text-center font-lora md:mt-0 md:text-start text-bold text-md ">
-												{`0${i + 1}`}{" "}
-											</p>
-											<p className="my-4 mb-4 text-xl font-bold text-center font-lora text-primary-orange md:mt-0 md:text-start text-bold text-md ">
-												{sect.title}
-											</p>
-											<p className="flex flex-col justify-center text-lg font-normal text-center md:text-justify">
-												{sect.content}
-											</p>
-										</div>
-									</div>
-								</motion.div>
-							))}
-						</div>
-					</div>
-				</div>
-			</div>
-		</AnimatePage>
+				</AnimatePage>
+			)}
+		</>
 	);
 }
 

@@ -26,7 +26,7 @@ const ResetPassword = () => {
 	const resetPassword = async (data: resetPassword) => {
 		setLoading(true);
 		await instance
-			.post("/resetpassword", { ...data, token })
+			.post("/admin/resetpassword", { ...data, token })
 			.then((res) => {
 				toast.success(res.data.message);
 				navigateToLogin();

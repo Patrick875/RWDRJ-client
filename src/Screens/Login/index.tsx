@@ -28,7 +28,7 @@ const Login = () => {
 	const login = async (data: login) => {
 		setLoading(true);
 		await instance
-			.post("/login", { ...data })
+			.post("/admin/login", { ...data })
 			.then((res) => {
 				console.log("res", res);
 				navigateToDashboard();
