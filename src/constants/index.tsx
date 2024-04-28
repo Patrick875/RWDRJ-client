@@ -43,10 +43,10 @@ export const navs: navItem[] = [
 		text: "News",
 		to: "news",
 	},
-	{
-		text: "Events",
-		to: "events",
-	},
+	// {
+	// 	text: "Events",
+	// 	to: "events",
+	// },
 	{
 		text: "Contact us",
 		to: "contactus",
