@@ -9,10 +9,10 @@ function AllPages() {
 	const navigate = useNavigate();
 	const pages: webpage[] = [
 		{ name: "Advocacy", link: "advocacy" },
-		{ name: "Digital Health", link: "digitalinfo" },
+		// { name: "Digital Health", link: "digitalinfo" },
 		{ name: "Contact Us", link: "contactus" },
 		{ name: "Compaign And Organizing", link: "compaign" },
-		{ name: "About Us", link: "aboutus" },
+		// { name: "About Us", link: "aboutus" },
 		{ name: "Training", link: "training" },
 		{ name: "Our Team", link: "ourteam" },
 	];
