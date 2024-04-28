@@ -114,7 +114,7 @@ function App() {
 								<Route path="training" element={<AdminOutlet />}>
 									<Route index element={<AdminTraining />} />
 								</Route>
-								<Route path="aboutus" element={<AdminAboutUs />} />
+								{/* {<Route path="aboutus" element={<AdminAboutUs />} />} */}
 								<Route path="ourteam" element={<AdminOurTeam />} />
 								<Route path="generalinfo" element={<GeneralInfo />} />
 								<Route path="team" element={<TeamMembersLayout />}>
@@ -137,7 +137,7 @@ function App() {
 								<Route path="create" element={<CreateEvent />} />
 								<Route path=":refId" element={<ViewEvent />} />
 							</Route>
-							<Route path="events" element={<EventsAdmin />} />
+							{/* {<Route path="events" element={<EventsAdmin />} />} */}
 						</Route>
 					</Route>
 					<Route path="*" element={<Page404 />} />
