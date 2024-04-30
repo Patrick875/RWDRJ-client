@@ -147,7 +147,7 @@ export const objectives: string[] = [
 	" Increase the partnership with other feminist organizations both locally and internationally.",
 ];
 
-export const serverUrl = "https://rwdrj-server-0a7m.onrender.com/";
+export const serverUrl = "https://rwanda-women-doctors-server.fly.dev/";
 export const localServerUrl = "http://localhost:5000/";
 export const frontendUrl = "http://localhost:5173";
 
