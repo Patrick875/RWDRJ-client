@@ -5,8 +5,8 @@ import { NavItem } from "./NavItem";
 
 function SideBar() {
 	return (
-		<div className="min-h-screen col-span-2 ">
-			<div className="fixed w-full">
+		<div className="h-screen col-span-2 ">
+			<div className="w-full">
 				<div className="mt-0 pt-0 h-[20vh]">
 					<Logo />
 				</div>
