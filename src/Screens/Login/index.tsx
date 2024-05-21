@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import instance from "../../API";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/Logo.png";
+import Logo from "../../assets/Logo.jpg";
 import { HashLoader } from "react-spinners";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 interface login {

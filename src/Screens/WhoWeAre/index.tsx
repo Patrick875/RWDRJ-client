@@ -84,7 +84,7 @@ function WhoWeAre() {
 						</div>
 					</section>
 					<section className="bg-[rgba(41,49,73)]">
-						<div className="flex w-5/6 mx-auto h-[110vh] ">
+						<div className="flex w-5/6 mx-auto min-h-[110vh] ">
 							<div className="w-1/2 py-3">
 								<p className="py-1 my-4 text-2xl text-white font-lora">
 									Our Objectives
