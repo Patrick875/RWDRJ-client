@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "./../assets/Logo.png";
+import logo from "./../assets/Logo.jpg";
 import { SiteData } from "./types";
 import useFetchData from "../Hooks/UseFetchData";
 function Logo() {

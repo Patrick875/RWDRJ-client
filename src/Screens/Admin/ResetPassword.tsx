@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Logo from "../../assets/Logo.png";
+import Logo from "../../assets/Logo.jpg";
 import { HashLoader } from "react-spinners";
 import instance from "../../API";
 import toast from "react-hot-toast";

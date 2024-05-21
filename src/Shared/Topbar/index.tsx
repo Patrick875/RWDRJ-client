@@ -28,7 +28,7 @@ const Topbar = ({ isTopOfPage }: topbarProps) => {
 				<div className="flex flex-col gap-1 md:gap-4 md:items-center md:flex-row ">
 					<div className="flex items-center gap-3">
 						<GiPositionMarker />
-						<p> ST 20 KG 596 </p>
+						<p> KG 596 20 ST </p>
 					</div>
 					<p className="flex items-center gap-3">
 						<BsClock />
