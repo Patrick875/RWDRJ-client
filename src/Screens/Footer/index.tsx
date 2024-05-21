@@ -20,7 +20,7 @@ const Footer = () => {
 									src={Logo}
 									alt="hike-guide-logo"
 								/>
-								<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
+								<p className="text-lg font-bold text-primary-orange">RWDFRJ</p>
 							</div>
 						</Link>
 					</div>

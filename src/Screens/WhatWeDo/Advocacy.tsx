@@ -28,7 +28,7 @@ function Advocacy() {
 						</div>
 
 						<div className="p-3 bg-primary-orange min-h-[40vh] flex flex-col justify-center items-center">
-							<p className="w-full p-3 text-center md:mx-auto md:w-5/6 md:text-2xl text font-lora ">
+							<p className="w-full p-3 text-justify md:mx-auto md:w-5/6 md:text-2xl text font-lora ">
 								{advocacy && advocacy.length > 0
 									? parse(advocacy[0].subtitle)
 									: ""}
