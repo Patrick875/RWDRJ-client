@@ -33,7 +33,7 @@ function ServiceProvision() {
 
 						<div className=" bg-primary-orange font-lora h-[50vh] flex flex-col justify-center">
 							<div className="w-5/6 mx-auto">
-								<p className="p-3 text-2xl text-center">
+								<p className="p-3 text-2xl text-justify">
 									{digitalhealth && digitalhealth[0]
 										? digitalhealth[0].subtitles[0]
 										: ""}
@@ -74,7 +74,7 @@ function ServiceProvision() {
 							</div>
 							<div className="bg-white min-h-[100vh] flex flex-col">
 								<div className="h-[40vh] flex flex-col justify-center">
-									<p className="w-5/6 py-4 mx-auto my-3 text-xl text-center font-lora">
+									<p className="w-5/6 py-4 mx-auto my-3 text-xl text-justify font-lora">
 										{digitalhealth && digitalhealth[0]
 											? digitalhealth[0].subtitles[1]
 											: ""}

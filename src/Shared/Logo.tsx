@@ -24,7 +24,7 @@ function Logo() {
 					/>
 				)}
 
-				<p className="text-lg font-bold text-primary-orange">RWDRJ</p>
+				<p className="text-lg font-bold text-primary-orange">RWDFRJ</p>
 			</div>
 		</Link>
 	);

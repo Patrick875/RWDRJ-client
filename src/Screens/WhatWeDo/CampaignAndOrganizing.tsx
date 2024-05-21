@@ -32,7 +32,7 @@ function CampaignAndOrganizing() {
 
 						<div className=" bg-primary-orange flex flex-col  justify-center  h-[30vh]">
 							<div className="w-5/6 p-3 mx-auto ">
-								<p className="p-3 text-2xl text-center font-lora ">
+								<p className="p-3 text-2xl text-justify font-lora ">
 									{compaignPage && compaignPage[0]
 										? parse(compaignPage[0].subtitle)
 										: ""}

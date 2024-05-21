@@ -41,10 +41,10 @@ function Training() {
 						<div className="">
 							<div className="bg-primary-orange">
 								<div className="w-5/6 p-3 mx-auto h-[50vh] flex flex-col justify-center">
-									<p className="p-3 text-2xl text-center font-lora ">
+									<p className="p-3 text-2xl text-justify font-lora ">
 										{trainingPage &&
 											trainingPage[0] &&
-											trainingPage[0].subtitle}
+											parse(trainingPage[0].subtitle)}
 									</p>
 								</div>
 							</div>
