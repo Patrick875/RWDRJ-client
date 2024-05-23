@@ -327,7 +327,7 @@ const AboutUs = () => {
 							url={selectedVideo.url}
 							controls={true}
 							width="100%"
-							playing={true}
+							playing={false}
 							style={{ height: "20vh" }}
 						/>
 					</div>
