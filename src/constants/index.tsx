@@ -1,4 +1,4 @@
-import { navItem, section, partner, sidenavType } from "../Shared/types";
+import { navItem, section, sidenavType } from "../Shared/types";
 import { MdEventAvailable, MdOutlineRestorePage } from "react-icons/md";
 
 import { IoHomeOutline } from "react-icons/io5";
@@ -147,7 +147,7 @@ export const objectives: string[] = [
 	" Increase the partnership with other feminist organizations both locally and internationally.",
 ];
 
-export const serverUrl = "https://rwanda-women-doctors-server.fly.dev/";
+export const serverUrl = "https://rwdfrj-server.fly.dev/api/";
 export const localServerUrl = "http://localhost:5000/";
 export const frontendUrl = "http://localhost:5173";
 
