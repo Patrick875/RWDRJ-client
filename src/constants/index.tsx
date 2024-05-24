@@ -1,4 +1,4 @@
-import { navItem, section, partner, sidenavType } from "../Shared/types";
+import { navItem, section, sidenavType } from "../Shared/types";
 import { MdEventAvailable, MdOutlineRestorePage } from "react-icons/md";
 
 import { IoHomeOutline } from "react-icons/io5";
