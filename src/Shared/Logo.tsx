@@ -12,7 +12,7 @@ function Logo() {
 					<img
 						loading="lazy"
 						className="block w-20 h-20"
-						src={siteData[0].logo}
+						src={logo}
 						alt="RWDRJ-logo"
 					/>
 				) : (
