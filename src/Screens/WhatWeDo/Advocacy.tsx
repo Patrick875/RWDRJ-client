@@ -28,7 +28,7 @@ function Advocacy() {
 						</div>
 
 						<div className="p-3 bg-primary-orange min-h-[40vh] flex flex-col justify-center items-center">
-							<p className="w-full p-3 text-justify md:mx-auto md:w-5/6 md:text-2xl text font-lora ">
+							<p className="w-full p-3 text-lg text-justify md:mx-auto md:w-5/6 md:text-2xl font-lora ">
 								{advocacy && advocacy.length > 0
 									? parse(advocacy[0].subtitle)
 									: ""}
@@ -57,10 +57,10 @@ function Advocacy() {
 														/>
 													</div>
 													<div className="flex flex-col justify-center w-full h-full py-1 text-lg text-center md:py-4 md:text-start md:w-1/2">
-														<p className="p-3 px-0 text-lg text-center text-white md:text-2xl md:text-start font-lora">
+														<p className="p-3 px-0 text-xl text-center text-white md:text-2xl md:text-start font-lora">
 															{sect.title}
 														</p>
-														<p className="p-3 px-0 text-sm text-justify text-white md:text-lg">
+														<p className="p-3 px-0 text-lg text-justify text-white md:text-xl">
 															{sect && sect.content
 																? parse(`${sect.content}`)
 																: ""}

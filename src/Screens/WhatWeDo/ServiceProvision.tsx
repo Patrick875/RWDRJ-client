@@ -23,7 +23,7 @@ function ServiceProvision() {
 					<div className="relative">
 						<div className="flex flex-col items-center justify-center w-full min-h-[60vh] bg-cover bg-fixed bg-image-service">
 							<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
-								<p className="w-5/6 text-3xl font-bold text-center font-lora ">
+								<p className="w-5/6 text-2xl font-bold text-center md:text-3xl font-lora ">
 									{digitalhealth && digitalhealth[0]
 										? digitalhealth[0].titles[0]
 										: ""}
@@ -31,9 +31,9 @@ function ServiceProvision() {
 							</div>
 						</div>
 
-						<div className=" bg-primary-orange font-lora h-[50vh] flex flex-col justify-center">
-							<div className="w-5/6 mx-auto">
-								<p className="p-3 text-2xl text-justify">
+						<div className=" bg-primary-orange font-lora min-h-[50vh] flex flex-col justify-center">
+							<div className="w-11/12 mx-auto md:w-5/6">
+								<p className="p-3 text-xl text-justify md:text-2xl">
 									{digitalhealth && digitalhealth[0]
 										? digitalhealth[0].subtitles[0]
 										: ""}
@@ -41,8 +41,8 @@ function ServiceProvision() {
 							</div>
 						</div>
 						<div className="text-white bg-blue-900">
-							<div className="w-5/6 px-4 py-6 mx-auto text-justify">
-								<p className="p-3 text-xl ">
+							<div className="w-11/12 px-4 py-6 mx-auto text-justify md:w-5/6">
+								<p className="p-3 text-lg md:text-xl ">
 									However access to SRHR services, especially safe abortion
 									care, is still almost impossible, due to many conscious
 									objectors. Our group has formed a network of young women
