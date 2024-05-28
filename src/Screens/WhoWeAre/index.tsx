@@ -7,15 +7,15 @@ function WhoWeAre() {
 			<div className="">
 				<div className="flex flex-col items-center justify-center w-full h-[60vh] bg-center bg-cover bg-image-whoweare">
 					<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
-						<p className="w-5/6 text-3xl font-bold text-center text-black font-lora">
+						<p className="w-5/6 text-2xl font-bold text-center text-black md:text-3xl font-lora">
 							We are women pro-choice Doctors
 						</p>
 					</div>
 				</div>
 
 				<div className="">
-					<div className=" h-[40vh] flex flex-col justify-center bg-primary-orangeTrans ">
-						<section className="w-5/6 py-3 mx-auto text-2xl font-bold text-center font-lora">
+					<div className=" min-h-[40vh] flex flex-col justify-center bg-primary-orangeTrans ">
+						<section className="w-5/6 py-3 mx-auto text-lg font-bold text-justify md:text-center md:text-2xl font-lora">
 							We are a network of young women physicians in Rwanda. We share the
 							spirit of activism driven by the passion for radically advancing
 							women's access to sexual and reproductive rights
@@ -53,10 +53,10 @@ function WhoWeAre() {
 							</p>
 						</div>
 					</section>
-					<section className="w-full h-[80vh]">
+					<section className="w-full min-h-[80vh]">
 						<div className="flex flex-col justify-center w-5/6 h-full mx-auto">
-							<div className="flex ">
-								<div className="w-1/2">
+							<div className="flex flex-col md:flex-row">
+								<div className="w-full md:w-1/2 ">
 									<img
 										loading="lazy"
 										className="block h-96 object-contain rounded-[10px] "
@@ -64,15 +64,19 @@ function WhoWeAre() {
 										alt="woman-graphic"
 									/>
 								</div>
-								<div className="w-1/2 py-8">
-									<p className="py-1 my-4 text-2xl font-lora ">Mission</p>
-									<p className="text-lg">
+								<div className="w-full md:w-1/2 md:py-8">
+									<p className="py-1 my-4 text-2xl text-center font-lora md:text-start ">
+										Mission
+									</p>
+									<p className="py-3 text-lg text-justify md:py-6 md:text-start">
 										The ultimate mission is to create and strengthen a feminist
 										network of girls and young women to advance bodily autonomy
 										and sexual reproductive rights.
 									</p>
-									<p className="py-1 my-4 text-2xl font-lora ">Vision</p>
-									<p className="text-lg">
+									<p className="py-1 my-4 text-2xl text-center font-lora md:text-start ">
+										Vision
+									</p>
+									<p className="py-3 text-lg text-justify md:py-6 md:text-start">
 										We envision a future where every woman is free to express
 										themselves authentically, free to choose, free from
 										violence, able to achieve the highest attainable success,
@@ -84,9 +88,9 @@ function WhoWeAre() {
 						</div>
 					</section>
 					<section className="bg-[rgba(41,49,73)]">
-						<div className="flex w-5/6 mx-auto min-h-[110vh] ">
-							<div className="w-1/2 py-3">
-								<p className="py-1 my-4 text-2xl text-white font-lora">
+						<div className="flex w-5/6  flex-col-reverse md:flex-row mx-auto min-h-[110vh] ">
+							<div className="w-full py-3 md:w-1/2">
+								<p className="py-1 my-2 text-2xl text-center text-white md:my-4 md:text-start font-lora">
 									Our Objectives
 								</p>
 								<ol className="list-disc ">
@@ -98,10 +102,10 @@ function WhoWeAre() {
 										))}
 								</ol>
 							</div>
-							<div className="flex flex-col items-center justify-center w-1/2 h-full px-2 py-4">
+							<div className="flex flex-col items-center justify-center w-full h-full px-2 py-4 md:w-1/2">
 								<img
 									loading="lazy"
-									className="block h-96 object-contain rounded-[10px] "
+									className="block md:h-96 h-80 object-contain rounded-[10px] "
 									src="https://res.cloudinary.com/didikwl4i/image/upload/v1708953659/RWDJ-IMAGES/training5_si2dnf.webp"
 									alt="woman-graphic"
 								/>

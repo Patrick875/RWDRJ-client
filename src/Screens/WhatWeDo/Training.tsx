@@ -32,7 +32,7 @@ function Training() {
 							}}
 							className="flex flex-col items-center justify-center w-full h-[60vh] bg-top bg-cover ">
 							<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
-								<p className="w-5/6 text-5xl font-bold text-center font-lora ">
+								<p className="w-5/6 text-2xl font-bold text-center md:text-5xl font-lora ">
 									{trainingPage && trainingPage[0] && trainingPage[0].title}
 								</p>
 							</div>
@@ -40,8 +40,8 @@ function Training() {
 
 						<div className="">
 							<div className="bg-primary-orange">
-								<div className="w-5/6 p-3 mx-auto h-[50vh] flex flex-col justify-center">
-									<p className="p-3 text-2xl text-justify font-lora ">
+								<div className="w-11/12 md:w-5/6 p-3 mx-auto min-h-[50vh] flex flex-col justify-center">
+									<p className="p-3 text-xl text-justify md:text-2xl font-lora ">
 										{trainingPage &&
 											trainingPage[0] &&
 											parse(trainingPage[0].subtitle)}

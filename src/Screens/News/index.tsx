@@ -35,30 +35,23 @@ function News() {
 							{news.map((blog) =>
 								Object.keys(blog).includes("content") ? (
 									<div
-										className="w-full flex my-2 shadow min-h-[30vh] bg-white rounded-[8px] hover group cursor-pointer"
+										className="w-full flex flex-col md:flex-row my-2 shadow min-h-[30vh] bg-white rounded-[8px] hover group cursor-pointer"
 										onClick={() => {
 											navigate(`blogs/${blog.refId}`);
 										}}>
-										<div className="relative min-h-[30vh] flex items-center justify-center w-1/2  overflow-hidden ">
+										<div className="relative min-h-[30vh] flex items-center justify-center w-full md:w-1/2  overflow-hidden ">
 											<img
 												src={blog.coverImage}
 												className="absolute block object-cover w-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
 											/>
 										</div>
-										<div className="w-1/2">
-											<p className="px-2 py-1 text-xl font-bold capitalize">
+										<div className="w-full md:w-1/2">
+											<p className="px-2 py-1 text-lg font-bold text-justify capitalize md:text-xl">
 												{blog.title}
 											</p>
 
 											<div className="px-2 py-2 ">
-												<p className="text-sm font-bold">RWDRJ</p>
-												{/* {<p className="text-xs ">
-													{blog.datePosted && blog.datePosted
-														? new Date(blog.datePosted).toLocaleDateString(
-																"fr-FR"
-														  )
-														: null}
-												</p>} */}
+												<p className="text-sm font-bold">RWDFRJ</p>
 											</div>
 										</div>
 									</div>
@@ -89,7 +82,7 @@ function News() {
 													? new Date(blog.dateend).toLocaleDateString("fr-FR")
 													: null}
 											</p>
-											<p className="text-sm ">RWDRJ</p>
+											<p className="text-sm ">RWDFRJ</p>
 										</div>
 									</div>
 								)

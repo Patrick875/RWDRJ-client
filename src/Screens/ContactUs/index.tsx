@@ -26,7 +26,7 @@ function Contactus() {
 				}}
 				className="flex flex-col items-center justify-center w-full h-[60vh] bg-center bg-cover ">
 				<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-page-cover">
-					<p className="w-5/6 text-3xl font-bold text-center text-white">
+					<p className="w-5/6 text-3xl font-bold text-center text-white font-lora">
 						{contactusContent && contactusContent[0].title
 							? contactusContent[0].title
 							: ""}

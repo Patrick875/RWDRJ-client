@@ -24,15 +24,15 @@ function CampaignAndOrganizing() {
 					<div className="">
 						<div className="flex flex-col items-center justify-center w-full h-[60vh] bg-center bg-cover bg-image-whoweare">
 							<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto  bg-[rgba(244,244,249,0.70)]">
-								<p className="w-5/6 text-5xl font-bold text-center text-black font-lora">
+								<p className="w-5/6 text-2xl font-bold text-center text-black md:text-5xl font-lora">
 									{compaignPage && compaignPage[0] ? compaignPage[0].title : ""}
 								</p>
 							</div>
 						</div>
 
-						<div className=" bg-primary-orange flex flex-col  justify-center  h-[30vh]">
-							<div className="w-5/6 p-3 mx-auto ">
-								<p className="p-3 text-2xl text-justify font-lora ">
+						<div className=" bg-primary-orange flex flex-col  justify-center  min-h-[30vh]">
+							<div className="w-11/12 p-3 mx-auto md:w-5/6 ">
+								<p className="p-3 text-xl text-justify md:text-2xl font-lora ">
 									{compaignPage && compaignPage[0]
 										? parse(compaignPage[0].subtitle)
 										: ""}
@@ -41,7 +41,7 @@ function CampaignAndOrganizing() {
 						</div>
 						<div className="bg-blue-900 ">
 							<div className="w-5/6 mx-auto ">
-								<div className="h-full py-4 text-xl text-justify md:text-start">
+								<div className="h-full py-4 text-lg text-justify md:text-xl md:text-start">
 									<div className="relative">
 										<div className="">
 											<p className="p-3 text-justify text-white font-lora">

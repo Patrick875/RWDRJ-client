@@ -220,11 +220,11 @@ const AboutUs = () => {
 									hidden: { opacity: 0, x: -50 },
 									visible: { opacity: 1, x: 0 },
 								}}
-								className="p-6 py-0 pt-4 ">
-								<p className="w-full text-2xl font-bold text-center md:text-start md:w-1/2">
+								className="px-2 py-0 pt-4 md:p-6">
+								<p className="w-full text-lg font-bold text-center md:text-2xl md:text-start md:w-1/2">
 									{aboutContent ? aboutContent[0].whoWeAreSection.title : ""}
 								</p>
-								<p className="my-3 text-lg text-center md:text-start">
+								<p className="my-3 text-justify md:text-lg md:text-start">
 									{aboutContent ? aboutContent[0].whoWeAreSection.content : ""}
 								</p>
 								<div className="flex justify-center ">
@@ -278,10 +278,10 @@ const AboutUs = () => {
 											/>
 											<div className="flex flex-col w-full pt-0 md:px-6 md:w-1/2">
 												<div className="flex-1">
-													<p className="my-4 mb-4 text-xl font-bold text-center md:text-start md:mt-0 text-bold ">
+													<p className="my-2 text-lg font-bold text-center md:my-4 md:mb-4 md:text-xl md:text-start md:mt-0 text-bold ">
 														{sect.title}
 													</p>
-													<p className="flex flex-col justify-center font-normal text-center md:text-justify">
+													<p className="flex justify-center font-normal text-justify md:flex-col f">
 														{sect.content}
 													</p>
 													<div className="flex justify-center md:justify-start">
@@ -305,7 +305,7 @@ const AboutUs = () => {
 					{aboutContent ? (
 						aboutContent[0].statisticSection.statiticGroups.map((stat) => (
 							<div className="text-center">
-								<div className="flex items-center justify-center text-2xl font-bold">
+								<div className="flex items-center justify-center text-lg font-bold md:text-2xl">
 									<Count interval={6} countTo={stat.currentNumber} />
 									{stat.andMore && (
 										<p className="inline text-xl ps-2 font-hanuman">+</p>
@@ -399,7 +399,7 @@ const AboutUs = () => {
 												{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
 
 												<div className="px-2 py-2 ">
-													<p className="text-sm font-bold">RWDRJ</p>
+													<p className="text-sm font-bold">RWDFRJ</p>
 												</div>
 											</div>
 										) : (
@@ -433,7 +433,7 @@ const AboutUs = () => {
 															  )
 															: null}
 													</p>
-													<p className="text-sm ">RWDRJ</p>
+													<p className="text-sm ">RWDFRJ</p>
 												</div>
 											</div>
 										)

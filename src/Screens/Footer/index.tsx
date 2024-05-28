@@ -11,7 +11,7 @@ const Footer = () => {
 		<footer className=" min-h-[50vh]    text-white bg-[#0A142F] bg-primary-100">
 			<div className="flex justify-center w-5/6 h-full gap-16 py-8 mx-auto md:justify-normal">
 				<div className="w-full mt-8 md:mt-0">
-					<div className="flex justify-center w-full">
+					<div className="flex w-full md:justify-center">
 						<Link to="" className="block">
 							<div className="flex items-center gap-2">
 								<img
@@ -24,28 +24,32 @@ const Footer = () => {
 							</div>
 						</Link>
 					</div>
-					<div className="w-11/12 mx-auto text-center ">
-						<p className="my-3 text-xl font-lora">
+					<div className="w-11/12 text-justify md:mx-auto md:text-start ">
+						<p className="my-3 text-lg md:text-xl font-lora">
 							{siteData && siteData[0].title}
 						</p>
-						<p className="my-2 text-lg ">{siteData && siteData[0].subtitle}</p>
+						<p className="my-2 text-sm md:text-lg ">
+							{siteData && siteData[0].subtitle}
+						</p>
 					</div>
 
-					<hr className="bg-white border-[1px] mt-18" />
+					<hr className="bg-white border-[1px] mt-18  md:block hidden" />
 					<div className="flex flex-col justify-between w-full mt-4 md:flex-row">
-						<div className="flex justify-center md:justify-normal">
-							<div className="flex gap-4 my-3">
+						<div className="flex ">
+							<div className="flex flex-col gap-4 my-3 md:flex-row">
+								<p className="py-3 text-lg md:hidden ">Links</p>
 								{navs.map((nav) => (
 									<Link
 										key={crypto.randomUUID()}
-										className="block text-sm text-white md:text-lg"
+										className="block text-white md:text-lg"
 										to={nav.to}>
 										{nav.text}
 									</Link>
 								))}
 							</div>
 						</div>
-						<div className="flex justify-center md:block">
+						<p className="py-3 text-lg md:hidden">Socials</p>
+						<div className="flex md:justify-center md:block">
 							<div className="flex gap-4">
 								<Link
 									to="https://twitter.com/doctors_women"
@@ -65,13 +69,10 @@ const Footer = () => {
 						</div>
 					</div>
 
-					<p className="mt-2 text-center md:text-start">
+					<p className="mt-6 md:mt-2 text-start">
 						&copy;{new Date().getFullYear()} All Rights reserved Rwanda Women
 						Doctors For Reproductive Justice .
 					</p>
-					{/* {<p className="py-1 text-lg text-center text-white">
-						Developed By BAHO TECH INITIATIVE
-					</p>} */}
 				</div>
 			</div>
 		</footer>
