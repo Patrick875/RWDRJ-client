@@ -13,7 +13,6 @@ import {
 	video,
 } from "../../Shared/types";
 import { Link, useNavigate } from "react-router-dom";
-import { TbWorld } from "react-icons/tb";
 import Count from "./Count";
 import Slider from "react-slick";
 import TwitterTimeLine from "./TwitterTimeLine";
