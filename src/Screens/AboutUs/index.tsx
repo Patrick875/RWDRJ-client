@@ -13,7 +13,6 @@ import {
 	video,
 } from "../../Shared/types";
 import { Link, useNavigate } from "react-router-dom";
-import { TbWorld } from "react-icons/tb";
 import Count from "./Count";
 import Slider from "react-slick";
 import TwitterTimeLine from "./TwitterTimeLine";
@@ -24,43 +23,6 @@ import ReactPlayer from "react-player";
 import useMediaQuery from "../../Hooks/useMediaQuery";
 import { IoIosPlayCircle } from "react-icons/io";
 
-function Partners({ partners }: { partners: partner[] }) {
-	const isAboveMediumScreens = useMediaQuery("(min-width:1060px");
-
-	const settings = {
-		infinite: true,
-		autoplay: true,
-		speed: 500,
-		slidesToShow: isAboveMediumScreens ? 5 : 2,
-		slidesToScroll: 1,
-		arrows: false,
-		dots: isAboveMediumScreens ? true : false,
-	};
-	return (
-		<div className="flex-1 partner-slider">
-			<Slider {...settings}>
-				{partners &&
-					partners.map((part: partner) => (
-						<div className="relative block group" key={crypto.randomUUID()}>
-							<div className="h-56  md:h-32 w-full  group-hover:visible invisible z-20 absolute  bg-[rgba(0,0,0,0.44)]">
-								<Link
-									to={part.link}
-									target="blank"
-									className="flex items-center justify-center w-full h-32">
-									<TbWorld className="w-8 h-8 text-white" />
-								</Link>
-							</div>
-							<img
-								loading="lazy"
-								src={part.logo}
-								className="block object-contain w-full h-32 bg-transparent md:object-center "
-							/>
-						</div>
-					))}
-			</Slider>
-		</div>
-	);
-}
 function MobileVideos({
 	videos,
 	setSelectedVideo,
@@ -387,7 +349,7 @@ const AboutUs = () => {
 												onClick={() => {
 													navigate(`news/blogs/${blog.refId}`);
 												}}>
-												<div className="relative flex items-center justify-center h-32 overflow-hidden ">
+												<div className="relative flex items-center justify-center h-44 overflow-hidden ">
 													<img
 														src={blog.coverImage}
 														className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
@@ -396,7 +358,6 @@ const AboutUs = () => {
 												<p className="px-2 py-1 text-xl font-bold capitalize">
 													{blog.title}
 												</p>
-												{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
 
 												<div className="px-2 py-2 ">
 													<p className="text-sm font-bold">RWDFRJ</p>
@@ -408,7 +369,7 @@ const AboutUs = () => {
 													navigate(`news/events/${blog.refId}`);
 												}}
 												className="w-full bg-white rounded-[8px] cursor-pointer  group">
-												<div className="relative flex items-center justify-center h-32 overflow-hidden">
+												<div className="relative flex items-center justify-center h-48 overflow-hidden">
 													<img
 														src={blog.coverImage}
 														className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
