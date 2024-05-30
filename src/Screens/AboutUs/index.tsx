@@ -464,16 +464,12 @@ const AboutUs = () => {
 				</div>
 				<div className="grid grid-cols-1 gap-2 ">
 					<div>
-						<p className="font-bold ">RWDRJ Tweets</p>
-						<TwitterTimeLine
-							profile={
-								aboutContent ? aboutContent[0].twitterProfile : "doctors_women"
-							}
-						/>
+						<p className="font-bold ">RWDFRJ Tweets</p>
+						<TwitterTimeLine profile="doctors_women" />
 					</div>
 				</div>
 			</motion.section>
-			<motion.div
+			{/* <motion.div
 				id="ourpartners"
 				viewport={{ once: true, amount: 0.2 }}
 				initial={{ opacity: 0.1, y: -50 }}
@@ -490,7 +486,7 @@ const AboutUs = () => {
 						</div>
 					) : null}
 				</div>
-			</motion.div>
+			</motion.div> */}
 			<section id="contactus" className="w-5/6 md:py-8 mx-auto min-h-[40vh]">
 				<p className="py-4 text-2xl font-bold text-center">Contact Us</p>
 				<div className="flex flex-col-reverse items-center w-full md:items-start md:flex-row ">
