@@ -387,7 +387,7 @@ const AboutUs = () => {
 												onClick={() => {
 													navigate(`news/blogs/${blog.refId}`);
 												}}>
-												<div className="relative flex items-center justify-center h-32 overflow-hidden ">
+												<div className="relative flex items-center justify-center h-44 overflow-hidden ">
 													<img
 														src={blog.coverImage}
 														className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
@@ -396,7 +396,6 @@ const AboutUs = () => {
 												<p className="px-2 py-1 text-xl font-bold capitalize">
 													{blog.title}
 												</p>
-												{/* {<p className="px-2 py-1 text-lg capitalize">{content}</p>} */}
 
 												<div className="px-2 py-2 ">
 													<p className="text-sm font-bold">RWDFRJ</p>
@@ -408,7 +407,7 @@ const AboutUs = () => {
 													navigate(`news/events/${blog.refId}`);
 												}}
 												className="w-full bg-white rounded-[8px] cursor-pointer  group">
-												<div className="relative flex items-center justify-center h-32 overflow-hidden">
+												<div className="relative flex items-center justify-center h-48 overflow-hidden">
 													<img
 														src={blog.coverImage}
 														className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
