@@ -30,7 +30,7 @@ function Training() {
 										: ""
 								})`,
 							}}
-							className="flex flex-col items-center justify-center w-full h-[60vh] bg-top bg-cover ">
+							className="flex flex-col items-center justify-center w-full h-[70vh] bg-top bg-cover ">
 							<div className="flex flex-col items-center justify-center flex-1 w-full mx-auto bg-[rgba(244,244,249,0.70)]">
 								<p className="w-5/6 text-2xl font-bold text-center md:text-5xl font-lora ">
 									{trainingPage && trainingPage[0] && trainingPage[0].title}
