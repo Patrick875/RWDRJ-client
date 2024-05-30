@@ -24,43 +24,6 @@ import ReactPlayer from "react-player";
 import useMediaQuery from "../../Hooks/useMediaQuery";
 import { IoIosPlayCircle } from "react-icons/io";
 
-function Partners({ partners }: { partners: partner[] }) {
-	const isAboveMediumScreens = useMediaQuery("(min-width:1060px");
-
-	const settings = {
-		infinite: true,
-		autoplay: true,
-		speed: 500,
-		slidesToShow: isAboveMediumScreens ? 5 : 2,
-		slidesToScroll: 1,
-		arrows: false,
-		dots: isAboveMediumScreens ? true : false,
-	};
-	return (
-		<div className="flex-1 partner-slider">
-			<Slider {...settings}>
-				{partners &&
-					partners.map((part: partner) => (
-						<div className="relative block group" key={crypto.randomUUID()}>
-							<div className="h-56  md:h-32 w-full  group-hover:visible invisible z-20 absolute  bg-[rgba(0,0,0,0.44)]">
-								<Link
-									to={part.link}
-									target="blank"
-									className="flex items-center justify-center w-full h-32">
-									<TbWorld className="w-8 h-8 text-white" />
-								</Link>
-							</div>
-							<img
-								loading="lazy"
-								src={part.logo}
-								className="block object-contain w-full h-32 bg-transparent md:object-center "
-							/>
-						</div>
-					))}
-			</Slider>
-		</div>
-	);
-}
 function MobileVideos({
 	videos,
 	setSelectedVideo,
