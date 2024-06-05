@@ -222,42 +222,41 @@ const AboutUs = () => {
 					<div className="flex flex-col ">
 						{aboutContent
 							? aboutContent[0].whatWeDoSection.sections.map(
-									(sect: sectionSchema, i) => (
-										<motion.div
-											initial={{ opacity: 0, x: i % 2 !== 1 ? -50 : 50 }}
-											whileInView={{ opacity: 1, x: 0 }}
-											viewport={{ amount: 0.3, once: true }}
-											transition={{ duration: 0.4, delay: 0.3 }}
-											key={sect.title}
-											className={`flex flex-col md:flex-row flex-1  p-8 bg-white ${
-												i % 2 !== 0 && " md:flex-row-reverse "
+								(sect: sectionSchema, i) => (
+									<motion.div
+										initial={{ opacity: 0, x: i % 2 !== 1 ? -50 : 50 }}
+										whileInView={{ opacity: 1, x: 0 }}
+										viewport={{ amount: 0.3, once: true }}
+										transition={{ duration: 0.4, delay: 0.3 }}
+										key={sect.title}
+										className={`flex flex-col md:flex-row flex-1  p-8 bg-white ${i % 2 !== 0 && " md:flex-row-reverse "
 											} `}>
-											<img
-												loading="lazy"
-												className="block object-cover rounded-[12px] w-full md:w-1/2 h-56  "
-												src={sect.coverImage}
-												alt={sect.title.toLowerCase()}
-											/>
-											<div className="flex flex-col w-full pt-0 md:px-6 md:w-1/2">
-												<div className="flex-1">
-													<p className="my-2 text-lg font-bold text-center md:my-4 md:mb-4 md:text-xl md:text-start md:mt-0 text-bold ">
-														{sect.title}
-													</p>
-													<p className="flex justify-center font-normal text-justify md:flex-col f">
-														{sect.content}
-													</p>
-													<div className="flex justify-center md:justify-start">
-														<Link
-															to={sect.link}
-															className="my-4 px-6 py-1 rounded-full md:rounded-[4px] text-lg border-[1.5px] hover:bg-primary-orange hover:text-white transition-all  text-primary-orange bg-white  border-primary-orange">
-															{sect.linkText}
-														</Link>
-													</div>
+										<img
+											loading="lazy"
+											className="block object-cover rounded-[12px] w-full md:w-1/2 h-56  "
+											src={sect.coverImage}
+											alt={sect.title.toLowerCase()}
+										/>
+										<div className="flex flex-col w-full pt-0 md:px-6 md:w-1/2">
+											<div className="flex-1">
+												<p className="my-2 text-lg font-bold text-center md:my-4 md:mb-4 md:text-xl md:text-start md:mt-0 text-bold ">
+													{sect.title}
+												</p>
+												<p className="flex justify-center font-normal text-justify md:flex-col f">
+													{sect.content}
+												</p>
+												<div className="flex justify-center md:justify-start">
+													<Link
+														to={sect.link}
+														className="my-4 px-6 py-1 rounded-full md:rounded-[4px] text-lg border-[1.5px] hover:bg-primary-orange hover:text-white transition-all  text-primary-orange bg-white  border-primary-orange">
+														{sect.linkText}
+													</Link>
 												</div>
 											</div>
-										</motion.div>
-									)
-							  )
+										</div>
+									</motion.div>
+								)
+							)
 							: "loading..."}
 					</div>
 				</motion.div>
@@ -349,7 +348,7 @@ const AboutUs = () => {
 												onClick={() => {
 													navigate(`news/blogs/${blog.refId}`);
 												}}>
-												<div className="relative flex items-center justify-center h-44 overflow-hidden ">
+												<div className="relative flex items-center justify-center overflow-hidden h-44 ">
 													<img
 														src={blog.coverImage}
 														className="absolute block object-cover w-full h-full my-2 transition-all ease-in delay-75 group-hover:scale-105 "
@@ -384,14 +383,14 @@ const AboutUs = () => {
 														<HiCalendarDays className="text-lg text-gray-500 " />
 														{blog.datestart
 															? new Date(blog.datestart).toLocaleDateString(
-																	"fr-FR"
-															  )
+																"fr-FR"
+															)
 															: null}{" "}
 														<span className="font-bold"> - </span>
 														{blog.dateend
 															? new Date(blog.dateend).toLocaleDateString(
-																	"fr-FR"
-															  )
+																"fr-FR"
+															)
 															: null}
 													</p>
 													<p className="text-sm ">RWDFRJ</p>
@@ -412,7 +411,7 @@ const AboutUs = () => {
 					</div>
 				</div>
 			</motion.section>
-			<motion.section
+			{/* <motion.section
 				id="news"
 				viewport={{ once: false, amount: 0.3 }}
 				initial={{ opacity: 0.2 }}
@@ -429,8 +428,8 @@ const AboutUs = () => {
 						<TwitterTimeLine profile="doctors_women" />
 					</div>
 				</div>
-			</motion.section>
-			{/* <motion.div
+			</motion.section> */}
+			<motion.div
 				id="ourpartners"
 				viewport={{ once: true, amount: 0.2 }}
 				initial={{ opacity: 0.1, y: -50 }}
@@ -447,7 +446,7 @@ const AboutUs = () => {
 						</div>
 					) : null}
 				</div>
-			</motion.div> */}
+			</motion.div>
 			<section id="contactus" className="w-5/6 md:py-8 mx-auto min-h-[40vh]">
 				<p className="py-4 text-2xl font-bold text-center">Contact Us</p>
 				<div className="flex flex-col-reverse items-center w-full md:items-start md:flex-row ">
