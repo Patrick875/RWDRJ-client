@@ -28,11 +28,7 @@ export const navs: navItem[] = [
 			{
 				title: "Service Provision , Digital Health & SRHR",
 				to: "whatwedo/service-provision",
-			},
-			// {
-			// 	title: "Digital Health & SRHR",
-			// 	to: "whatwedo/digital-health",
-			// },
+			}
 		],
 	},
 	{
@@ -43,14 +39,14 @@ export const navs: navItem[] = [
 		text: "News",
 		to: "news",
 	},
-	// {
-	// 	text: "Events",
-	// 	to: "events",
-	// },
 	{
 		text: "Contact us",
 		to: "contactus",
 	},
+	{
+		text: "Career",
+		to: "career",
+	}
 ];
 
 export const sections: section[] = [
