@@ -56,6 +56,7 @@ import AdminAboutUs from "./Screens/Admin/Pages/AdminAboutUs";
 import AdminOurTeam from "./Screens/Admin/Pages/AdminOurTeam";
 import AdminOutlet from "./Screens/Admin/Pages/AdminOutlet";
 import Career from "./Screens/Career";
+import CareerDetails from "./Screens/Career/CareerDetails";
 
 function App() {
 	return (
@@ -75,6 +76,7 @@ function App() {
 						<Route path="mission" element={<OurMission />} />
 						<Route path="contactus" element={<Contactus />} />
 						<Route path="career" element={<Career />} />
+						<Route path="career/:application" element={<CareerDetails />} />
 						<Route path="news" element={<News />}>
 							<Route index element={<Blogs />} />
 							<Route path="events" element={<Events />} />
