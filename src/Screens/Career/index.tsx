@@ -1,18 +1,11 @@
 import AnimatePage from "../../Shared/AnimatePage";
 import { contactusShema } from "../../Shared/types";
 import useFetchData from "../../Hooks/UseFetchData";
+import { Link } from "react-router-dom";
 
 function Career() {
     const { data: contactusContent } =
         useFetchData<contactusShema[]>("/contactus");
-    const downloadDescription = () => {
-        const link = document.createElement('a');
-        link.href = "https://res.cloudinary.com/didikwl4i/image/upload/fl_attachment/v1723802043/RWDJ-IMAGES/Call_for_Application_cq7fkf.pdf";
-        link.download = "Call Application";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
 
     return (
         <AnimatePage>
@@ -76,9 +69,9 @@ function Career() {
                             <p className='py-1'>
                                 Job location: Kigali, Rwanda
                             </p>
-                            <button onClick={downloadDescription} className="flex gap-4 font-bold underline ps-0 ">
-                                Download Full Job Description
-                            </button>
+                            <Link to='paid-internship' className="ps-2 inline-block mt-3 pe-6 py-2 rounded-[6px] border-gray-700 border-[1.6px] ">
+                                More Details
+                            </Link>
                         </div>
                     </div>
                 </div>
